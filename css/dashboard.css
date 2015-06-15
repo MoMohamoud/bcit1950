@@ -1,0 +1,22 @@
+
+.pd-t {
+	padding-top: 70px;
+}
+
+.stu-image img{
+	border-radius: 50%;
+	max-width: 100%;
+	height: auto;
+}
+
+.stu-image figcaption{
+	color: #fff;
+}
+
+.bg-color{
+	  background-color: rgb(6, 84, 163);
+}
+
+.dashb{
+	color: #fff;
+}

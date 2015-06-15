@@ -1,0 +1,52 @@
+
+/*BCIT Comp 1950
+Mahamoud Mohamoud
+Raffael Vendrametto
+Mayyadah Al-ani
+
+Group Project*/
+
+/*========Default===========*/
+@import url("dashboard.css");
+
+
+html, body{
+	height: 100%;
+}
+
+
+
+h1,h2,h3,h4,h5,h6,p,li{
+	font-family: times, sans-serif;
+}
+
+h2 {
+  font-size: 2em;	
+  color:#000;
+  text-align: center;
+}
+
+h3{
+	font-size: 1.2em;
+}
+
+header h1{
+	padding-top: 50px;
+	font-size: 3em;
+	text-align: center;
+	font-family: fantasy;
+}
+
+
+ .float-right{
+ 	float: right;
+ }
+
+ .float-left{
+ 	float: left;
+ }
+
+.text-center{
+	text-align: center;
+}
+

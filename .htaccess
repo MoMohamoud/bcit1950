@@ -1,0 +1,20 @@
+# .htaccess 
+# ------------
+# the .htaccess file customizes how the server will behave
+# comments in .htaccess begin with a number sign (like this line does!)
+# the directives below assign the following behaviours:
+# 1 - AddType		determine which MIME type to associate with files based on extension		
+# 2 - AddHandler	assigns which file extensions will be processed for SSIs
+# 3 - Options		enables SSIs, and allows this .htaccess file to apply to all subfolders
+
+
+AddType text/html .shtml .html
+AddHandler server-parsed .shtml .html
+Options Indexes FollowSymLinks Includes 
+
+ErrorDocument 404 /file_not_found.html
+ErrorDocument 500 /server_error.html
+
+
+# learn more about using .htaccess:
+# http://www.javascriptkit.com/howto/htaccess.shtml
