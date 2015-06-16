@@ -14,6 +14,7 @@ Group Project
 	<meta name="description" content="BCIT Comp website Redesign">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
 
 
 
@@ -22,73 +23,20 @@ Group Project
 
 
 <script src="js/jquery-2.1.4.min.js"></script> 
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
 
 <!-- Magnific Popup core JS file -->
 <script src="js/jquery.magnific-popup.js"></script>
+<script src="js/main.js"></script>
 
 
-<script>
-$(document).ready(function() {
 
-$('.open-popup-link').magnificPopup({
-  type:'inline',
-  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-  });
- $('#submit-login').click(function(){
-  var email = $('#email').val();
-
-  
- });
- $('#user-option').click(function(){
- $( ".open-popup-link" ).toggle();
- $( ".menu-l" ).toggle();
-  $( "#login-info" ).toggle();
- 
- });
-});
-</script>
 </head>
 
 <body>
-<div id="header-container">
-<div id="header">
-<a href="/index.html">Home</a>
-<a class="menu-l" href="/Tools">Tools</a>
-<a class="menu-l" href="/Blog" class="active">Blog</a>
 
-<a href="#test-popup" class="open-popup-link" style="float:right;">Login</a>
-<a href="#" id="user-option" style="float:right;">public</a>
-<select id="login-info"style="float:right;">
-<option>John Doe</option>
-<option>Profile</option>
-<option>Logout</option>
-</select>
-</div>
-</div>
-<div id="nav" class="clearfix">
-<a href="/jBox/get_started" class="nav-link"><span>Lecture</span></a>
-<a href="/jBox/documentation" class="nav-link"><span>Documentation</span></a>
-<a href="/jBox/options" class="nav-link"><span>Examples</span></a>
-<a href="/jBox/demos" class="nav-link"><span>Blog</span></a>
-<a href="//github.com/StephanWagner/jBox/releases" class="nav-download"><span class="icon-download"></span> Download @ Github</a>
-</div>
-<div id="test-popup" class="white-popup mfp-hide" >
+<?php include 'templates/nav.html';?>
 
-		<form method="post" name="user-request-form" id="user-request-form"
-			autocomplete="on" style="display: block;  margin-right: 15px; text-align: center; ">
-		
-			     <!-- <span class='' style="text-align:center; ">Sign Up!</span> -->
-<div style="margin-bottom: 10px; display: inline-block; position: relative;">
-  <label class="input-label-style">Email: </label>
-  <input type="email" id="email" class="input-style" autofocus/>
-  </div>
-  <br>
-  <div style="margin-bottom: 10px; display: inline-block; position: relative;">
-  <label class="input-label-style">Password: </label><input type="password" id="password" class="input-style"/>
-  </div>
-  <br>
-  <div style="margin-bottom: 10px; display: inline-block; position: relative;">
-  <button type="submit" id="submit-login" value="submit" class="dialog-button"/>Login</button>
-  </div>
-</form>
-  </div>
+

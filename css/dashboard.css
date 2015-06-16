@@ -2,6 +2,39 @@
 .pd-t {
 	padding-top: 70px;
 }
+.relative{
+	position: relative;
+}
+.no-mrg{
+	margin: 0;
+}
+
+.no-padding{
+	padding: 0;
+}
+
+.width{
+	width: 100%;
+}
+
+.sidebar{
+	position: fixed;
+	width: 23%;
+  	/*padding: 2%;*/
+  	height: 100%;
+}
+
+.right-box{
+	border-left: 1px solid rgba(0,0,0,.5);
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+.stu-image{
+	width: 50%;
+	margin: auto;
+}
 
 .stu-image img{
 	border-radius: 50%;
@@ -14,9 +47,22 @@
 }
 
 .bg-color{
-	  background-color: rgb(6, 84, 163);
+	/*background-color: rgb(6, 84, 163);*/
+	background: radial-gradient(173px 132px at 56% 50%, rgba(6, 84, 163, 1) 129%, rgba(65, 128, 190, 1) 286%);
 }
 
 .dashb{
 	color: #fff;
+}
+
+.dashb li{
+	  width: 50%;
+  margin: auto;
+}
+
+@media(max-width: 767px){
+	.sidebar{
+		width: 33%;
+	}
+
 }
