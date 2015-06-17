@@ -15,13 +15,15 @@
 
 .width{
 	width: 100%;
+	/*width: auto;*/
 }
 
 .sidebar{
 	position: fixed;
-	width: 23%;
+	width: 100%;
   	/*padding: 2%;*/
   	height: 100%;
+  	max-width: 15%
 }
 
 .right-box{
@@ -29,6 +31,13 @@
   height: 100%;
   position: fixed;
   width: 100%;
+  max-width: 15%;
+}
+
+.mrg-a{
+	display: block;
+  	margin: auto;
+  	width: 50%;
 }
 
 .stu-image{
@@ -60,9 +69,13 @@
   margin: auto;
 }
 
+.dropdown-menu{
+	position: relative;
+}
+
 @media(max-width: 767px){
 	.sidebar{
-		width: 33%;
+		/*width: 33%;*/
 	}
 
 }
