@@ -1,6 +1,6 @@
 
 .pd-t {
-	padding-top: 70px;
+	padding-top: 40px;
 }
 .relative{
 	position: relative;
@@ -23,7 +23,7 @@
 	width: 100%;
   	/*padding: 2%;*/
   	height: 100%;
-  	max-width: 20%
+  	max-width: 22%
 }
 
 .right-box{
@@ -41,7 +41,7 @@
 }
 
 .stu-image{
-	width: 70%;
+	width: 65%;
 	margin: auto;
 }
 

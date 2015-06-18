@@ -11,11 +11,11 @@
 		</div>
 
 
-		<div class="col-sm-6 col-xs-6">
+		<div class="col-sm-7 col-xs-6">
 			<?php include 'templates/content.html';?>
 		</div>
 
-		<div class="col-sm-3 col-xs-3 relative">
+		<div class="col-sm-2 col-xs-3 relative">
 
 		<section class="right-box">
 				<aside class="pd-t">
