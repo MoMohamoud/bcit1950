@@ -23,7 +23,7 @@
 	width: 100%;
   	/*padding: 2%;*/
   	height: 100%;
-  	max-width: 15%
+  	max-width: 20%
 }
 
 .right-box{
@@ -41,7 +41,7 @@
 }
 
 .stu-image{
-	width: 50%;
+	width: 70%;
 	margin: auto;
 }
 
@@ -53,6 +53,10 @@
 
 .stu-image figcaption{
 	color: #fff;
+	font-size: 1.8em;
+  	text-align: center;
+  	margin: 15% auto;
+
 }
 
 .bg-color{
@@ -65,17 +69,50 @@
 }
 
 .dashb li{
-	  width: 50%;
-  margin: auto;
+	width: 65%;
+	margin: 10% auto;
 }
+
+
 
 .dropdown-menu{
 	position: relative;
+	left: auto;
+  	right: 37px;
+  	right: 15px;
 }
 
-@media(max-width: 767px){
+.dropdown-menu{
+	margin-bottom: 15%;
+}
+
+.dropdown-menu li{
+	width: 80%;
+}
+
+.dashb .dropdown-menu li a { 
+	color: #000;
+}
+
+.dashb li a{
+	color: #fff;
+}
+
+span.glyphicon-plus{
+	float: right;
+	bottom: auto;
+	top: 5px;
+	left: 26px;
+	right: auto;
+}
+
+span.g-left{
+	right: 10px;
+}
+
+@media(max-width: 769px){
 	.sidebar{
-		/*width: 33%;*/
+		max-width: 25%;
 	}
 
 }
