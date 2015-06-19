@@ -18,10 +18,10 @@
 		<div class="col-sm-2 col-xs-3 relative">
 
 		<section class="right-box">
-				<aside class="pd-t">
+				<aside class="pd-t st-height">
 					<section class="mrg-a">
 						
-						<h1>sidebar</h1>
+						<?php include 'templates/right-dashboard.html' ?>
 						
 					</section>
 

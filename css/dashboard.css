@@ -1,4 +1,7 @@
 
+
+/*===== default =======*/
+
 .pd-t {
 	padding-top: 40px;
 }
@@ -18,6 +21,15 @@
 	/*width: auto;*/
 }
 
+.mrg-a{
+	display: block;
+  	margin: auto;
+  	height: 100%;
+}
+
+
+/*==== left dashboard ======*/
+
 .sidebar{
 	position: fixed;
 	width: 100%;
@@ -26,19 +38,6 @@
   	max-width: 22%
 }
 
-.right-box{
-	border-left: 1px solid rgba(0,0,0,.5);
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  max-width: 15%;
-}
-
-.mrg-a{
-	display: block;
-  	margin: auto;
-  	width: 50%;
-}
 
 .stu-image{
 	width: 65%;
@@ -109,6 +108,86 @@ span.glyphicon-plus{
 span.g-left{
 	right: 10px;
 }
+
+/*=== Right Dashboard ====*/
+
+
+.notes{
+	border-bottom: 1px solid rgba(0,0,0,.1)
+}
+
+.right-box{
+	border-left: 1px solid rgba(0,0,0,.5);
+  	height: 100%;
+  	position: fixed;
+  	width: 100%;
+  	max-width: 15%;
+}
+
+.st-height{
+	height: 100%;
+}
+
+.rg-height{
+	min-height: 200px;
+}
+
+.notes-bg{
+	background-color: rgba(6, 84, 163,.1);
+}
+
+.ed-desc{
+	text-align: center;
+}
+
+.ed-desc p{
+	font-style: italic;
+	font-size: .9em;
+}
+
+.olay{
+	position: absolute;
+	top: 50%;
+	left: 18%;
+}
+
+.olay h4{
+	font-size: 2em;
+  	color: #fff;
+  	opacity: .1;
+}
+
+#overlay {  
+	background:rgba(0,0,0,.3);
+	text-align:center;
+	
+	/*opacity:0;*/
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	
+}
+
+.notes-box:hover #overlay {
+	background: rgba(0,0,0,0);
+	padding:45px 0 66px 0;
+ }
+
+.notes-text{
+	color: #fff;
+	font-size: 1.5em;
+	-webkit-transition: opacity .25s ease;
+	-moz-transition: opacity .25s ease;
+}
+
+ .notes-box:hover .notes-text{
+ 	color: #000;
+ }
+
+ .notes-box .notes-text:hover{
+ 	color: #000;
+ }
+
+/*========= media ==========*/
 
 @media(max-width: 769px){
 	.sidebar{
