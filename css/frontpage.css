@@ -1,0 +1,41 @@
+
+
+.a-info{
+	background-color: rgba(19, 93, 169, 1);
+  	border-radius: 5px;
+  	padding: 5px;
+  	color: #fff;
+  	transition: all .5s ease;
+  	box-shadow: -5px 5px 11px -2px rgba(0,0,0,.5);
+  	font-size: .85em;
+
+}
+
+.a-info:hover{
+	background-color: rgba(52, 127, 205, 1);
+	text-decoration: none;
+	color: #fff;
+
+
+}
+
+.a-duedate span{
+	font-size: .75em;
+}
+
+
+.bg-gen{
+	background-color: rgb(242, 244, 245);
+  	border-radius: 5px;
+  	padding: 1%;
+}
+
+.gaps{
+	padding-left: 0;
+  	padding-top: 2%;
+}
+
+.gaps-right{
+	padding-right: 0;
+  	padding-top: 2%;
+}

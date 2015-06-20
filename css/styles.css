@@ -9,6 +9,8 @@ Group Project*/
 /*========Default===========*/
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css");
 @import url("dashboard.css");
+@import url("frontpage.css");
+
 
  * {
  outline: none;

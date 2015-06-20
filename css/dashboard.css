@@ -27,6 +27,10 @@
   	height: 100%;
 }
 
+.ta-right{
+	text-align: right;
+}
+
 
 /*==== left dashboard ======*/
 
@@ -39,9 +43,15 @@
 }
 
 
-.stu-image{
+.stu{
 	width: 65%;
 	margin: auto;
+}
+
+.stu-image{
+	width: 40%;
+	margin: auto;
+
 }
 
 .stu-image img{
@@ -50,7 +60,7 @@
 	height: auto;
 }
 
-.stu-image figcaption{
+.stu figcaption{
 	color: #fff;
 	font-size: 1.8em;
   	text-align: center;
@@ -60,7 +70,10 @@
 
 .bg-color{
 	/*background-color: rgb(6, 84, 163);*/
-	background: radial-gradient(173px 132px at 56% 50%, rgba(6, 84, 163, 1) 129%, rgba(65, 128, 190, 1) 286%);
+/*background: radial-gradient(173px 132px at 56% 50%, rgba(6, 84, 163, 1) 129%, rgba(65, 128, 190, 1) 286%);*/
+
+  background: radial-gradient(173px 132px at 54% 50%, rgba(6, 84, 163, 1) 0%, rgba(65, 128, 190, 1) 458%);
+}
 }
 
 .dashb{
@@ -68,8 +81,8 @@
 }
 
 .dashb li{
-	width: 65%;
-	margin: 10% auto;
+	width: 70%;
+	margin: 6% auto;
 }
 
 
@@ -79,14 +92,14 @@
 	left: auto;
   	right: 37px;
   	right: 15px;
+  	margin-bottom: 15%;
+
 }
 
-.dropdown-menu{
-	margin-bottom: 15%;
-}
 
 .dropdown-menu li{
-	width: 80%;
+	width: 100%;
+	max-width: 100%;
 }
 
 .dashb .dropdown-menu li a { 
@@ -107,6 +120,8 @@ span.glyphicon-plus{
 
 span.g-left{
 	right: 10px;
+	clear: both;
+	float: left;
 }
 
 /*=== Right Dashboard ====*/
@@ -142,7 +157,7 @@ span.g-left{
 
 .ed-desc p{
 	font-style: italic;
-	font-size: .9em;
+	font-size: .7em;
 }
 
 .olay{
@@ -187,7 +202,45 @@ span.g-left{
  	color: #000;
  }
 
+ .btn-notes{
+ 	opacity: .5;
+ 	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+
+ }
+
+.notes-box:hover .btn-notes{
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	left: 35%;
+	opacity: 1;
+}
+
 /*========= media ==========*/
+
+@media(min-width: 1406px){
+	.dashb > li {
+  		width: 45%;
+  		margin: 6% auto;
+	}
+}
+
+@media(min-width: 2281px){
+	.dashb > li {
+  		width: 34%;
+	}
+}
+
+
+
+@media(max-width: 1060px){
+	.dropdown-menu{
+		max-width: 100%; 
+   		font-size: .6em; 
+	}
+
+}
 
 @media(max-width: 769px){
 	.sidebar{
