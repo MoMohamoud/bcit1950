@@ -8,13 +8,20 @@ Group Project*/
 
 /*========Default===========*/
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css");
+@import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
 @import url("dashboard.css");
 @import url("frontpage.css");
+
 
 
  * {
  outline: none;
 }
+
+html, body{
+  height: 100%;
+}
+
 body {
   font-family: 'Helvetica Neue',Arial,sans-serif;
   font-size: 17px;

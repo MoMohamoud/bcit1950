@@ -5,6 +5,15 @@
 .pd-t {
 	padding-top: 40px;
 }
+
+.pd-top{
+	padding-top: 1%;
+}
+
+.pd-btm{
+	padding-bottom: 7%;
+}
+
 .relative{
 	position: relative;
 }
@@ -39,7 +48,8 @@
 	width: 100%;
   	/*padding: 2%;*/
   	height: 100%;
-  	max-width: 22%
+  	max-width: 22%;
+  	z-index: 99;
 }
 
 
@@ -85,7 +95,11 @@
 	margin: 6% auto;
 }
 
+.dashb li a{
+	color: #fff;
+}
 
+/*=== dropdown ===*/
 
 .dropdown-menu{
 	position: relative;
@@ -93,9 +107,7 @@
   	right: 37px;
   	right: 15px;
   	margin-bottom: 15%;
-
 }
-
 
 .dropdown-menu li{
 	width: 100%;
@@ -104,11 +116,23 @@
 
 .dashb .dropdown-menu li a { 
 	color: #000;
+	transition: all .5s ease;	
 }
 
-.dashb li a{
-	color: #fff;
+.dropdown-menu li a:hover{
+	color:#fff;
 }
+
+.dropdown-menu li{
+	transition: all .5s ease;
+}
+
+.dropdown-menu li:hover{
+	background-color: rgb(22, 96, 171);
+}
+
+
+/*===== icons ===*/
 
 span.glyphicon-plus{
 	float: right;
@@ -124,6 +148,19 @@ span.g-left{
 	float: left;
 }
 
+/*===== rotations ===*/
+
+
+.rotate {
+    transform: rotate(-180deg);
+    /*transform: rotate(180deg);*/
+    transition: .3s;
+}
+.rotate2 {
+    transform: rotate(0deg);
+    transition: .3s;
+}
+
 /*=== Right Dashboard ====*/
 
 
@@ -137,6 +174,9 @@ span.g-left{
   	position: fixed;
   	width: 100%;
   	max-width: 15%;
+
+  	z-index: 99;
+  	background-color: #fff;
 }
 
 .st-height{
@@ -144,7 +184,7 @@ span.g-left{
 }
 
 .rg-height{
-	min-height: 200px;
+	min-height: 150px;
 }
 
 .notes-bg{
@@ -216,6 +256,71 @@ span.g-left{
 	left: 35%;
 	opacity: 1;
 }
+
+.ed-desc h4{
+	margin: 10%;
+}
+
+/*====== Chat =====*/
+
+.user{
+	margin:0;
+}
+
+.user span{
+	font-size: .9em;
+}
+
+.date{
+	  font-size: .7em;
+  color: grey;
+}
+
+.chat h4{
+	text-align: center;
+}
+
+#chat-wrap{
+	margin: auto 5%;
+}
+
+#chat-area{
+	font-size: .85em;
+}
+
+#sendie{
+	/*padding: 5%;*/
+	max-width: 100%;
+	width: 100%;
+}
+
+/*==== footer ====*/
+
+.footer{
+	/*background-color: red;*/
+	background-color: rgb(36, 106, 177);
+	position: fixed;
+  	bottom: 0;
+  	width: 100%;
+  	/*height: 60px;*/
+  	text-align: center;
+  	padding-top: 1%;
+  	padding-bottom: 1%;
+}
+
+.s-width{
+	width: 50%;
+ 	margin: auto;
+}
+
+.footer a{
+	color:#fff;
+}
+
+/*.re-width{
+	  width: 50%;
+  margin: auto;
+}*/
 
 /*========= media ==========*/
 
