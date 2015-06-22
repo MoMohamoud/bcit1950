@@ -1,11 +1,22 @@
 $(document).ready(function() {
 
 $('.open-popup-link').magnificPopup({
+  focus:'#email',
   type:'inline',
-  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#email';
+				}
+			}
+  }
   });
  $('#submit-login').click(function(){
   var email = $('#email').val();
+  
 
   
  });
