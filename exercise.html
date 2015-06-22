@@ -1,0 +1,103 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+					<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+<script>
+
+$(document).ready(function() {
+function accordionInit() {
+    $("#accordion").accordion();
+};
+
+function accordionDestroy() {
+    $("#accordion").accordion("destroy");
+};
+$(function() {
+    $( "#accordion" ).accordion({
+	collapsible: true,
+	  active: 0,
+	  animate: 400,
+	heightStyle: "content"
+		// event: "mouseover"
+  });
+
+});
+
+   
+  
+  });  
+  
+ </script>
+ <div id="content">
+ <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a>
+<main id="accordion">
+  <h3>02/05/2015 - 09/05/2015 </h3>
+
+<article>
+<div style="width:100%; height:40px; margin-top:0px; margin-bottom:15px"> <a href="#" ><img src="img/icon-pdf.png" style="width:40px; height:30px; margin-top:0px; margin-right:5px;float:right;"/></a><a href="#"><img src="img/word-icon.png" style=" height:30px; float:right; margin-top:0px; margin_left:10px;"/></a></div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod faucibus risus quis ullamcorper. Pellentesque rutrum dapibus massa, vitae tempor ante ultrices venenatis. Cras id urna felis. Ut vel mi congue, semper lorem varius, finibus urna. Morbi lorem quam, commodo quis nisl at, condimentum convallis nunc. Vestibulum nunc tellus, euismod ac orci ac, porttitor tincidunt sapien. Pellentesque dignissim suscipit elit in dapibus. Ut eget pharetra orci, ut porttitor sapien. Vestibulum at mattis dui. Quisque rutrum interdum euismod. Etiam eget efficitur augue. Ut pellentesque interdum scelerisque. Donec a condimentum nunc. Vestibulum maximus auctor metus, et cursus nunc euismod in.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod faucibus risus quis ullamcorper. Pellentesque rutrum dapibus massa, vitae tempor ante ultrices venenatis. Cras id urna felis. Ut vel mi congue, semper lorem varius, finibus urna. Morbi lorem quam, commodo quis nisl at, condimentum convallis nunc. Vestibulum nunc tellus, euismod ac orci ac, porttitor tincidunt sapien. Pellentesque dignissim suscipit elit in dapibus. Ut eget pharetra orci, ut porttitor sapien. Vestibulum at mattis dui. Quisque rutrum interdum euismod. Etiam eget efficitur augue. Ut pellentesque interdum scelerisque. Donec a condimentum nunc. Vestibulum maximus auctor metus, et cursus nunc euismod in.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod faucibus risus quis ullamcorper. Pellentesque rutrum dapibus massa, vitae tempor ante ultrices venenatis. Cras id urna felis. Ut vel mi congue, semper lorem varius, finibus urna. Morbi lorem quam, commodo quis nisl at, condimentum convallis nunc. Vestibulum nunc tellus, euismod ac orci ac, porttitor tincidunt sapien. Pellentesque dignissim suscipit elit in dapibus. Ut eget pharetra orci, ut porttitor sapien. Vestibulum at mattis dui. Quisque rutrum interdum euismod. Etiam eget efficitur augue. Ut pellentesque interdum scelerisque. Donec a condimentum nunc. Vestibulum maximus auctor metus, et cursus nunc euismod in.</p>
+ </article>
+ <h3>10/05/2015 - 18/05/2015</h3>
+<article>
+ <div style="width:100%; height:40px; margin-top:0px; margin-bottom:15px"> <a href="#" ><img src="img/icon-pdf.png" style="width:40px; height:30px; margin-top:0px; margin-right:5px;float:right;"/></a><a href="#"><img src="img/word-icon.png" style=" height:30px; float:right; margin-top:0px; margin_left:10px;"/></a></div>
+	<p>Phasellus sem lectus, porttitor ac vulputate quis, vehicula ut metus. Quisque mattis tempor arcu, eu rutrum lacus varius vitae. Nullam vulputate vel metus in luctus. Aliquam erat volutpat. Suspendisse mollis condimentum ex, eu accumsan erat scelerisque vitae. Vivamus sed quam a ligula ultricies pellentesque. Nullam est ex, molestie id mauris congue, ultricies pretium magna. In hac habitasse platea dictumst. Donec non purus blandit, lacinia augue non, lobortis lorem. Aenean hendrerit ante vitae sodales congue. Mauris convallis sem vitae turpis ultricies lobortis posuere sit amet magna. Nulla eleifend neque quis rhoncus molestie. In hac habitasse platea dictumst. Maecenas laoreet imperdiet nibh, nec faucibus enim venenatis nec.</p>
+</article>
+ <h3>19/05/2015 - 27/05/2015</h3>
+<article>
+<div style="width:100%; height:40px; margin-top:0px; margin-bottom:15px"> <a href="#" ><img src="img/icon-pdf.png" style="width:40px; height:30px; margin-top:0px; margin-right:5px;float:right;"/></a><a href="#"><img src="img/word-icon.png" style=" height:30px; float:right; margin-top:0px; margin_left:10px;"/></a></div>
+	<p>Nam condimentum tempor felis. Nunc dapibus, nisl ac porta vehicula, nunc velit elementum tellus, vitae aliquet massa massa hendrerit mauris. Sed ligula metus, varius sed blandit sed, ornare non enim. Praesent ornare turpis in metus tristique, sed varius ligula aliquet. Phasellus molestie nibh ac aliquam dictum. Vivamus eleifend nulla purus, vel rhoncus magna vulputate sed. Sed turpis ligula, lacinia et metus sed, suscipit dignissim velit. Suspendisse dapibus sollicitudin est, et efficitur lorem ultrices sit amet. Aenean sodales, nulla vitae sagittis feugiat, lorem lacus accumsan neque, vel elementum enim sapien sit amet sapien. Nam nec dolor porta, vehicula felis sed, fringilla enim. Curabitur ut cursus risus.</p>
+ <p>Nam condimentum tempor felis. Nunc dapibus, nisl ac porta vehicula, nunc velit elementum tellus, vitae aliquet massa massa hendrerit mauris. Sed ligula metus, varius sed blandit sed, ornare non enim. Praesent ornare turpis in metus tristique, sed varius ligula aliquet. Phasellus molestie nibh ac aliquam dictum. Vivamus eleifend nulla purus, vel rhoncus magna vulputate sed. Sed turpis ligula, lacinia et metus sed, suscipit dignissim velit. Suspendisse dapibus sollicitudin est, et efficitur lorem ultrices sit amet. Aenean sodales, nulla vitae sagittis feugiat, lorem lacus accumsan neque, vel elementum enim sapien sit amet sapien. Nam nec dolor porta, vehicula felis sed, fringilla enim. Curabitur ut cursus risus.</p>
+<p>Nam condimentum tempor felis. Nunc dapibus, nisl ac porta vehicula, nunc velit elementum tellus, vitae aliquet massa massa hendrerit mauris. Sed ligula metus, varius sed blandit sed, ornare non enim. Praesent ornare turpis in metus tristique, sed varius ligula aliquet. Phasellus molestie nibh ac aliquam dictum. Vivamus eleifend nulla purus, vel rhoncus magna vulputate sed. Sed turpis ligula, lacinia et metus sed, suscipit dignissim velit. Suspendisse dapibus sollicitudin est, et efficitur lorem ultrices sit amet. Aenean sodales, nulla vitae sagittis feugiat, lorem lacus accumsan neque, vel elementum enim sapien sit amet sapien. Nam nec dolor porta, vehicula felis sed, fringilla enim. Curabitur ut cursus risus.</p>
+</article>
+ <h3>28/05/2015 - 06/06/2015</h3>
+	<article>
+<div style="width:100%; height:40px; margin-top:0px; margin-bottom:15px"> <a href="#" ><img src="img/icon-pdf.png" style="width:40px; height:30px; margin-top:0px; margin-right:5px;float:right;"/></a><a href="#"><img src="img/word-icon.png" style=" height:30px; float:right; margin-top:0px; margin_left:10px;"/></a></div>
+	<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In vulputate at arcu sit amet commodo. Nullam eu lorem ut augue maximus porta eget sit amet orci. Duis volutpat dui varius interdum consectetur. Sed vulputate sem et finibus commodo. Vivamus tempus nisi nibh, at iaculis dolor sodales suscipit. Donec non volutpat sem, a consectetur nibh. Nunc bibendum magna mattis dui ullamcorper lacinia. Phasellus sed nibh ornare, elementum mi nec, congue arcu.</p>
+</article>
+ <h3>07/06/2015 - 16/06/2015</h3>
+ 	<article>
+<div style="width:100%; height:40px; margin-top:0px; margin-bottom:15px"> <a href="#" ><img src="img/icon-pdf.png" style="width:40px; height:30px; margin-top:0px; margin-right:5px;float:right;"/></a><a href="#"><img src="img/word-icon.png" style=" height:30px; float:right; margin-top:0px; margin_left:10px;"/></a></div>
+	<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In vulputate at arcu sit amet commodo. Nullam eu lorem ut augue maximus porta eget sit amet orci. Duis volutpat dui varius interdum consectetur. Sed vulputate sem et finibus commodo. Vivamus tempus nisi nibh, at iaculis dolor sodales suscipit. Donec non volutpat sem, a consectetur nibh. Nunc bibendum magna mattis dui ullamcorper lacinia. Phasellus sed nibh ornare, elementum mi nec, congue arcu.</p>
+</article></div>
+		</div>
+
+		<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/home-right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+		
+	
+	</div>
+</div>
+
+
+<!--#include file="footer.html" -->
+

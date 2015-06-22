@@ -1,0 +1,753 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+<script>
+
+$(document).ready(function() {
+function accordionInit() {
+    $("#accordion").accordion();
+};
+
+function accordionDestroy() {
+    $("#accordion").accordion("destroy");
+};
+$(function() {
+    $( "#accordion" ).accordion({
+	collapsible: true,
+	  active: 0,
+	  animate: 400,
+	heightStyle: "content"
+		// event: "mouseover"
+  });
+
+});
+
+   
+  
+  });  
+  
+ </script>
+ <div id="content">
+<div style="height:40px;"> <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+<main id="accordion">
+<h2>Hypertext Markup Language</h2>
+<div class="contblock">
+	<p>
+		It all starts here in one form or another: HTML
+	</p>
+	<ul>
+		<li>What started as a language defined by <a href="http://www.w3.org/MarkUp/SGML/">SGML</a> <em>(Standard Generalized Markup Language)</em>, HTML is used to mark up billions of pages, making up the bulk of the web.</li>
+		<li>From a common origin, 3 distinct version have emerged:
+			<ol>
+				<li><strong>HTML 1 - 4.01</strong>: This was developed in rapid succession in the 1990's</li>
+				<li><strong>XHTML 1, 1.1, 2</strong>: A stricter version, created as an answer to the loose development of HTML</li>
+				<li><strong>HTML5 </strong>- a reaction to the draconian ruleset proposed by the W3C for the future of MLs beyond XHTML 1.1</li>
+			</ol></li>
+	</ul>
+</div><!-- END .contblock -->		
+
+<h2>HTML Created</h2>
+<div class="contblock">
+	<ul>
+		<li>Late 1991, Tim Berners-Lee releases the first iteration of what would become HTML 2.0 (there was no real 1.0+)</li>
+		<li>HTML was a language created at the dawn of the Web, using SGML (Standard Generalized Markup Language) as a template</li>
+		<li>Over the next decade, various additions, improvements and changes are introduced</li>
+		<li>The last official specification was the service release of HTML 4.01 in December 1999</li>
+		<li>Initially used for documents and a place for the technically inclined, the web did not have the international pervasiveness it does today</li>
+		<li>Most developers were new to the language and there were no real classes in it</li>
+		<li>People had to learn as they went along</li>
+		<li>A lot of early sites are poorly designed</li>
+
+	</ul>
+				<h4>HTML 4.01 template</h4>
+			<textarea style="width:90%;height:170px;" rows="10" cols="50">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</div>
+
+
+<h2>HTML on the loose!</h2>
+<div class="contblock">
+		<ul>
+			<li>Despite it's reputation as a loose language, HTML 4.01 can be written strict just like XHTML and HTML5 can</li>
+			<li>The problem was not <em>entirely</em> with the language or the authors.  It was with the <em>browsers</em>.</li>
+			<li>Browser manufacturers created User Agents that would read code, interpret it, fix any mistakes and render a page, without any visible errors.</li>
+			<li>It was this that led to coders exploiting problems in browsers and creating pages that broke when new specs or updated User Agents (browsers) came out</li>
+
+	<li>Okay, so now there is a problem. <strong>Millions</strong> of pages are being produced with sloppy code because the UAs let it happen</li>
+	<li>The web is becoming filled with Tag Soup that makes it hard to index, with search tools having to trust things like META keywords and descriptions</li>
+	<li>A better solution is required: Get Strict!</li>
+		</ul>	
+</ul>
+</div>
+
+
+<h2>Attempting to fix the problem</h2>
+<div class="contblock">
+	<h3>Moving on to XHTML1</h3>
+<ul>
+	<li>After years of <em>HTML</em> development, 4.01 became the "Last Official Release"</li>
+	<li>The Web Working Group had taken a look at XML (Extensible Markup Language) and liked what they saw: a requirement for valid markup in order for an XML application to work</li>
+	<li>Why not take the ruleset from XML (lower case attributes, everything in quotes, close every tag) and apply it to HTML? Yay!</li>
+	<li>That should fix everything, right?</li>
+	<li>Coding wasn't <em>actually</em> fixed by the introduction of XHTML. Fixes were <em>suggested</em> by the specification, but most browsers would render the page anyway.</li>
+	<li>This is because 99% of XHTML pages are reporting their MIME type as: <code>text/html</code></li>
+	<li>To get pages to render using the appropriate DOCTYPE of XHTML, pages would have to be delivered with the MIME type of <code>application/xhtml+xml</code></li>
+	<li>Using that MIME type, however, brought with it a rather dire proviso:</li>
+	<li>The error handling specified in XHTML 1.1 meant <strong>all errors will cause the browser to cease rendering</strong></li>
+	<li>Yes, you read that correctly. That means <strong>any</strong> error will throw an warning to the user and the page will not be shown</li>
+	<li>Try to imagine the Web actually working in this way</li>
+	<li>Why was this done? Because the developers of XHTML wanted to force strict coding rules so that the Web could be seen as a giant application.  Reliable code on every page meant you could use the data anywhere</li>
+</ul>
+</div>
+
+
+<h2>Tighten up!</h2>
+
+<div class="contblock"><ul>
+	<li>X = eXtensible</li>
+	<li>X = XML related</li>
+	<li>A reformation of HTML reformulated in XHTML</li>
+	<li>First major update to HTML since the 4.01 specification was released in 1999.</li>
+	<li><strong>Note</strong> - <em>XHTML Development has ceased entirely. More on that later</em></li>
+
+	<li>Better, more predictable coding patterns</li>
+	<li>"verifiable" or "well-formed" code can be produced</li>
+	<li>Forces a higher standard of HTML</li>
+	<li>Porting to HTML5 is easy (if you also observe <strong>semantic</strong> guidelines)</li>
+</ul>
+
+</div>
+
+<h2>What is different about XHTML?</h2>
+<div class="contblock"><ul>
+	<li>Almost identical to HTML 4.01, but a much stricter syntax in XHTML</li>
+	<li>Technically: <strong>XHTML is just HTML defined as an XML application.</strong></li>
+
+</ul>
+<h3>XHTML Rules:</h3>
+
+<ul>
+<li>All elements must be properly nested
+<ul>
+	<li>This is not valid: &lt;p&gt;&lt;b&gt;Bolded Text&lt;/p&gt;&lt;/b&gt;</li>
+	<li>This can be a problem with things like Lists &lt;ol&gt; and &lt;ul&gt;.</li>
+
+	<li>Especially when closing the List Item &lt;li&gt; tag that contains the &lt;ul&gt; or &lt;ol&gt; tag.</li>
+</ul></li>
+
+<li>All tags must close
+<ul>
+	<li>Example: &lt;p&gt;Some text here&lt;/p&gt;</li>
+
+	<li>Empty Elements are closed as well: &lt;br /&gt; or &lt;img src="#" /&gt;</li>
+	<li>An extra space is required before the slash to work with all browsers.</li>
+</ul></li>
+
+<li>All tag names must be in lower case
+<ul>
+	<li>&lt;Img Src="some_image.gif"&gt; is not valid</li>
+
+</ul></li>
+
+<li>Attribute names are always in lower case
+<ul>
+	<li>&lt;p ALIGN="center"&gt; should be  <code>&lt;p align="center"&gt; </code></li>
+</ul></li>
+
+<li>All attributes must be quoted
+<ul>
+	<li>&lt;body bgcolor=black&gt; will not work, you need: <code>&lt;body bgcolor="black"&gt;</code></li>
+
+</ul></li>
+
+<li>Attributes cannot be minimized
+<ul>
+	<li>&lt;input type="checkbox" checked&gt; cannot be used. The valid code is: &lt;input type="checkbox" checked="checked"&gt;</li>
+</ul></li>
+
+
+<li>Name Attribute is no longer used (except with forms). Replace "name" with "id".
+<ul>
+	<li><code>&lt;img src="picture.gif" name="myimage" /&gt;</code> will not validate. Use <code>id="myimage"</code> instead.</li>
+
+</ul></li>
+
+
+<li>Mandatory Elements: Every XHTML document <strong>must have</strong> these elements: 
+<ul>
+	<li><code>&lt;html&gt;</code></li>
+
+	<li><code>&lt;head&gt;</code></li>
+	<li><code>&lt;title&gt;</code></li>
+	<li><code>&lt;body&gt;</code></li>
+	<li>The <code>&lt;!DOCTYPE&gt;</code> declaration <em>must</em> be there, but it is <em>part</em> of the document itself rather than an element of the document.</li>
+
+</ul></li>
+
+
+<li>Documents must be well-formed
+<ul>
+	<li>The document must conform to all of the above rules</li>
+</ul></li>
+<li>Optional XML declaration
+<ul>
+	<li>Not <em>required</em>, but good practice:</li>
+
+	<li><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</code></li>
+</ul></li>
+
+<li>Optional Element: An XHTML document should also declare the type and character encoding in the head section to ensure the server sends the correct content-type header: <br />
+<code>&lt;meta http-equiv="Content-Type" content="text/html" charset="UTF-8"&gt;</code>
+</li>
+
+</ul>
+
+</div>
+
+<h2>XHTML Documents</h2>
+<div class="contblock"><h3>DTD: Document Type Definition</h3>
+<ul>
+	<li>A description of the document, and the legal definitions that fall within it. </li>
+	<li>The DTD defines the syntax of the page in SGML.</li>
+
+	<li>This translates to: Because XHTML is just the application of XML to
+	HTML, you need to tell the browser (the interpreter) how to interpret
+	all of the code on the page.</li>
+</ul>
+</div>
+
+<h2>Three kinds of DTD:</h2>
+<div class="contblock"><h3>Strict</h3>
+<ul>
+	<li><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</code></li>
+
+	<li>Mostly used for technical documents or content that requires very little markup.</li>
+	<li>This is the original intention of the W3C"s recommendation.</li>
+</ul>
+
+
+<h3>Transitional (most common)</h3>
+<ul>
+	<li><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</code></li>
+
+	<li>This is by far the most common DTD in use today</li>
+	<li>Supports most HTML features</li>
+	<li>Was created to provide a middle ground for users trying to convert from HTML to XHTML in stages.</li>
+</ul>
+
+
+
+<h3>Frameset</h3>
+
+<ul>
+	<li><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;</code></li>
+	<li>Same as Transitional, but allows the use of frames</li>
+</ul>
+			<h4>XHTML 1.0 template</h4>
+			<textarea style="width:90%;height:170px;" rows="10" cols="50">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</div>
+
+
+	<h2>XHTML2</h2>
+	<div class="contblock">
+	<ul>
+    <li>Between 2002 and 2006, a significant amount of development was attempted for XHTML2</li>
+    <li>An early decision was to abandon backward compatibility with XHTML1 and HTML4.x leading to significant controversy</li>
+	<li>What does that <em>mean</em>? "abandon backward compatibility"?
+		<ul>
+			<li>Deprecated tags would no longer work</li>
+			<li>All "old" code would have to be updated if you wanted to deliver XHTML</li>
+			<li>Browsers would have even more work to do when rendering pages</li>
+		</ul>
+		
+		</li>
+    <li>Some additional changes:
+    	<ul>
+    		<li>Forms will now be controlled by XForms, a new system that allows for error checking, preformatted input fields and more</li>
+    		<li>DOM events will be replaced with XML Events - a system for registering and handling events within an XML document, requiring very strict coding standards</li>
+    		<li>Lists for Navigation can be created with a new <code>n1</code> tag</li>
+    		<li>Any element can have <code>href</code> or <code>src</code> attributes, allowing for links and/or image replacement</li>
+	</ul>
+    </li>
+    <li>Some of the more contentious issues were split out into modules to be worked on by the W3C XHTML Working Group</li>
+	<li>At one point, a question was asked:
+		<ul>
+			<li>Shouldn't we be taking into account the billions of pages that are already out there, make the upgrading part easy and focus on the kinds of things people are actually doing today?</li>
+		</ul>
+		
+		</li>
+		<li>Maybe not <em>exactly</em> that, but close</li>
+		<li>A vote was called and the motion was defeated.  But the people who thought it was a good idea wanted to move forward</li>
+    <li>As a result - they created the WHATWG (Web Hypertext Application Technology Working Group) and began working on a competing specification, which was originally called Web Applications 1.0</li>
+</ul>
+</div>
+
+<h2>HTML5</h2>
+<div class="contblock">
+	<h3>Arising out of the morass</h3>
+<ul>
+	<li>HTML5 was born out of frustration with languishing XHTML2 development</li>
+	<li>The last official spec of XHTML had come in 2000 and by 2005, there was little forward movement, with the development bogged down in committees and problems reaching consensus</li>
+	<li>There were two distinct camps: Strict and Non Strict (overly simplified terms)</li>
+	<li>After a series of decisions against a more forgiving, backward compatible version, a number of HTML Working Group members created their own group: WHATWG</li>
+	<li>After 3 years, Web Applications 1.0 gained considerable momentum when Mozilla, Apple and Opera joined the Working Group and requested that it become part of the W3C's HTML Working Group </li>
+	<li>In 2007, the W3C HTML working group adopted the development, renamed it HTML5 (a successor to HTML 4.01) and released a Public Working Draft in 2008</li>
+	<li><del>As of today, HTML5 is still a <a href="http://www.whatwg.org/specs/web-apps/current-work/">Draft Recommendation</a> expected to cease accepting new proposals in late 2014.<del></li>
+	
+	<li>As of October 28, 2014, <a href="http://www.w3.org/TR/html5/">HTML5 is the official W3C recommendation</a></li>
+	<li>Browser vendors are now expected to fully support HTML5 in new browsers they produce.</li>
+	<li>Not all browser vendors are up to date yet, and, much more notably, not all internet users will be using new, HTML5 compliant browsers</li>
+	<li>Support for some of HTML5s features is already available in several browsers, so if applied with care, developers may begin writing HTML5 now.</li>
+</ul>
+		<h4>HTML 5 template</h4>
+			<textarea style="width:90%;height:170px;" rows="10" cols="50">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;&lt;/title&gt;
+		&lt;meta charset="utf-8" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+</div>
+
+
+<h2>HTML5:  What is It?</h2>
+<div class="contblock">
+	<h3>The basics of HTML5</h3>
+	<p>HTML5 is more evolutionary then revolutionary. The bulk of previous HTML elements and attributes are maintained, with a few deprecations, and several additions.</p>
+<ul>
+	<li>Some of the most important parts of HTML5 are:
+		<ul>
+    		<li>Ultra simple Doctype: <code>&lt;!DOCTYPE html&gt;</code></li>
+			<li>Specifies how browsers should behave with imperfect code</li>
+			<li>XML can be included as a markup language from within HTML5</li>
+    		<li>Ability to embed <a href="http://www.w3.org/Math/">MathML</a> or <a href="http://www.w3.org/Graphics/SVG/">SVG</a> elements</li>
+    		<li>Standardized Javascript API increases client side script compatibility across browsers</li>
+    		<li>Backwards compatible - older versions of HTML can effectively be updated by simply changing the doctype to HTML5</li>			<li>Guiding principles: Enhance semantic coding, Support existing content, Pave the cowpaths</li>
+		</ul>
+	</li>
+	<li>Some of these seem insignificant, but they are great strides forward</li>
+	</ul>
+	</div>
+
+<h2>HTML5: Paving the Cowpaths</h2>
+<div class="contblock">
+
+	<p>Common developer practices have been simplified</p>
+	<ul>
+		<li>Finally a DOCTYPE we can all remember:<br />
+			<code>&lt;!DOCTYPE html&gt;</code>
+		</li>
+		<li>Declaring the character encoding is easier:<br />
+			<code>&lt;meta charset="utf-8"&gt;</code>
+		</li>
+		<li>When linking to external stylesheets the <code>type</code> attribute is not required:<br />
+			<code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
+		</li>
+		<li>When embedding CSS the <code>type</code> attribute is not required:<br />
+			<code>&lt;style&gt;&lt;/style&gt;</code>
+		</li>
+		<li>Including javascripts is simplified as well (<code>type</code> attribute is not required)<br />
+			<code>&lt;script src="javascripts.js"&gt;&lt;/script&gt;</code>
+		</li>
+	</ul>
+</div>
+
+<h2>HTML5: Enhanced Semantic Coding</h2>
+<div class="contblock">
+	<p>It is crucial for all HTML content to be <a href="semantics.html">semantically marked up</a>. This is how browsers, search engines, and screen readers make sense of online content.</p>
+	<p>HTML5 provides more than just adjustments to the markup, there are new, powerfully semantic elements:</p>
+		<ul>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">&lt;section&gt;</a></code> is a tag representing a document or application section. most every section should include a heading (h1-h6) to summarize its contents. a <code>section</code> likely contains <code>article</code>(s), possibly <code>aside</code>s or even sub-<code>section</code>s</li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article">&lt;article&gt;</a></code> is an independent piece of content in a document (it could stand alone if removed from the page). an <code>article</code> might be a blog post, forum thread, news story, collection of product information, etc</li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">&lt;aside&gt;</a></code> is for content "only slightly" related to the main page content. <code>aside</code>s fill the role of a sidebar. if the content could be removed without reducing the meaning of the main content of the HTML document, then use an <code>aside</code></li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header">&lt;header&gt;</a></code> and <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer">&lt;footer&gt;</a></code> are for the header or footer of a page</li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav">&lt;nav&gt;</a></code> represents an area for navigation</li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main">&lt;main&gt;</a></code> used for containing content that is focused on the central topic of the page. this content is usually unique to the page, and not shared by other pages (main will usually NOT contain navigations, footers, sidebars, etc)</li>
+			<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure">&lt;figure&gt;</a></code> will likely contain an <code>img</code> or graphic. self-contained content (could usually be removed from the page and stand on its own). allows for captioning of embedded content like an image graphic or video. if you want to associate a caption, add a <code>figcaption</code> child</li>
+    		<li><code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption">&lt;figcaption&gt;</a></code> used as first or last child of <code>figure</code> to define the caption or legend for a figure</li>
+
+
+			
+		</ul>	
+
+	<p>These represent some big changes in HTML, allowing for more flexibility in coding and specifying content. Many of these will replace and reduce the need for many <code>div</code> tags. eg: instead of the typical <code>&lt;div id="header"&gt;</code>, use <code>&lt;header&gt;</code>.</p>
+</div>
+
+
+
+<h2>HTML5 Exercise #1</h2>
+<div class="contblock">
+	<p>Apply some of the new HTML5 tags to an existing web page. Use them to better semantically structure the content.</p>
+	<p><a href="/1950/downloads/session02_exercise01.zip">Download and uncompress the exercise files</a> (.zip).</p>
+	<p>  Convert the .html document from XHTML 1.0 into HTML5: Update the <code>DOCTYPE</code>, change some of the generic <code>div</code> structural tags into optimal semantic HTML5 tags, update the CSS selectors accordingly, and demonstrate it to your instructor when complete.</p>
+	<p>Try adding <code>figure</code>s with <code>figcaption</code>s to the images. use the value from each image's <code>alt</code> attribute as the caption. you will need to adjust the CSS on the images (<code>.thumb</code>) as well as adding styles of your own to make it presentable.</p>
+</div>
+
+
+<h2>HTML5 Content Models</h2>
+<div class="contblock">
+	<p>Pre-HTML5, there were basically two categories of tags: inline and block. HTML5 intoduces a more nuanced set of categories that allow for greater semantic sectioning of content. The content model will help the browser to determine the semantics of your content.</p>
+	<h3>Content Models</h3>
+	<ul>
+		<li>text-level content: most inline tags</li>
+		<li>grouping content: most block tags</li>
+		<li>forms: all the form widgets and related tags</li>
+		<li>embedded content: video, audo, canvas</li>
+		<li>sectioning content: new structural, semantic options</li>
+	</ul>
+	<h3>Sectioning Content</h3>
+	<p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section">&lt;section&gt;</a></code> tag can be used to semantically group content. It can remove ambiguity when a page is being processed by the browser, a screen reader, or search engine.</p>
+	<p>For example, imagine you have created the following code:</p>
+	<textarea style="width:90%;height:170px;" rows="10" cols="50">
+&lt;h1&gt;The Really Big Show&lt;/h1&gt;
+&lt;h2&gt;Cities&lt;/h2&gt;
+&lt;p&gt;We will be performing in several cities this year. Be sure to quit your job and travel the world to see all our shows!&lt;/p&gt;
+&lt;h3&gt;Toronto&lt;/h3&gt;
+&lt;p&gt;Center of the Canadian Universe.&lt;/p&gt;
+&lt;h3&gt;Vancouver&lt;/h3&gt;
+&lt;p&gt;On the left coast.&lt;/p&gt;
+&lt;h3&gt;Tokyo&lt;/h3&gt;
+&lt;p&gt;Land of the rising sun.&lt;/p&gt;
+&lt;small&gt;Accommodations not provided&lt;/small&gt;
+	</textarea>
+	<p>Since content that follows a heading is presumed to be associated with that heading, the code above carries plenty of semantic value already. But, note how the <code>small</code> tag's content is intended to apply to the entire page, not just Tokyo. A browser has no way of knowing that though. </p> Use the <code>section</code> tag to explicitly demarcate the start and end of the related content:</p>
+	<textarea style="width:90%;height:230px;" rows="10" cols="50">
+&lt;h1&gt;The Really Big Show&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Cities&lt;/h2&gt;
+	&lt;p&gt;We will be performing in several cities this year. Be sure to quit your job and travel the world to see all our shows!&lt;/p&gt;
+	&lt;h3&gt;Toronto&lt;/h3&gt;
+	&lt;p&gt;Center of the Canadian Universe.&lt;/p&gt;
+	&lt;h3&gt;Vancouver&lt;/h3&gt;
+	&lt;p&gt;On the left coast.&lt;/p&gt;
+	&lt;h3&gt;Tokyo&lt;/h3&gt;
+	&lt;p&gt;Land of the rising sun.&lt;/p&gt;
+&lt;/section&gt;
+&lt;small&gt;Accommodations not provided&lt;/small&gt;
+	</textarea>
+	<p>This new sectioning will inform the browser that the <code>small</code> is associated with the <code>h1</code></p>
+	<p>In HTML5, each piece of sectioned content has its own self-contained outline. This means you wont need to worry as much about which level heading tag to use. You can use an <code>h1</code> inside a section and it will be treated as the heading of the section, and have lesser semantic impact than an <code>h1</code> that is at a higher level.</p>
+	<textarea style="width:90%;height:300px;" rows="10" cols="50">
+&lt;h1&gt;The Really Big Show&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h1&gt;Cities&lt;/h1&gt;
+	&lt;p&gt;We will be performing in several cities this year. Be sure to quit your job and travel the world to see all our shows!&lt;/p&gt;
+	&lt;section&gt;
+		&lt;h1&gt;Toronto&lt;/h1&gt;
+		&lt;p&gt;Center of the Canadian Universe.&lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;h1&gt;Vancouver&lt;/h1&gt;
+		&lt;p&gt;On the left coast.&lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;h1&gt;Tokyo&lt;/h1&gt;
+		&lt;p&gt;Land of the rising sun.&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/section&gt;
+&lt;small&gt;Accommodations not provided&lt;/small&gt;
+	</textarea>
+
+</div>
+
+
+
+	<h2>Functional/behavioral HTML5</h2>
+<div class="contblock">
+	There is a list of additional tags that will continue to refine what will be possible with HTML:
+		<ul>
+    		<li><code>audio, video, embed, mark, meter, progress, time, canvas, command, datagrid, details, datalist, keygen, bb, output, ruby</code></li>
+    		<li>There are a huge list of additional attributes that have changed, allowing for considerable agility with web development</li>
+    		<li>There have also been a few elements removed, such as: <code>&lt;big&gt;, &lt;font&gt;, &lt;strike&gt;</code>,  and a few more. Developers should use CSS instead of these deprecated tags.</li>
+    		<li>There are also a large number of attributes that have been removed, such as: <code>align, bgcolor, border, height, size, type, width</code> and more. Developers should use CSS instead of these deprecated attributes.</li>
+		</ul>
+		
+	<p>Form elements are undergoing several improvements. Not as well supported as the elements described above, they are nonetheless very powerful. The <code>&lt;input&gt;</code> form element features several useful new attributes:</p>
+	<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">Form Attributes</a></p>
+		<ul>
+			<li><code>placeholder="value"</code>: prepopulates field with data</li>
+			<li><code>autofocus="autofocus"</code>: sets the input to have cursor focus</li>
+			<li><code>required="required"</code>: ensures field is filled in before submission</li>
+			<li>There are also several new <code>&lt;input&gt;</code> type attribute variants:
+				<ul>
+				<li><code>type="email"</code>: emails</li>
+				<li><code>type="url"</code>: web addesses</li>
+				<li><code>type="date"</code>: calendar popup</li>
+				<li><code>type="tel"</code>: telephone numbers</li>
+				<li><code>type="search"</code>: formats text input as search input</li>
+				<li><code>type="color"</code>: color picker popup</li>
+				<li><code>type="range"</code>: sliding scales</li>
+				</ul>
+			</li>
+
+	<li>Includes a javascript browser API (Application Programming Interface), increasing interoperability of scripting</li>
+	<li>Some of the most anticipated additions are <code>&lt;canvas&gt;</code>,  <code>&lt;audio&gt;</code>,  <code>&lt;video&gt;</code></li>
+	<li>The <code>&lt;canvas&gt;</code> tag will allow for 2D drawing of considerable power</li>
+	<li><code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> will allow for direct embedding of multimedia elements in your HTML documents</li>
+
+</ul>
+</div>
+
+<h2>HTML5 Exercise #2</h2>
+<div class="contblock">
+	<p>Experiment with new HTML5 form features.</p>
+	<p><a href="/1950/downloads/session02_exercise02.zip">Download and unpack the exercise files</a>  (.zip).  Add several of the new HTML5 inputs to the form. Test the results in every browser you have available. Which features seem to be well supported? Which ones are poorly supported? Take note of how a browser will render some of the more specialized inputs when it doesnt recognize the HTML5.</p>
+</div>
+
+
+<h2>HTML5 Today</h2>
+<div class="contblock">
+	<h3>Is it time to start using HTML5?</h3>
+<ul>
+	<li>Yes and No</li>
+	<li>Try the <a href="http://html5test.com/">HTML5Test</a>. Compare all the web browsers! Try it on your smartphone as well! Be aware of what HTML5 is or isn't currently supported.</li>
+	<li>One of the great things about HTML5 is the ability to use tags from previous MLs</li>
+	<li>Tags are therefore interpreted and rendered correctly</li>
+	<li>How about <strong>new</strong> tags? (audio, video, article, aside, etc)</li>
+	<li>These may not be rendered correctly due to older, non-compliant browsers not having an idea how to interpret them</li>
+	<li>What happens when you use an unknown element... say: <code>&lt;finnegan&gt;My Dog&lt;finnegan&gt;</code>
+		<ul>
+			<li>If the browser is Firefox, Chrome, Safari, Opera: inline style</li>
+			<li>If the browser is IE: no style at all, all child elements are treated as siblings instead(?!)</li>
+			<li>So, if you have an <code>&lt;article&gt;</code> tag, IE will strip everything out of it and create them as sibling elements. Awesome.</li>
+		</ul></li>
+	<li>With the huge amount of IE out there, it might be problematic to start working with HTML5</li>
+	<li>However, there is a workaround and it is really easy:
+		<ul>
+			<li><code>&lt;script&gt;document.createElement("article");&lt;/script&gt;</code></li>
+			<li>This creates an element called <code>&lt;article&gt;</code> which the browser (IE, in this case) can understand and style appropriately</li>
+		</ul>
+		</li>
+	<li>Creating an entry for every element can get a bit heavy, so you can use the <a href="https://github.com/aFarkas/html5shiv">HTML5shiv</a> script written by <a href="http://remysharp.com/">Remy Sharp</a>, an HTML5 guru.</li>
+	<li>Add the shiv to the head section of your HTML5 pages. If you dont download your own copy, you can use a CDN.</li>
+<li>Insert a coded-comment that will apply the shiv ONLY with IE browsers less than version 9:
+	<pre><code>&lt;!--[if lt IE 9]>
+	&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script>
+&lt;![endif]-->
+	</code></pre>
+</li>
+
+	<li>Because HTML5 understands both HTML4 and XHTML tags, you can "use" HTML5 today</li>
+</ul>
+</div>
+
+
+<h2>HTML5 Exercise #3</h2>
+<div class="contblock">
+	<p>Update the HTML5 document you worked on for exercise #1 to include the  <a href="https://github.com/aFarkas/html5shiv">HTML5shiv</a>. Test your page in Internet Explorer to ensure that it recognizes (and applies CSS styles to) the new HTML5 tags.</p>
+</div>
+
+
+			<h2>CSS review</h2>
+			<div class="contblock">
+			<ul>
+				<li>a CSS rule defines what the HTML should look like and how it should behave in the browser window</li>
+				<li>parts of a CSS rule:
+
+				<ul>
+					<li><strong>selector {property: value;}</strong> = rule</li>
+					<li><strong>selector</strong> - can be HTML, class or ID</li>
+
+					<li><strong>{property: value;}</strong> = declaration</li>
+					<li><strong>properties</strong> identify what is being defined: font-family, font-weight, font-size, color, etc.</li>
+					<li><strong>values</strong> are assigned to define the nature of the property: verdana, bold, 16pt, green, etc.</li>
+				</ul>
+				</li>
+				<li>three basic types of CSS selectors
+				<ol>
+
+					<li><strong>HTML selector</strong> - the HTML selector (P, H3, etc.) is used to redefine how the tag displays:<br />
+					<strong>p {font: bold 16pt verdana;}</strong>
+					</li><li><strong>Class</strong> - a "free agent" rule that can be applied to any tag at your discretion:<br />
+					<strong>.bigText {font: bold 48pt verdana;}</strong>
+					</li><li><strong>ID</strong> - work like class selectors, but usually apply to only one element on the page:<br />
+
+					<strong>#navbar {position: absolute; margin-top: 20px;}</strong>
+				</li></ol></li>
+
+				<li>rules are setup in one of three places:
+				<ul>
+					<li><strong>in an HTML tag:</strong> in the body of the document to affect one tag only; this is called an <strong>inline</strong> rule</li>
+					<li><strong>in the head of a document</strong> to affect an entire web page; called an <strong>embedded</strong> rule</li>
+
+					<li><strong>in an external document</strong> that is then linked or imported into your HTML page(s); called an <strong>external</strong> rule</li>
+				</ul>
+				</li>
+			</ul>
+			</div>
+
+
+			<h2>Applying style sheets to web pages</h2>
+			<div class="contblock">
+			<h4>Inline Style</h4>
+			<ul>
+				<li>to set the style for an indivdual HTML tag (i.e., an inline rule), we use the following syntax:<br />				
+				<code>
+				&lt;h1 style="color: red;"&gt;content&lt;/h1&gt;
+
+				</code>
+				</li>
+
+				<li>in this way we're gaining more control over the display because there's more things we can do with each tag</li>
+				<li>not a huge departure from HTML though, because we're still using a sort of "attribute/value" system</li>
+
+				</ul>
+							<h4>Embedded Style</h4>
+				<ul>
+
+				<li>the main use for CSS is to set the styles for an entire document, which is done by adding the following to your HEAD section:<br />
+
+				<code>
+				&lt;style type="text/css"&gt; <br />
+
+				&nbsp;&nbsp;&nbsp;h1 {color: red;}<br />
+				&lt;/style&gt; 
+				</code>
+				</li>
+
+				<li>in effect, isn't much different from adding style to an individual tag; except that you can manage style for ALL H1 tags in document from ONE PLACE</li>
+				</ul>
+							<h4>External Style</h4>
+				<ul>
+				<li>the major benefit of CSS is the external file: allows you to define all your styles for a site in one document, and link it to all pages</li>
+				<li>changes to a style can be made once and affect all instances of the style throughout a site</li>
+
+				<li>setting up an external CSS file is a two step process:
+				<ol>
+					<li>first, set up the rules in a separate text document and save it with a .css extension</li>
+					<li>then, link the document to each page using the &lt;link&gt; tag:<br />
+
+					<code>
+					&lt;head&gt;<br />
+
+					&nbsp;&nbsp;&nbsp;&lt;title&gt;document&lt;/title&gt;<br />
+					&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" type="text/css" href="filename.css"&gt;<br />
+					&lt;/head&gt;<br />
+					</code>
+					</li>
+				</ol>
+
+
+				</li>
+				<li><strong>rel="stylesheet"</strong> defines the link to a stylesheet</li>
+				<li><strong>href="filename.css"</strong> is the URL for the external file</li>
+
+			</ul>
+			</div>
+<!--
+<h2>CSS Review Excercise</h2>
+<div class="contblock">
+	<p>Demonstrate your understanding of the CSS fundamentals.</p>
+	<p><a href="/1950/downloads/session02_exercise02.zip">download the exercise</a></p>
+</div>
+-->
+<h2>Summary</h2>
+<div class="contblock">
+<p>Web pages can be written in HTML5 today, even if not all clients are ready for it. Just be sure to follow best practices to ensure forward and backward compatibility: </p>
+<h3>Using HTML5</h3>
+<ol>
+		<li>Create more semantic documents by using HTML5 tags such as header, footer, etc. </li>
+		<li>Use <a href="http://html5test.com/">HTML5Test</a> with several different browsers to determine what HTML5 is or isn't currently supported.</li>
+		<li>Apply the <a href="https://github.com/aFarkas/html5shiv">HTML5shiv</a> to ensure Internet Explorer browsers will recognize the new HTML5 tags</li>
+		<li><a href="http://validator.w3.org/">Validate your code</a></li>
+
+	</ol>
+<h3>HTML5 Resources</h3>
+<ul>
+				<li><a href="http://www.w3.org/TR/2014/REC-html5-20141028/">W3C HTML5 Complete Reference</a> </li>
+				<li><a href="http://www.w3schools.com/html/html5_new_elements.asp">New semantic/structural HTML5 Tags</a></li>
+				<li><a href="http://www.sitepoint.com/html-5-snapshot-2009/">Sitepoint's</a> HTML 5 snapshot</li>
+				<li>Learn more about specific HTML5 tags:
+					<ul>
+						<li><a href="http://html5doctor.com/html5-forms-input-types/">form inputs</a> - several 'intelligent' form inputs can pre-validate form field data before the form can be submitted to the server</li>
+						<li><a href="http://www.htmlgoodies.com/primers/html/article.php/3920991/HTML5-Primer-How-To-Use-the-Audio-Tag.htm">audio</a> - embed audio files in various formats and let the client browser automatically choose the preferred format</li>
+						<li><a href="http://www.html5rocks.com/en/tutorials/video/basics/">video</a> - embed video in various formats and let the client browser automatically choose the preferred format</li>
+						<li><a href="http://diveintohtml5.info/canvas.html">canvas</a> - 2D drawing in real time, in response to user interactions. requires javascript, may not be good for accessibility</li>
+						<li><a href="http://www.w3schools.com/html/html5_svg.asp">scalable vector graphics (SVG)</a> display vector graphics. unlike <code>canvas</code>, SVGs are static (they cannot change in real time)</li>
+						<li><a href="http://dglobaltech.com/html5-geolocation-api-demo-and-example/">geolocation</a> - determine, with the user's permission, the approximate geographic location of the client</li>
+						<li><a href="http://css-tricks.com/html5-progress-element/">progress bar</a>, <a href="http://css-tricks.com/html5-meter-element/">meter</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">time</a> - new widgets useful for additional semantics and the styling of common kinds of data</li>
+					</ul>
+				</li>
+</ul>
+<h3>CSS Fundamentals</h3>
+
+<p>Be sure you are comfortable with the fundamentals of CSS:</p>
+<ul>
+	<li>how to apply CSS inline, embedded, and externally</li>
+	<li>how write CSS rules: <code>selector { property:value; } </code></li>
+	<li>how to use pseudoclass, id and class selectors</li>
+	<li>create <a href="http://jigsaw.w3.org/css-validator/">valid CSS code</a></li>
+</ul>
+	<p>Session #3's quiz will be written, closed book</p>
+</div>
+
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>due by midnight before the next class</li>
+	<li>homework specifications will be available here  upon release</li>
+	<li>
+	<a href="/1950/downloads/comp1950_homework02.pdf">download the homework</a>
+	</li>	 
+	
+
+</ul>
+</div>
+</div>
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/home-right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->
+
