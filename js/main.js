@@ -1,5 +1,42 @@
 $(document).ready(function() {
 
+function accordionInit() {
+    $("#accordion").accordion();
+};
+
+function accordionDestroy() {
+    $("#accordion").accordion("destroy");
+};
+$(function() {
+    $( "#accordion" ).accordion({
+	collapsible: true,
+	  active: 0,
+	  animate: 400,
+	heightStyle: "content"
+		// event: "mouseover"
+  });
+
+});
+function accordionInit() {
+    $("#accordion").accordion();
+};
+
+function accordionDestroy() {
+    $("#accordion").accordion("destroy");
+};
+$(function() {
+    $( "#accordion" ).accordion({
+	collapsible: true,
+	  active: 0,
+	  animate: 400,
+	heightStyle: "content"
+		// event: "mouseover"
+  });
+
+});
+
+   
+   
 $('.open-popup-link').magnificPopup({
   focus:'#email',
   type:'inline',

@@ -17,32 +17,6 @@
 <script src="js/jtip.js"></script> 
 
 
-<script>
-
-$(document).ready(function() {
-function accordionInit() {
-    $("#accordion").accordion();
-};
-
-function accordionDestroy() {
-    $("#accordion").accordion("destroy");
-};
-$(function() {
-    $( "#accordion" ).accordion({
-	collapsible: true,
-	  active: 0,
-	  animate: 400,
-	heightStyle: "content"
-		// event: "mouseover"
-  });
-
-});
-
-   
-  
-  });  
-  
- </script>
  <div id="content">
 <div style="height:40px;"> <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
 
