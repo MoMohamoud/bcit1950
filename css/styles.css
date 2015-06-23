@@ -11,6 +11,7 @@ Group Project*/
 @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
 @import url("dashboard.css");
 @import url("frontpage.css");
+@import url("quiz.css");
 
 
 
@@ -110,5 +111,61 @@ a:hover.link-modal{color:#3784BB !important;}
 .dialog-button{background:#2487C9;padding:5px 10px;font-size:16px;color:#ffffff !important;border:1px solid #57bafc;cursor:pointer;display:inline-block;margin-left:4em; margin-top:0.5em;}
 #user-request-form{display:none;background:#ffffff;color:#3784BB;}
 
+/*====== quiz css =======*/
+
+.answers li { 
+list-style: upper-alpha; 
+} 
+
+label { 
+margin-left: 0.5em; 
+cursor: pointer; 
+} 
+
+#results { 
+background: #dddada; 
+color: 000000; 
+padding: 3px; 
+text-align: center; 
+width: 200px; 
+cursor: pointer; 
+border: 1px solid gray; 
+}
+#timeLeft
+{
+  color:red;
+  font-style:bold;
+  padding-top: 5%;
+}
+
+.redn{
+  color:red;
+  font-style:bold;
+  padding-top: 5%;
+}
+
+#results:hover { 
+background: #3d91b8; 
+color: #ffffff; 
+padding: 3px; 
+text-align: center; 
+width: 200px; 
+cursor: pointer; 
+border: 1px solid gray; 
+} 
+
+#categorylist { 
+margin-top: 6px; 
+display: none; 
+} 
+
+#category1, #category2, #category3, #category4, #category5, #category6, #category7, #category8, #category9, #category10, #category11 { 
+display: none; 
+}
+
+#closing {
+display: none;
+font-style: italic;
+}
 
 

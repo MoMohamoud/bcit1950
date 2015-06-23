@@ -36,8 +36,17 @@
   	height: 100%;
 }
 
+.a-m{
+	margin: 5% auto;
+}
+
 .ta-right{
 	text-align: right;
+}
+
+.ta-cm{
+	  text-align: center;
+  margin: 6%;
 }
 
 

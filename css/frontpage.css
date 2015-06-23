@@ -1,4 +1,6 @@
-
+.ta-center{
+  text-align: center;
+}
 
 .a-info{
 	background-color: rgba(19, 93, 169, 1);
@@ -89,6 +91,10 @@
   color:rgb(202, 98, 98);
 }
 
+.w-space span{
+  font-size: .8em;
+}
+
 /*====== table ======*/
 
 .table{
@@ -130,5 +136,4 @@
     background-color: rgba(20, 95, 170, 0.05);
 }
 
-/*==== progress bar =====*/
 
