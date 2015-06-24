@@ -200,7 +200,12 @@ width: 200px;
 cursor: pointer; 
 border: 1px solid gray; 
 } 
-
+.download_label{
+font-size:14px !important;
+margin:10px;
+width:100%; 
+text-align:right;
+}
 #categorylist { 
 margin-top: 6px; 
 display: none; 
