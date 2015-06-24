@@ -1,0 +1,255 @@
+/*Set gradient color to the main page background */
+html {
+height:auto;}
+body{
+	font-family: arial, helvetica, sans-serif;
+	background: linear-gradient(180deg, #C9CCD4, #3E61B5);
+	background-size:100%;
+	height:100%;	
+}
+
+p,h1, h2, h3, h4, h5{
+	margin:15px 20px;
+}
+#header h3 {
+	float:right;
+	color:#3E61B5;}
+
+#sitemap img{
+	width:795px;
+}
+#mainarticle section {
+	padding: 5px 10px;
+	margin: 10px;
+	background: #C9CCD4;
+	color: #000;
+	font-size: 16px;
+	line-height: 1.3em;
+	border: 2px dashed #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 0 0 0 4px #C9CCD4, 2px 1px 6px 4px rgba(10,10,0,.5);
+	text-shadow: -1px -1px #C9CCD4;
+}
+header {
+	background-color:#fff;
+	background-position:center;
+	color:#fff;
+	height:105px;
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+}
+header img  {
+    display: inline-block;
+	width:200px;
+	height:105px;
+} 
+footer{
+	clear:both;
+	background-color:#3F4042;
+	width:850px;
+	color:#fff;
+	height:100px;
+	margin-left:auto;
+	margin-right:auto;
+	background-position:center;
+	text-align:center;
+}
+
+footer h6{
+	margin-left:auto;
+	width:100%;
+	margin-right:auto;
+}
+
+#main-section {
+	width:100%;
+	height:auto;
+	position:relative;
+	margin-right:auto;
+	word-wrap: break-word;
+	overflow:hidden;
+	background-color:#F5F2E9;
+}
+
+#navcontainer
+{
+	background-color: #f0e7d7;
+	margin:auto;
+	padding: 1em 0 0 0;
+	font-family: georgia, serif;
+	text-transform: uppercase; 
+	border-bottom-color:#C9C9C9;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	box-shadow:3px 3px 2px gray;
+}
+/* to stretch the container div to contain floated list */
+#navcontainer:after
+{
+	content: ".";
+	display: block;
+	line-height: 1px;
+	font-size: 1px;
+	clear: both;
+}
+
+ul#navlist
+{
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 90%;
+	font-size: 0.8em;
+}
+
+ul#navlist li
+{
+	display: block;
+	float: left;
+	width: 15%;
+	margin: 0;
+	padding: 0;
+}
+
+ul#navlist li a
+{
+	display: block;
+	width: 100%;
+	padding: 0.5em;
+	border-width: 1px;
+	border-color: #ffe #aaab9c #ccc #fff;
+	border-style: solid;
+	color: #777;
+	text-decoration: none;
+	background: #f7f2ea;
+	
+}
+
+#navcontainer>ul#navlist li a { width: auto; }
+
+ul#navlist li#active a
+{
+	background: #f0e7d7;
+	color: #800000;
+}
+
+ul#navlist li a:hover, ul#navlist li#active a:hover
+{
+	color: #800000;
+	background: transparent;
+	border-color: #aaab9c #fff #fff #ccc;
+}
+
+ /*this is the segment that sits a top the footer*/
+ #topper{
+	background-color: #000; 
+	width:850px;
+	margin-left:auto;
+	margin-right:auto;
+	height:100%;
+ }
+
+ #socialmedia ul li a {
+	display:block;
+    width: 22px;
+    height: 19px;
+}
+#socialmedia ul{
+	list-style-type:none;
+}
+
+#socialmedia ul li {
+	display:inline-block;
+	margin:2px;
+	border: 2px solid;
+	border-color:#4A4A4A;
+    border-radius: 25px;
+}
+#socialmedia ul li a:hover{
+	cursor:pointer;
+}
+/* CSS technique: using sprite to display footer icons */
+#facebook
+{
+	background:url("../image/media-icons.jpg") -31px -3px;
+	background-size:250%;
+}
+
+#email
+{
+	background:url("../image/media-icons.jpg") -2px -31px;
+	background-size:250%;
+}
+
+/* overriding rules for thin screens using media query */
+@media screen and (min-width:150px) and (max-width:800px){
+	/*
+	adjust the relative font sizes,
+	and remove the fixed widths
+	*/
+#topper, nav ul, section, footer, #main-section p{
+	width:auto;
+	font-size:.90em;
+}
+
+#header, footer{
+	max-width:100%;
+	height:100%;
+}
+
+/*  vertical navigator	*/
+
+ul#navlist
+{
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	font-size: 0.8em;
+}
+
+ul#navlist li
+{
+	display: block;
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#navlist{
+	overflow:hidden;
+	display:block;
+}
+
+/* make the a tags act like block elements (so they vertical) */
+ul #navlist li a	{
+	width:100%;
+	display:block;
+	border-bottom: 1px solid #fff;
+}
+/* remove absolute positioning on the aside */
+ #mainarticle{
+	clear:both;
+	position:static;
+	left:0px;
+	margin:0px;
+}
+
+#main-section{
+	clear:both;
+	margin:0px;
+	padding-top:0px;
+}
+section h1{
+	margin-top:0px;
+}
+/*  ensure images scale according to parent */
+section img{
+	max-width:100%;
+}
+}
+
