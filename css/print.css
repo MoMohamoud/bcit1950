@@ -38,6 +38,10 @@ a:link:after, a:visited:after{
 	display: block !important;
 }
 
-#content .ex-all > *{
+.ex-all{
 	display: none !important;
+}
+
+.homework{
+	display: none;
 }
