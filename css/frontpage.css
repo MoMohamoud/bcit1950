@@ -17,8 +17,11 @@
 	background-color: rgba(52, 127, 205, 1);
 	text-decoration: none;
 	color: #fff;
+}
 
-
+.bg-gen .h-login{
+    font-size: 0.7em;
+    padding: 5px;
 }
 
 .progress{
