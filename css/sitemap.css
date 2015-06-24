@@ -61,7 +61,7 @@ ol, ul {
 #primaryNav #home {
 	display: block;
 	float: none;
-	background: #ffffff url('../image/L1-left.png') center bottom no-repeat;
+	background: #ffffff url('../image/vertical-line.png') center bottom no-repeat;
 	position: relative;
 	z-index: 2;
 	padding: 0 0 px 0;
@@ -228,4 +228,8 @@ a:visited:before {
 	font-size: 10px;
 	margin-bottom: 5px;
 	word-wrap: break-word;
+}
+#newline{
+clear:both;
+background: url('../image/L3-left.png') left center no-repeat;
 }
