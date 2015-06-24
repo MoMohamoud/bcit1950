@@ -1,0 +1,350 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+<h1>lecture nine: template development, SEO</h1>
+<main id="accordion">
+
+
+	<h2>Agenda</h2>
+	<div class="contblock">
+	<ul>
+		<li>Search Engine Optimization</li>
+		<li>Templating Systems</li>
+	</ul>
+	</div>
+
+<h2>SEO Basics</h2>
+<div class="contblock">
+<h3>Search Engine Optimization</h3>
+<p>Web clients commonly use search engines to navigate the vast quantity of content available online. Web content is first indexed by a search engine, and sophisticated algorithms are used to assess the best match of indexed pages to search query keywords. Search engine optimization (SEO) is the web developer best practices and techniques that influence your pages potential ranking.</p>
+<p>SEO ties into both semantics and standards very closely. The more effectively the semantics explains the content, the more sense can be made of the content by search engine algorithms, resulting in superior rankings.</p>
+<p>Long gone are the days of SEO snake oil that saw a lot of shady practices resulting in positive results. Today, most search engine algorithms are so well developed, that the best policy is: well marked up content!</p>
+</div>
+<h2>Best Practices</h2>
+<div class="contblock">
+<p>Here are some of the best practices for proper markup and site design for optimal SEO</p>
+<ul>
+	<li><strong>Page Titles</strong> - Encapsulate each page on your site very briefly &amp; include company info. <br /><code>&lt;title>companyName : pageTitle&lt;/title></code> </li>
+	<li><strong>Titles</strong> are used in results, so be sure they are descriptive and brief</li>
+	<li>The <code>meta</code> tag <code>name="description"</code> attribute  is used, <code>name="keywords"</code> is not<br /><code>&lt;meta	name="description" content="The first several words of this attribute is displayed along with many search engine rankings" /></code></li>
+	<li>The <code>description</code> attribute is the content users see in many search engines. Be accurate and descriptive, but be sure to <em>summarize the content of the page</em></li>
+	<li>Examine the commented source code of this <a href="search_engine_optimization.html">Search Engine Optimized page</a></li>
+</ul>
+</div>
+<h2>Site Structure</h2>
+<div class="contblock">
+<p>The names of your files and folders, as well as the parent-child structure of the folders should be descriptive and indicative of the site's information architecture.</p>
+<ul>
+	<li><strong>URL Structure</strong> - Having descriptive URLs is a matter of proper site design</li>
+	<li>When URLs make sense, users (and many engines) find it easier to determine the content and the hierarchy</li>
+	<li>Use <strong>actual words in URLs</strong> when you can.  <code>/url?ejamcirkanfmnadcmgnskd</code> is not very descriptive.  <code>/products/dogfood/specials</code> is better</li>
+	<li><strong>Site structure</strong> plays a big part here</li>
+</ul>
+</div>
+<h2>Content</h2>
+<div class="contblock">
+<p>Content within your site is one of the biggest elements that you get ranked on.  Be sure it is accurate and reflects the other page elements like the <code>meta name="description"</code>, Title and any headings.</p>
+<ul>
+	<li>Content should be easy to read and <strong>on-topic</strong> as much as possible</li>
+	<li>Having updated, or <strong>"fresh" content</strong> can improve your site: blog/news/updated info</li>
+	<li><strong>Contextual linking</strong> is very important! Hyperlinks should link to on-topic, relevant content, and the text label used in anchor tags should be descriptive, concise and easy to understand. <br />eg: good: <a href="http://www.highervisibility.com/top-10-advantages-of-contextual-link-building-for-seo/">Advantages of contextual linking</a>, poor: <a href="http://www.bcit.ca">Click here</a></li>
+	<li>Heading tags, as with other logical tags, should be used to <strong>accurately describe content</strong></li>
+	<li>Image tags should include descriptive <code>alt</code> attributes</strong></li>
+		
+	</ul>
+</div>
+<!--
+<h2>Keywords</h2>
+<div class="contblock">
+<p>Keywords are the words and phrases that are associated with and included in your page content. These keywords are the very words and phrases that might be included in the search engine queries of your site's target audience.</p>
+<p>It is effective to include these keywords throughout the site content, but they should appear organically, search engines are very sophisticated, and will detect if you are 'spamming' your keywords and phrases. Optimize your keyword effectiveness by ensuring the content is on topic.</p>
+<h4>Identifying Optimal Target Keywords</h4>
+<p>There are several paid services available for SEO assistance, but there are also some useful free tools that can help you focus on the ideal keywords for your site.</p>
+<ul>
+	<li>Determine what phrases an keywords users are searching with, and learn about the relative 'demand' is for different keywords using the <a href="https://adwords.google.com/KeywordPlanner">Google AdWords Keyword Tool</a>. You will need to sign up for a <a href="https://accounts.google.com/ServiceLogin?service=adwords&hl=en-US&ltmpl=signup&passive=false&ifr=false&alwf=true&continue=https://adwords.google.com/um/SignupToken&app=Signup&sacu=1&sourceid=awo&subid=ww-et-awhp_nelsontest2_con_e">AdWords Account</a>. Note you do <strong>NOT</strong> need to spend advertising money or start any ad campaigns in order to use the keyword tool.</li>
+	<li>Once a site is up and running, use an analytics tool to track site performance, noting which search engines are driving the traffic to your pages, which search terms are being used, etc. Most web hosts provide analytics, or you can use the popular and free <a href="http://www.google.com/analytics/">Google Analytics</a></li>
+</ul>
+</div>
+-->
+<h2>Submit URLs To Search Engines</h2>
+<div class="contblock">
+<p>Search engines regularly crawl the content of the web to keep their rankings up to date. During this procedure, it is only a matter of time before new pages are 'discovered' and added to the index, eventually becoming candidates to appear in search query results. New websites, especially commerical enterprises, will want to expedite this process by explicitly notifying the major engines that their site is online and ready to be indexed.</p>
+<h3>Search Engine Submissions</h3>
+<ul>
+<li><a href="http://www.google.com/submityourcontent/">Google</a></li>
+<li><a href="http://www.bing.com/toolbox/submit-site-url">Bing</a></li>
+<li>Yahoo (powered by Bing)</li>
+<li><a href="http://www.entireweb.com/free_submission/">EntireWeb</a> (submit to several search engines at once)</li>
+</ul>
+
+</div>
+
+<h2>Disallowing SEO</h2>
+<div class="contblock">
+<p>As a general rule, all publicly available web content should be optimized for search engines. However, if there are sections of your site you do not want indexed, there are several options. </p>
+<h3>Using meta Tag To Disallow Indexing</h3>
+<p>You can <a href="http://www.inmotionhosting.com/support/website/restricting-bots/using-a-meta-tag-to-block-bots-from-indexing-a-webpage">use the meta tag to stop SEO indexing</a>.</p>
+<p><code>&lt;-- dont index this page (noindex), dont index pages that this page links to (nofollow)--><br />&lt;meta name="robots" content="noindex, nofollow"></code></p>
+
+<h3>Using robots.txt To Disallow Indexing</h3>
+<p>To <a href="http://www.inmotionhosting.com/support/website/how-to/how-to-stop-search-engines-from-crawling-your-website">dissallow SEO using Robots.txt</a>, place a text file named <code>robots.txt</code> in your server root that includes the following:</p><pre><code>User-agent: *
+Disallow: /
+</code></pre>
+<p>Alternatively, <code>robots.txt</code> can also disallow indexing on specific folders or files:</p>
+<pre><code>User-agent: *
+Disallow: /privateFolder/
+Disallow: /tmp/file.html</code></pre>
+
+
+
+<h3>Disallow Per Link</h3>
+<p>If your pages include any links to pages that you don't want included in the ranking algorithm, you can add a <code>rel="nofollow"</code> attribute, eg:</p>
+<p><code>&lt;-- dont include the page this links to when assessing this page --><br />&lt;a href="http://www.bcit.ca" rel="nofollow">BCIT&lt/a></br></code></p>
+<p>Why do this? When you link to another website, you are passing your site's reputation along. If, for instance, you are allowing users to add comments in an open forum, someone might post links to external sites, some of which may not be deserving of your sites reputation.</p>
+</div>
+
+<h2>SEO Resources</h2>
+<div class="contblock">
+
+<h3>Great documents on SEO</h3>
+<p>Google's own <a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf">Search Engine Optimization</a> guide</p>
+<p>The <a href="http://searchengineland.com/download/seotable/SearchEngineLand-Periodic-Table-of-SEO.pdf">Periodic Table of Search Engine Optimization</a></p>
+
+</div>
+						
+<h2>SEO Exercise</h2>
+<div class="contblock">
+<p>Examine the pages on your student webspace on <code>bcitcomp.ca</code> and make a list of the additions or alterations that could be applied to improve search engine results. Let your instructor know what your recommendations are.</p>
+<ul>
+	<li>are you using the <code>meta description</code> attribute?</li>
+	<li>do your pages each have a useful and descriptive title, and does each page have a obvious main heading?</li>
+	<li>does your page contain additional headings that accurately summarize content?</li>
+	<li>do the (non lorum-ipsum) pages have content that is on-topic? is there a decent, reasonable quantity of content on each page? is the content thoughtfully composed? does it contain words and phrases that an interested user might search with?</li>
+	<li>are you using the best filenames? folder names? site structure?</li>
+	<li>are your hyperlinks contextual, including descriptive link text?</li>
+</ul>
+</div>
+
+
+			
+<h2>Template Development - Introduction</h2>
+<div class="contblock">
+		
+	<ul>
+	<li>A common type of work done today: customizing templates or writing them from scratch</li>
+	<li>All levels: 
+			<ul>
+					<li><strong>Server side admins</strong> enable applications</li>
+					<li><strong>Programmers</strong> connect logic and data to front end code</li>
+					<li><strong>Client side scripters</strong> work with provided content for element manipulation</li>
+					<li><strong>Client side coders</strong> create the HTML and CSS to present the information</li>
+			</ul></li>
+	
+	<li>Many different languages and tools for developing templates</li>
+	<li>One common principle: inserting content into HTML</li>
+	<li>The primary (and nearly overwhelming use) of any template is for any type of <strong>Content Management System</strong> (CMS)</li>
+	<li>The simplest and most well known: a Blog</li>
+	</ul>
+	
+</div>
+
+
+
+<h2>A Basic CMS</h2>
+<div class="contblock">
+
+<p>A "Blog" is short for "Web Log".  It is generally a web page or pages dedicated to the posting of information by a user.</p>
+<p>Early Blogs were written as personal journals online, and many of them were hand-coded and uploaded each time content was changed.</p>
+<p>Today, there are many tools for creating and updating blogs, such as:</p><ul>
+<li><a href="http://www.tumblr.com/">Tumblr</a></li>
+<li><a href="http://wordpress.org/">Word Press</a></li>
+<li><a href="http://www.drupal.org/">Drupal</a></li>
+<li><a href="http://www.joomla.org/">Joomla</a></li>
+<li><a href="http://www.blogger.com/">Blogger</a></li>
+
+</ul><p></p>
+
+
+<p>Blogs have emerged as one of the leading technologies influencing the web today.  What started as individual users posting personal messages have now moved to corporations posting news and event information on their site with Blog-like functionality.</p>
+
+<h3>How do they work?</h3>
+<ul>
+	<li>At their simplest, any Blog architecture will take content provided by the user (Generally a title and some content) and push it to a web space.</li>
+	<li>Using templates, Blog software will take the content entered by the user, and insert it into the HTML where there are tags responsible for certain bits of information such as date, author, title, content, product name, cost, image and many other possibilities.</li>
+	<li>For example, the title of a page using <strong>Tumblr</strong> can be inserted using the following tag (token): <code>{Title}</code></li>
+	<li>The <code>{Title}</code> tag is a proprietary syntax that tells the CMS on the backend to go find the title and insert it in the HTML</li>
+	<li>The title is a monatomic tag (meaning there is only an "opening" and not a closing tag to go with it), as it simply represents a <em>variable</em> that the CMS will keep track of.</li>
+	<li>Other tags work like HTML, enclosing information, such as:<pre><code>{block:Description}
+	&lt;p id="description"&gt;{Description}&lt;/p&gt;
+{/block:Description}</code></pre>
+</li>
+	<li>You can see that there is the CMS-specific <strong>{block}</strong> tag with an attribute of <strong>Description</strong>. That indicates that the content inside the tag will be related to the description as entered by the author.</li>
+
+	<li>Also notable is the inclusion of regular HTML inside the Tumblr tags - exactly like our SSI exercises.</li>
+
+
+	<li>Once your template has been created, Tumblr (or any other Blog Application) will scan your template for tags that indicate where data should be inserted.</li>
+
+	<li>The application will then insert all of the relevant data and publish to completed HTML page to the specified server.</li>
+	<li>The process works exactly like Server Side Includes, but the result resides on the web server (instead of in a browser window).  This is an advantage, as further server processing can be done when a page is actually requested by a user.</li>
+</ul>
+<h3>What are they used for?</h3>
+<p>Beginning as simple online journals, blogs are being used more and more for knowledge sharing and building.</p>
+<p>Many News sites are moving to Blog-like formats, allowing stories to be published, with follow-ups linked to the original story, as well as categorization used to link to similar stories.</p>
+<p>Blogs are increasingly being used as educational tools, letting instructors post notes to students, and allowing students to have a running narrative of events and knowledge that they are building</p>
+<p>With the ability to syndicate through the use of RSS, it is becoming easier for users to browse through large collections of Blogs simply by glancing at the titles in a News Reader. </p>
+<p>One of the most interesting uses of Blogs is to allow multiple authors access to contribute, and build a collection of work through multiple postings.  This is similar to a message board, but in a more narrative style.</p>
+</div>
+
+<h2>Exercise</h2>
+<div class="contblock">
+<p>Everyone will work with a Template using Tumblr as our Content Management System.</p>
+<p>Please follow these steps:</p>
+	<ul>
+		<li>Go to <a href="http://tumblr.com/">Tumblr</a> and create an account or log in to your existing account</li>
+		<li>If you already have an account, create a new blog by clicking the bulleted list icon at the top of your dashboard and selecting "Create new blog"</li>
+		<li>Choose a basic, pre-created theme (template)</li>
+		<li>Write some detailed content:
+			<ul>
+				<li>Three text posts</li>
+				<li>Three photo posts</li>
+				<li>Three link posts</li>
+				<li>Any order is fine</li>
+				<li>Please include some level of detail, or select a topic (like dogs, or beer) and find some relevant photos and links</li>
+			</ul>
+		
+		</li>
+		<li>Publish the content and see how it looks</li>
+		<li>Examine the template (right click on your dashboard icon and choose 'Open link in new window' or just visit http://yourTumblrSiteName.tumblr.com/)</li>
+			
+	</ul>
+
+</div>
+
+		
+		
+<h2>Adding Static  Pages</h2>
+<div class="contblock">
+<p>You can also add static pages to a Tumblr site. These will not have the 'blog' type of data, but might be useful for things like 'About Us' or 'Contact Us' type pages. The <a href="http://staff.tumblr.com/post/424853767/pages">static pages instructions</a> include some tips with screenshots for doing so. Basically, its as simple as:</p>
+<ul>
+	<li>log into the dashboard</li>
+	<li>view your website (eg: http://yourTumblrSiteName.tumblr.com/)</li>
+	<li>choose "Edit Theme" from the top right corner</li>
+	<li>choose "Add Page" from the bottom left corner</li>	
+	<li>add a URL to the path (name a folder that describes the page, eg "yourTumblrSiteName.tumblr.com/about_us/")</li>
+	<li>enable the "show a link to this page" option</li>
+	<li>add a page title, and addpage content as needed</li>
+	<li>choose "save"</li>
+</ul>
+</div>
+
+
+<h2>Theme Templates</h2>
+<div class="contblock">
+<p>The theme templates in Tumblr are responsible for the layout and style used by the blog. While they are ultimately HTML and CSS, they also use plenty of <code>tokens</code> that allow it to dynamically draw in content (eg: your latest blog posts).</p>
+<h4>Swapping Theme Templates</h4>
+<ul>
+	<li>log into the dashboard</li>
+	<li>view your website (eg: http://yourTumblrSiteName.tumblr.com/)</li>
+	<li>choose "Edit Theme" from the top right corner</li>
+	<li>choose "Browse Themes" > "Free Themes" from the top right corner</li>
+	<li>pick a theme from those available and choose "Use"</li>
+</ul>
+<h4>Customizing Theme Templates</h4>
+<ul>
+	<li>log into the dashboard</li>
+	<li>view your website (eg: http://yourTumblrSiteName.tumblr.com/)</li>
+	<li>choose "Edit Theme" from the top right corner</li>
+	<li>choose "Edit HTML"</li>
+	<li>add/alter code as needed (eg: add a link tag near the end of the head section to load your on custom stylesheet)</li>
+	<li>choose "Save"</li>
+</ul>
+<p>Tumblr provides several options for customizing the theme of your blog. <a href="http://www.tumblr.com/docs/en/custom_themes">Learn more about themes</a>.</p>
+
+<p>If you have irrevocably altered the template tokens of a particular theme, you can always <a href="http://www.tumblr.com/theme/433">reset the page theme</a> by applying the original default Tumblr template.</p>
+</div>
+
+<h2>Adding Static Files</h2>
+<div class="contblock">
+<p>Especially on high traffic websites, hosting your own content can be costly in bandwidth and file server space.</p>
+<p>Tumblr allows you to host your own static files so they carry that load for you. You can use this to host images and stylesheets of you own and make them available to your blog.</p>
+<ul>
+	<li>log into the dashboard</li>
+	<li>visit the <a href="http://www.tumblr.com/themes/upload_static_file">static files</a> page</li>
+	<li>upload files, one at a time: take note of the paths that Tumblr provides you, you will need to use these paths in order to use these static resources!</li>
+	<li>use the paths provided to you to customize the theme (see below)</li>
+	</ul>
+</div>
+
+
+<h2>More Options</h2>
+<div class="contblock">
+<p>Additional <a href="http://www.tumblr.com/tips">Tumblr tips</a> can increase your productivity and open up more development options.</p>
+
+</div>
+
+<h2>CMS On Your Own Domain</h2>
+<div class="contblock">
+<p>Free hosting is a nice perk with CMS such as Wordpress, Tumblr etc. But often you will need the URL to direct to a dedicated domain. Most CMS can be deployed on your own server/domain. <a href="http://www.tumblr.com/docs/en/custom_domains">Self hosted Tumblr</a> allows the site address to be your domain (instead of david.tumblr.com --> davidslog.com). </p>
+
+</div>
+
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>session #10's quiz will be written, closed book</li>
+	<li>homework  8 due by midnight before the next class</li>
+
+<li><a href="/1950/downloads/comp1950_homework08.pdf">download the homework</a>
+	</li>
+</ul>
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->

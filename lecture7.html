@@ -1,0 +1,486 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+<h1>lecture seven javascript frameworks</h1>
+<main id="accordion">
+
+
+
+		<h2>agenda</h2>
+		<div class="contblock">
+			<ul>	
+				<li>javascript fundamentals</li>
+				<li>jQuery basics</li>
+				<li>events, attributes, effects</li>
+				<li>plugins</li>
+			</ul>
+		</div>
+
+<h2>What is JavaScript?</h2>	
+<div class="contblock">	
+<ul>
+	<li>From <a href="http://en.wikipedia.org/wiki/JavaScript" title="Wikipedia">Wikipedia</a>: <blockquote>
+		<p>JavaScript is a scripting language most often used for client-side web development. JavaScript was influenced by many languages and was designed to have a similar look to Java, but be easier for non-programmers to work with.</p>
+	</blockquote> </li>
+			<li>object-oriented scripting language.</li>
+			<li>used to work with the objects associated with a web page document &mdash; the window, the document, the elements such as forms, images, links, etc.</li>
+			<li>originally developed by Netscape and called LiveScript</li>
+			<li>netscape collaborated with Sun Microsystems on modifications to the language and it was renamed JavaScript</li>
+			<li>JavaScript is NOT Java</li>
+			<li><strong>common uses:</strong>
+				<ul>
+				<li>pop up, nested navigations</li>
+				<li>photo galleries</li>
+				<li>pre-validating form information</li>
+				<li>adding animated tool tips</li>
+				<li>place/read cookies (remember/retrieve previous states)</li>
+				<li>determine the status of user's browser (vendor, version, plugins, size, position)</li>
+				<li>display a message box</li>
+				<li>create a new window with a specified size and screen position</li>
+				<li>status messages</li>
+				<li>display current date</li>
+				<li>perform calculations</li>
+			</ul></li>
+		</li>
+		</ul>
+</div>	
+
+	<h2>document object model (DOM)</h2>
+		<div class="contblock">
+		<p>The Document Object Model (DOM) is the mechanism through which javascript can manipulate an HTML page and access information about the user's browsing environment. </p>
+		<ul>
+			<li>the document object model (DOM) is the collection of objects, properties and methods on a page</li>
+			<li>the DOM defines every object and element on a web page</li>
+			<li>javascript can use the DOM to determine the status of the browser, the HTML page content, and the CSS</li>
+			<li>through the DOM, javascript can also make changes, additions, or deletions to the HTML page content and CSS</li>
+			<li>its hierarchical structure can be used to access page elements and apply styles to page elements</li>
+			<li>a portion of the DOM is shown below:
+			<p><img src="/1850/lectures/ten/dom.gif" alt="" width="458" height="226" border="0"></p></li>
+		</ul>
+		</div>
+
+<h2>Javscript Basics</h2>
+<div class="contblock">
+	<p>Lets review the javascript essentials:</p>
+	<ul>
+		<li>embedded javascript</li>
+		<li>external javascript</li>
+		<li>javascript function calls</li>
+	</ul>
+			<h4>Implementation:</h4>
+			<ul>
+				<li>place Javascript code as part of an event attached to an XHTML element (inline)</li>
+				<li>place Javascript code between <code>&lt;script&gt;</code> tags  (embedded)</li>
+				<li>place Javascript code in an external file (external)</li>
+				<li><strong>embedded script:</strong>
+				<p><code>
+				&lt;script type="text/javascript"&gt;<br />
+				alert("Welcome to Our Site");<br />
+				&lt;/script&gt;<br />
+				</code></p></li>
+				<li><strong>external script:</strong>
+				<p><code>
+				&lt;script type="text/javascript" src="myjavascript.js" &gt;&lt;/script&gt;<br />
+				</code></p>
+				<p>A <code>&lt;script&gt;</code> tag does not allow using both Embedded and External javascript at the same time.</p>
+				</li>
+		<li>In HTML5, only the <code>&lt;script></code> tag is required, but to maximize backward compatability, the <code>type="text/javascript"</code> attribute may be included</li>
+		<li>Oftentimes, the best way to deploy your javascript is in external file(s). Using embedded javascript reduces reusability and maintainability.</li>
+	
+		</ul>
+		<h4>Commenting:</h4>
+		<p>As usual, comments are human readable notes that do not affect processing. Useful for declaring your authorship, for describing what the script is doing, and for designating the script organization. Remember, like HTML and CSS, javascript comments can be viewed by your clients!</p>
+		<ul>
+			<li><code>/* multiple line comments are similar to CSS */</code></li>
+			<li><code>//single line comments begin with two forward slashes</code></li>
+		</ul>
+
+		<h4>Function Calls:</h4>
+		<ul>
+			<li>Function definition: Functions all have a name <code>nameOfFunction</code>, a parameter list <code>( ) </code>, and one or more instructions contained within curly braces <code>{ }</code><pre><code>function nameOfFunction(){
+	/* body of function */			
+}
+function nameOfFunctionWithParameters(value01, value02){
+	/* body of function */			
+}
+</code></pre>
+			</li>
+			<li>Function Invocation: To run the code inside a function, use it's name and include any required parameters<pre><code>nameOfFunction();
+nameOfFunctionWithParameters("Shania", 123);</code></pre></li>
+		</ul>
+
+
+		<h4>Events:</h4>
+		<ul>
+			<li>javascript code is typically triggered by events, often user-initiated</li>
+			<li><a href="http://www.w3schools.com/tags/ref_eventattributes.asp">events reference</a></li>
+			<li>you can apply an event to an HTML tag using attributes</li>
+			<li>more than one event can be applied to a particular tag</li>
+			<li><code>&lt;p onlclick="invokeFunction();">Click me to activate javascript&lt;/p></code></li>
+		</ul>
+
+<p><a href="/1950/downloads/javascript_basics.zip">Download some javascript example files</a>, test the pages and examine the source code. Ask your instructor if you arent sure how they are working.</p>
+
+<p>Use the <code>console</code> section of your web browser's developer tools to discover if any Javascript errors are being triggered when you test your scripts.</p>
+
+</div>
+
+<h2>Libraries &amp; Frameworks</h2>
+<div class="contblock">
+	<p>Frameworks provide a pre-written codebase including several built in functions that can make rapid development of sophisticated javascripts much easier, more efficiently, and result in more browser-combatible scripts.</p>
+	<ul>
+		<li><a href="http://www.jquery.com/" title="jQuery">jQuery</a> - a powerful, multipurpose library</li>
+		<li><a href="http://www.prototypejs.org/" title="Prototype">Prototype</a> - one of the first libraries, still very good</li>
+		<li><a href="http://script.aculo.us/" title="script.aculo.us">script.aculo.us</a> - a very good 'effects' libraries, uses Prototype Library</li>
+		<li><a href="http://mootools.net/" title="Mootools">Mootools</a> - a more recent player with some excellent UI effects</li>
+	</ul>
+</div>
+
+<h2>jQuery</h2>
+<div class="contblock">
+
+<p>jQuery is written in javascript. It may contain instructions that use a jQuery specific syntax, and may also include standard javascript instructions.</p>
+<ul>
+	<li>jQuery is a JavaScript Library</li>
+	<li>Gives access to any DOM element</li>
+	<li>Designed especially for making JS manipulations easier</li>
+	<li>Fairly small footprint (smaller than an average image)</li>
+	<li>If you can access the element from CSS (level 1-3), you can access it from jQuery</li>
+	<li>Very little requirement to change any HTML</li>
+	<li>Syntax is a little scary at first, but easy to pick up</li>
+	<li>Very powerful</li>
+	<li>Very popular</li>
+	<li>Works in almost all browsers (including IE6! - Mostly)</li>
+</ul>
+</div>
+
+<h2>jQuery Requirements</h2>
+<div class="contblock">
+<ul>
+	<li>Before using any jQuery, you will first need to load the library codebase into the browser memory. You have two options for how to do this:
+		<ol>
+		<li>Link to shared hosted version, for example<br />
+		<code>&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"&gt; &lt;/script&gt;</code><p>The advantage of this method is that many clients will already have cached version of some of these URLs, thus reducing server requests. Choose from one of several jQuery CDNs (Content Delivery Networks):</p>
+		<ul>
+			<li><a href="http://jquery.com/download/">jQuery.com</a></li>
+			<li><a href="https://developers.google.com/speed/libraries/#jquery">Google</a></li>
+			<li><a href="http://www.asp.net/ajax/cdn#jQuery_Releases_on_the_CDN_0">Microsoft</a></li>
+		</ul>
+		</li>
+		<li>Link to your own local copy<br />
+	Three main forms:
+		<ul>
+			<li>Uncompressed - best for reviewing the code</li>
+			<li>Packed - most often used for production systems</li>
+			<li>Minified - used for systems with Unix backend (requires GZip)</li>
+			<li><a href="http://docs.jquery.com/Downloading_jQuery" title="Download from jQuery">Download from jQuery</a></li>
+		</ul>
+		
+		</li>
+		</ol>
+	</li>
+
+	<li>In addition to the basic jQuery framework, you need to include your own code either as an embedded block or linked to an external file</li>
+	<li>Basic functions are easy to write</li>
+</ul>	
+
+</div>
+
+
+<h2>Exercise #1: Run a simple jQuery script</h2>
+<div class="contblock">
+<ol>
+	<li>Include the jQuery library codebase using the <code>&lt;script src=""&gt;&lt;/script&gt;</code> tag in the <code>&lt;head></code> section of an HTML page. Load either a local copy obtained from the <a href="http://docs.jquery.com/Downloading_jQuery" title="Download from jQuery">jQuery downloads page</a>, or link to a copy on a Content Delivery Network (CDN).</li>
+	<li>Add an additional <code>&lt;script&gt;&lt;/script&gt;</code> tag to the <code>&lt;head&gt;</code> section of the document, and place the following code inside:
+<pre><code> $(document).ready(function(){
+   //your javascript code
+ });</code></pre>
+	</li>
+	<li>Alternatively, you can omit the <code>(document).ready</code> section if all the jQuery code is located at the bottom of the HTML page, just before the <code>body</code> tag closes</li>
+	<li>Instead of the comment <code>//your javascript code</code>, write javascript instructions, such as <code>alert("Hello World!");</code></li>
+	<li>Test the page</li>
+</ol>
+</div>
+
+<h2>jQuery Basics</h2>
+<div class="contblock">
+<p>Although jQuery is itself written in javascript, it provides for several new features and techniques not available in 'vanilla' javascript.</p>
+<h3>Assigning Events</h3>
+  <p>In javascript you would assign events to trigger functions by using the event attribute, eg:<br />
+  <code>&ltdiv onclick="alert('Hello World');" &gt;&lt;/div&gt;</code><br />
+  In jQuery, events are not assigned in the HTML, but in the javascript code using a more object-oriented syntax (described below).</p>
+<h3>Variables</h3>
+<p>jQuery supports the use of an alternative syntax for variables. Instead of requiring the <code>var</code> keyword at definition, you can use a PHP style <code>$</code> syntax.
+<pre><code>//standard javascript variables
+var name01  = "Shania";
+var age01	= 34;
+document.write("Hello " + name01 ", you are " + age01 + " years old.");
+
+//jQuery style variables
+$name02   = "Jane";
+$age02	= 29;
+document.write("Hello " + $name02 ", you are " + $age02 + " years old.");</code></pre></p>
+
+<h3>Patterns</h3>
+ <p>You will notice this same pattern in many jQuery statements, </p>
+ <pre><code> $(object).event(function(){
+   //javascript code
+ });</code></pre>
+ <ul>
+ <li><code>object</code>: any valid selector</li>
+ <li><code>event</code>: See a <a href="http://api.jquery.com/category/events/">list of jQuery Events</a></li>
+ <li><code>function</code>: this creates a new 'nameless', anonymous function that will be invoked as soon as the event occurs</li>
+ <li><code>javscript code</code>: includes one or more javascript instructions, or jQuery instructions</li>
+  </ul>
+
+<p>The common syntactical patterns used by jQuery should be carefully noted. Great care must be exercised when coding to ensure the proper placement of a multitude of nested instructions.</p>
+<fieldset>
+<legend>jQuery Patterns</legend>
+
+<ul>
+<li>
+<p><code>$(<span style="color:darkred;">selector</span>).<span style="color:darkred;">event</span>( );</code><br />Most jQuery code will be contained inside this pattern. The <span style="color:darkred;">selector</span> is usually a valid CSS selector in quotes. The <span style="color:darkred;">event</span> is any one of the <a href="http://api.jquery.com/category/events/">jQuery events</a></p>
+</li><li>
+<p><code>function(){}</code><br />Anonymous functions are function definitions that have no name. They are automatically invoked and dop not require explicit invokation.</p>
+</li><li>
+<p><code>$(selector).event( &nbsp;<span style="color:darkred;">function(){}</span>&nbsp; );</code><br />If you want to take action when an event occurs, you must insert an  <span style="color:darkred;">anonymous function</span> into the parameter list section of the jQuery event.</p>
+</li>
+</ul>
+
+</fieldset>
+
+
+
+</div>
+
+<h2>Exercise #2</h2>
+<div class="contblock">
+ <p>Try creating a click event for div tags by adding the following code to an HTML page:</p>
+     
+<pre><code>$(document).ready(function(){
+	$("div").click(function(event){
+		alert("Hello World");
+	});
+ });</code></pre>
+	<ul>
+		<li><strong>Challenge A</strong>: Implement the code above for a "div" click event, then test the results in a browser</li>
+		<li><strong>Challenge B</strong>: Add an id or class selector to an element in your HTML</li>
+		<li>Change the jQuery selector "div" to match your selector, eg "#my_unique_id"</li>
+		<li><strong>Challenge C</strong>: Change the event from "click" to one that will only trigger when the user mouses over top of the element. Use this <a href="http://api.jquery.com/category/events/">list of jQuery events</a></li>
+		<li>Note there is more than one event that might work in this case. are some better than others?</li>
+		<li>Add a new tag of your choosing. Assign it a new class or id. Add another jQuery click event to make an alert popup if the user clicks this tag.</li>
+		<li><strong>Bonus Challenge D</strong>: investigate the <a href="http://api.jquery.com/event.pageX/">event.pageX</a> and <a href="http://api.jquery.com/event.pageY/">event.PageY</a> events. Use them to change the alert message so that it reports exactly where the mouse was clicked</li>
+		<li><a href="/1950/downloads/jquery_exercise02_solution.html">Download a sample solution</a></li>
+	</ul>	
+</div>
+
+
+<h2>Event Passing</h2>
+<div class="contblock">
+<ul>
+	<li>If you need to know more about an event that has just occurred, define an <code>event</code> parameter for the anonymous function</li>
+	<li>Inside the function you can access the <code>event</code> as an object that you can query details upon</li>
+	<li><pre><code>/* include a parameter in the anonymous function... */
+$("div").click(function( event ){
+	/* ...access event specific info using the parameter */
+	alert("X position is " + event.pageX );
+});</code></pre></li>
+</ul>
+</div>
+
+
+<h2>jQuery Examples (And Exercise #3)</h2>
+<div class="contblock">
+	<p>Download a copy of this <a href="jquery_exercises.html">jQuery exercise file</a>. Use this file as a test bed for experimenting with the jQuery techniques described throughout session #7. Also <a href="jquery_read_write_input.html">examine some jQuery read/write examples</a></p> 
+	<p>Don't spoil the fun before you try it yourself, but you can <a href="jquery_exercises_solution.html">download a completed sample solution</a> of the exercise file. </p>  
+ </div>
+
+<h2>Overriding Default Behaviors</h2>
+<div class="contblock">
+<p>Sometimes you will want javascript behaviors to override the standard. For example, if you want to use the click event of an anchor tag, you may want to disable the usual anchor tag click.</p>
+<p>Add the <code>prevent.preventDefault();</code></p>
+<pre><code>$("a").click(function(event){
+	event.preventDefault();
+	alert("Hello World");
+});
+</code></pre>
+</div>
+
+<h2>Attributes</h2>
+<div class="contblock">
+<p>The attributes of any element can be changed with jQuery. See a <a href="http://api.jquery.com/category/attributes/">list of jQuery attribute functions</a></p>
+	<ul>
+		<li>add attribute</li>
+		<li>remove attribute</li>
+		<li>toggle class</li>
+	</ul>	
+<p>The basic pattern for adding attributes is<br />
+<code>$('selector').attr('attributename', 'value');</code><br />Your instructor will walk you through some attribute examples</p>	
+</div>
+
+<h2>CSS</h2>
+<div class="contblock">
+<p>The style of any element can be changed with jQuery. See a <a href="http://api.jquery.com/category/css/">list of jQuery CSS functions</a></p>
+	<ul>
+		<li>width</li>
+		<li>height</li>
+		<li>position</li>
+	</ul>	
+<p>The basic pattern for altering CSS properties is<br />
+<code>$('selector').css('property', 'value');</code><br />Your instructor will walk you through some jQuery CSS examples</p>	
+</div>
+
+
+<h2>Effects</h2>
+<div class="contblock">
+<p>Several common javascript special effects have been standardized for reuse. See a <a href="http://api.jquery.com/category/effects/">list of jQuery effects</a></p>
+	<ul>
+		<li>show</li>
+		<li>hide</li>
+		<li>fade in</li>
+		<li>fade out</li>
+		<li>slide up</li>
+		<li>slide down</li>
+		<li>animate</li>
+	</ul>
+<p>The basic pattern for applying effects is<br />
+<code>$('selector').effect()</code><br />Your instructor will walk you through some effect examples</p>	
+<p>Animate is especially powerful, and has a slightly more complex syntax:<br />
+<pre><code>$('selector').animate({
+	property01: 'value',
+	property02: 'value'
+}, speed);</code></pre><br />Note: animate can only effect CSS properties that have numeric values.</p>
+</div>
+
+
+
+<h2>The Current Element (this)</h2>
+<div class="contblock">
+<ul>
+	<li>You can use a dynamic selector called <code>this</code> to choose the element that most recently triggered an event</li>
+	<li> <code>this</code> refers to the current element</li>
+	<li><pre><code>/* if a "div" is clicked... */
+$("div").click(function(){
+	/* ...you can use $(this) to choose the 
+	specific div that was just clicked  */
+	$(this).css('background-color', 'blue');
+});</code></pre></li>
+</ul>
+</div>
+
+
+<h2>Exercise #4</h2>
+<div class="contblock">
+	<ul>
+		<li><a href="/1950/downloads/jquery_menu_exercise.zip">Download the exercise starting files</a></li>
+		<li>Load the jQuery library files using the <code>script</code> tag</li>
+		<li>Add another <code>script</code> tag to link to a <code>.js</code> file that you create</li>		
+		<li>Contain all your jQuery code within <code>$(document).ready(function(){ });</code></li>		
+		<li>Add a click event to the <code>#nav_icon</code> so that clicking it toggles the visibility of the <code>#nav</code></li>
+		<li>Check back later for a sample solution to download</li>
+		<li><a href="/1950/downloads/jquery_menu_exercise_solution.zip">Download a sample solution</a> and examine the code for details</li>
+	</ul>
+</div>
+
+
+<h2>Plugins</h2>
+<div class="contblock">
+	<p>In addition to functions native to jQuery, several developers have implemented plugins to further enhance the possibilities.</p>
+	<p>The <a href="http://plugins.jquery.com/">official jQuery plugin site</a>.</p>
+	<p> is a popular, powerful image gallery handler. Other, assorted plugin options and jQuery techniques are available:</p>
+
+	<ul>
+	<li><a href="http://docs.jquery.com/Tutorials">jQuery tutorials</a> from the official website</li>
+	<li><a href="http://lokeshdhakar.com/projects/lightbox2/">Lightbox</a> a popular photo gallery</li>
+	<li><a href="http://owlgraphic.com/owlcarousel/">Owl Graphic</a> a flexible scrolling carousel</li>
+	<li><a href="http://iamceege.github.io/tooltipster/">Tooltipster</a> useful for custom tool tip popups</li>
+	<li><a href="http://www.kelvinluck.com/assets/jquery/styleswitch/toggle.html">Style Switcher</a> a stylesheet switcher that uses cookies to retain user preferences</li>
+	<li><a href="http://coding.smashingmagazine.com/2010/04/27/45-useful-jquery-techniques-and-plugins/">Smashing Magazine</a> recommends some plugins</li>
+	<li><a href="http://designmodo.com/css-jquery-plugins-coding/">Designmodo</a> suggests more plugins</li>
+	<li><a href="http://speckyboy.com/2011/03/16/30-fantastic-new-jquery-plugins/">SpeckyBoy</a> provides another list of plugins</li>
+	</ul>
+</div>
+
+
+<h2>Developer Tools and jQuery</h2>
+<div class="contblock">
+<ul>
+	<li>How can Browser Developer Tools help us in developing our jQuery functions?</li>
+	<li>Console is the key</li>
+	<li>Using the console to acquire selectors, then pass instructions to them as if they were being acted on in the page in real time</li>
+	<li>Super-ultra-handy tool: <a href="http://www.learningjquery.com/2009/04/better-stronger-safer-jquerify-bookmarklet" title="jQuerify">jQuerify bookmarklet</a>.  Adds jQuery to your page with the click of a button.</li>
+</ul>
+</div>
+
+<h2>Summary</h2>
+<div class="contblock">
+	<p>Frameworks such as jQuery allow for small-footprint, cross-browser compatible javascripts to be deployed with relative ease. </p>	
+	<ul>
+		<li><a href="http://docs.jquery.com/Downloading_jQuery">jQuery Download</a></li>
+		<li><a href="http://api.jquery.com/">jQuery API (Application Programming Interface)</a></li>		
+		<li><a href="http://api.jquery.com/category/events/">Events</a></li>
+		<li><a href="http://api.jquery.com/category/css/">CSS</a></li>
+		<li><a href="http://api.jquery.com/category/effects/">Effects</a></li>
+		<li><a href="http://api.jquery.com/category/attributes/">Attribute Functions</a></li>
+	</ul>	
+		<p>Session #8's quiz will be practical, open book</p>
+
+</div>
+
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>due by midnight before the next class</li>
+	<li>all homework must be published to the class server by midnight, the night before the following class</li>
+	<li><a href="/1950/downloads/comp1950_homework06.pdf">download the homework</a>
+	</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->
