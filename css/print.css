@@ -1,0 +1,43 @@
+
+
+.sidebar, #header-container, #nav, #header, .right-box, .footer, .stu {
+	display: none;
+}
+
+.col-sm-7, .col-xs-6{
+	width: 100%;
+}
+
+body, #content, main, footer, a  {
+/* floating is not advised for printers */
+   /*float: none;*/
+/* let the printer set margins */
+   width: auto;
+   margin: 0;
+   padding: 0;
+   color: #000;
+   background-color: #fff;
+/* dont display background colors or images */
+}
+
+h4 { 
+	page-break-after: avoid; 
+}
+
+a:link:after, a:visited:after{
+	content: " (URL: " attr(href) ") ";
+	font-size: 90%;
+	text-decoration: underline;
+}
+
+.contblock .ui-accordion-content .ui-helper-reset .ui-widget-content .ui-corner-bottom{
+	display: block;
+}
+
+#content #accordion > *{
+	display: block !important;
+}
+
+#content .ex-all > *{
+	display: none !important;
+}
