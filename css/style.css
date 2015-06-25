@@ -9,7 +9,7 @@ cursor: pointer;
 
 #results { 
 background: #dddada; 
-color: 000000; 
+color: #000; 
 padding: 3px; 
 text-align: center; 
 width: 200px; 
@@ -19,7 +19,7 @@ border: 1px solid gray;
 #timeLeft
 {
 	color:red;
-	font-style:bold;
+	font-style:italic;
 }
 #results:hover { 
 background: #3d91b8; 
