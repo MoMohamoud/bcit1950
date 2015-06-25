@@ -1,0 +1,504 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+ <h1>lecture three: CSS techniques</h1>
+<main id="accordion">
+		<h2>Agenda</h2>
+		<div class="contblock">
+			<ul>	
+				<li>stylesheet management</li>
+				<li>advanced selectors</li>
+				<li>rule specificity</li>
+				<li>rule compacting</li>
+			</ul>
+		</div>
+
+
+<h2>Referencing CSS</h2>
+<div class="contblock">
+<h3>Linking your CSS</h3>
+<p>When linking to external style sheets, there are a number of things to know.  A standard LINK element:</p>
+<pre><code>&lt;link	rel="stylesheet" 
+	type="text/css" 
+	href="http://www.mysite.com/css/styles.css" 
+	title="Main Style" 
+	media="screen" /&gt;</code></pre>
+
+<p>This features a number of things to keep in mind:
+</p><ul>
+	<li>Each stylesheet requires it's own <code>link</code> tag</li>
+	<li>Multiple stylesheets can be loaded (main.css, fonts.css, layout.css, etc)</li>
+	<li>The <code>rel</code> determines how the HTML will use the file linked to</li>
+	<li>The <code>type</code> attribute is optional (dropped in HTML5), but including it increases browser backward compatibility</li>
+	<li><code>href</code> defines the path, relative or absolute, to the css file </li>
+	<li>The <code>title</code> attribute allows the user to select different styles if required</li>
+	<li>The <code>media</code> attribute allows you to specify what medium this should be viewed in</li>
+	</ul>
+
+<h3>Media variations: <code>media</code></h3>
+<ul>
+	<li><code>media="type"</code> can be a powerful tool</li>
+	<li>Examples of supported types:  <code>all</code>, <code>aural</code>, <code>braille</code>, <code>embossed</code>, <code>handheld</code>, <code>print</code>, <code>projection</code>, <code>screen</code>, <code>tty</code>, <code>tv</code></li>
+	<li>Most are not commonly supported, but ones that you will see often: <code>all</code>, <code>screen</code>, <code>print</code> with handheld becoming more popular</li>
+	<li>Almost all browsers use the <code>print</code> sheet to render text and elements for when the user selects a page to print</li>
+	<li>This can be extremely valuable for when you have a lot of page information that you might not want to have show up on a printout (ie: navigation)</li>
+	<li><a href="/1950/downloads/css_per_media.zip">Download and examine css media example files</a>, test them after publishing online. Examine the code to see how they work.</li>
+<!--	<li>NOTE: you can simulate a variety of clients using Google's Chrome web browser: 
+		<ul>
+			<li>Open the document in Chrome</li>
+			<li>Choose Tools > Developer Tools</li>
+			<li>Open the <code>Emulate</code> panel</li>
+			<li>Choose the <code>Screen</code> option, then enable <code>CSS Media</code></li>
+			<li>Use this to emulate different source devices</li>
+		</ul>
+	</li>-->
+	<li>Several handheld devices (iPhones, tablets, most Andriods) do not identify themselves as media type 'handheld'</li>
+	<li>The reasoning was that the devices were more than capable of displaying standard web sites, so they identify as 'screen'</li>
+	<li>In session #5, we will apply media queries for responsive design, allowing us to customize the presentation based on the various portable devices</li>
+
+</ul>
+
+
+<h3>Alternate style sheets: <code>rel</code> attribute</h3>
+<p>You can also have alternate stylesheets supported</p>
+<ul>
+	<li><code>rel="stylesheet"</code> defines the default stylesheets to use</li>
+	<li><code>rel="alternate stylesheet"</code> allows different styles to be defined</li>
+	<li><strong>Tip:</strong> If you have multiple sheets that belong to one "look" make sure they all have the same <code>title</code></li>
+	<li>You can create alternate style sheets for users, allowing them to select which ones they would like to see</li>
+	<li>An example would be to create a 'Larger Text' style sheet with everything in a larger font, or an alternate Halloween stylesheet for your site</li>
+	<li>Many browsers are now giving users the ability to select which sheet they would like to see. (Firefox: View &gt; Page Style)  </li>
+</ul>
+	<h3>Alternate style sheets: <code>title</code> attribute</h3>
+	<ul>
+		<li>A stylesheet is "persistent" if it is linked with <code>rel="stylesheet"</code> and has no <code>title</code> attribute. All persistent stylesheets are used when rendering</li>
+<li>A stylesheet is "preferred" if it is linked with <code>rel="stylesheet"</code> and has a <code>title</code> attribute. these styles will be used as the default. preferred stylesheets with the same title are grouped together</li>
+<li>Finally, a stylesheet is "alternate" if it is linked with <code>rel="alternate stylesheet"</code> and has a <code>title</code>. These stylesheets are supposed to allow the user to choose stylesheets, they are grouped together by <code>title</code> and show up in the browser's stylesheet selector if it has one (<code>View > Page Style</code> in Firefox). Each group (by <code>title</code>) is mutually exclusive.</li>
+</ul>
+		</div>
+
+<h2>Exercise #1: Apply An Alternate Stylesheet</h2>
+<div class="contblock">
+<ul>
+	<li><a href="/1950/downloads/alternate_stylesheets.zip">Download the alternate stylesheet starting files</a></li>
+	<li>Make a copy of one of the current stylesheets, rename it, and change some of the styles</li>
+	<li>Add this new stylesheet as an "alternate stylesheet" to the HTML page</li>
+	<li>Show your instructor when complete</li>
+	<li><a href="/1950/downloads/alternate_stylesheets_solution.zip">Download a sample solution</a></p></li>
+</ul>
+
+</div>
+
+<h2>@import Method: Managing Multiple CSS Files</h2>
+<div class="contblock">
+
+	<p>the <code>@import</code> directive can be used embedded or externally to easily manage the loading of stylesheets</p>
+
+<h3>Embedded Example:</h3>
+	<p>Embedding the <code>@import</code> works well when dealing with older browsers, as they don't read the command. Simply reference a stylesheet that imports another sheet, so you protect yourself from older browsers. Should also be used in conjunction with an older-style page (lo-fi) for older browsers.</p>
+
+	<p>In your document, use the following within the &lt;head&gt; tag:</p>
+	
+	<pre><code>&lt;link rel="stylesheet" type="text/css" href="/css/basic_styles.css" media="all" /&gt;</code></pre>
+	<pre><code>&lt;style type="text/css" media="all"&gt;
+	@import url("/css/rich_styles.css");
+&lt;/style&gt;</code></pre>
+	<p>This allows you to include basic styles in <code>basic_styles.css</code> (for older, or CSS-less-supported browsers) and have current styles for modern browsers in <code>rich_styles.css</code>.</p>
+	
+<h3>External Example:</h3>
+	<p>You can use the <code>@import</code> method to import multiple stylesheets from a basic stylesheet that you link to.  This will reduce the clutter that can sometimes occur within the <code>&lt;head&gt;</code> section.</p>
+	<p>It is also a great place to be able to manage your CSS. From your main document, create a <code>&lt;link&gt;</code> to your <code>styles.css</code> page.</p>
+	<p>In the body of the <code>styles.css</code> file, import as many files as you need:</p>
+		<ul>
+			<li><code>@import url("/css/type.css");</code></li>
+			<li><code>@import url("/css/nav.css");</code></li>
+			<li><code>@import url("/css/template.css");</code></li>
+		</ul>
+	<p><strong>NOTE:</strong> when using the <code>@import</code> directive in an external CSS file, ensure it is the first lines of code in the <code>.css</code> file. It is also best to not include other CSS rules in a page that uses <code>@import</code> </p>
+</div>
+
+<h2>Exercise #2: Using @import</h2>
+<div class="contblock">
+<ul>
+
+	<li><a href="/1950/downloads/importing_css.zip">Download the css import exercise starting files</a></li>
+	<li>Use the <code>@import</code> feature to simplify the HTML file's CSS references, so that only one <code>&lt;link&gt;</code> tag is required in the HTML <code>&lt;head&gt;</code> section.</li>
+	<li>Show your instructor when complete</li>
+  <li><a href="/1950/downloads/importing_css_solution.zip">Download a sample solution</a></p></li> 
+
+</ul>
+</div>
+
+
+<h2>CSS Selectors</h2>
+<div class="contblock">
+
+<p>There are several <a href="http://css.maxdesign.com.au/selectutorial/">advanced CSS selector techniques</a> that provide plenty of options for the application of style.</p>
+<h3>Universal Selector</h3>
+<ul>
+	<li>This is a fairly widely supported selector: the asterisk <code>*</code></li>
+	<li>Use it to specify a global rule</li>
+	<li><code>* { color: red; }</code> will make all font color red on your page</li>
+	<li>The universal selector can be very powerful, as it can command a lot of changes to your styles, 
+</li></ul>
+
+
+<h3>Pseudo-classes</h3>
+			<p>A Pseudo-class is a selector that allows you to reference a specific action or attribute of an element.  This is most often used when specifying <code>a</code> attributes, such as <code>:visited</code> and <code>:link</code>.</p>
+
+			<p>There are other uses for pseudo elements, that will allow for greater detail in styling content, such as <code>:first-letter</code> and <code>:first-line</code>.  These allow the browser to apply a style based on an unselected, but displayed element. </p>
+
+<p><em>Best part:</em>  No <code>span</code> or <code>div</code> required to access these pseudo-elements.</p>
+<ul>
+	<li>Within <code>a</code> pseudo-elements in particular, it's important to follow a certain order:
+		<ul><li>Link</li>
+			<li>Visited</li>
+			<li>Hover</li>
+			<li>Active</li></ul>
+	</li>
+	<li>Easy mnemonic: LVHA - <strong>L</strong>o<strong>V</strong>e - <strong>HA</strong>te</li>
+	<li>Because of the way that CSS applies rules, it looks at the LAST rule for a given element and applies more weight to it.</li>
+	<li>So: if you are Hovering over a link, you don't want to see the Link state</li>
+	<li>So: If you CLICK on a link, you don't want to see the Link state</li>
+	<li>Be sure to review these <a href="http://css-tricks.com/pseudo-class-selectors/">psuedo-class references and examples</a></li>
+</ul>
+
+<h3>Descendant Selectors</h3>
+<ul>
+	<li>Separated by a space, the last element being the key one</li>
+	<li><code>h1 em</code> will apply rules to all em's within an h1</li>
+	<li>You can have as many as you want: <code>ul ol ul li</code></li>
+	<li>Great for specifying different styles when they apply only in certain areas</li>
+	<li><code>#nav a { ... }</code> will only apply these rules to Anchors within the div called nav</li>
+	<li>Degree of separation can be infinite, so be careful</li>
+	<li><code>p em</code> will match ANY em that descends from a paragraph, no matter how nested</li>
+</ul>
+
+<h3>Child Selectors</h3>
+<ul>
+	<li>Uses the &gt; combinator to specify children</li>
+	<li>Will select an element that is directly descended from another element</li>
+	<li><code>p &gt; strong</code> will only select a strong tag that is inside a paragraph</li>
+	<li>Will not select a strong tag embedded in any other tag (even if it is within a paragraph)</li>
+</ul>
+
+
+<h3>Attribute Selectors</h3>
+<ul>
+	<li>You can also select elements by what the element contains</li>
+	<li>The method is: <code>element[attribute=value]</code></li>
+	<li>If you specify an attribute with no value, you will match any element that simply has the attribute present (no matter what it's value is)</li>
+	<li><code>p[align] {color: red;}</code> will turn red any paragraph that contains an align attribute</li>
+	<li>Similarly, <code>img[alt] {border: 1pt red solid; }</code> will draw a red line around all images with an alt attribute</li>
+	<li>You can further direct the attribute selector to find content that is at the beginning (using the carat: ^), somewhere inside (using the asterisk: *) or end of a value (using the dollar sign: $)</li>
+	<li>If you wanted to find any files that were SHTML files and mark their link differently, you could write: <code>a[href$=".shtml"] { color: olive; }</code></li>
+</ul>
+
+<p>Lets try some examples with a <a href="advanced_css_selectors.html">sample page</a>. To add CSS, use either a tool like Firebug or download the html page and alter it in a text editor. You can examine an <a href="advanced_css_selectors_complete.html">updated sample page</a> to see completed examples of the advanced CSS selectors. </p>
+
+</div>
+
+
+
+
+
+<h2>Exercise #3a: Advanced Selectors</h2>
+<div class="contblock">
+<ul>
+	<li><a href="/1950/downloads/css_selector_exercise.zip">Downloads the exercise source files</a></li>
+	<li>Make NO changes to the HTML file, other than adding embedded or external CSS. Do NOT add any attributes (neither class nor id) to any of the tags.</li>
+	<li>Use the various available CSS selectors to style the HTML on the left side of the page so that it matches the image on the right side.</li>
+
+	<li>Show your instructor when complete</li>
+
+ <li><a href="/1950/downloads/css_selector_exercise_sample.zip">Download a sample solution</a></li> 
+</ul>
+
+</div>
+
+
+<h2>Exercise #3b: Advanced Selectors</h2>
+<div class="contblock">
+<h3>More Attribute Selectors - Identify File Types</h3>
+<p>In this advanced exercise, you can use Attribute Selectors to let your users know what kind of file they are going to download by showing an icon</p>
+<p>Using CSS, you don't have to add any images to your markup!</p>
+<ul>
+	<li><a href="/1950/downloads/css_attribute_selectors.zip">Download the source files</a></li>
+	<li>Using attribute selectors (and a <code>background</code> property), try and get the appropriate icons to line up with each file type</li>
+<li><a href="/1950/downloads/css_attribute_selectors_solution.zip">Download a sample solution</a></li>
+</ul></div>
+
+<h2>Simplifying your CSS</h2>
+<div class="contblock">
+<p>When building your CSS rules, there are some easy ways to compact your code.
+
+</p><h3>Grouping selectors</h3>
+<ul>
+	<li>If you would like to apply the same style to a multitude of different selectors, you can group them with the comma</li>
+	<li><code>h1, h2, h3, h4, h5 { color: red; }</code></li>
+	<li>This can be done with Elements, classes and IDs</li>
+	<li>Specific rules for H3 (for example) can come later</li>
+</ul>
+
+<h3>Grouping comes to Classes</h3>
+<ul>
+	<li>As well as grouping Elements, you can also group classes</li>
+	<li><code>.cool, .wicked { ... }</code></li>
+	<li>But you can also select those classes in your HTML</li>
+	<li><code>&lt;p class="cool wicked"&gt;</code> will actually select both the cool and wicked classes</li>
+	<li>The order of the attribute values is irrelevant</li>
+	<li>Case is important!  Remember to use a single rule for CSS naming and stick with it</li>
+</ul>
+
+<h3>Rule Compacting</h3>
+<ul>
+	<li>There are a lot of rules that will accept a compacted ruleset</li>
+	<li>Some examples:<ul>
+	<li>Font</li>
+	<li>Border</li>
+	<li>Padding</li>
+	<li>Margin</li></ul></li>
+	<li>Example border and font shorthand patterns:
+		<ul>
+			<li><code>border: width style color;</code></li>
+			<li><code>font: font-size font-family;</code></li>
+			<li><code>font: font-style font-variant font-weight font-size/line-height font-family;</code></li>
+		</ul>
+	</li>	
+
+	<li>Several options are available for applying styles to box model coordinates on <code>borders</code>, <code>paddings</code>, and <code>margins</code>. For example:
+		<ul>
+			<li><code>border-width:10px;</code>
+				<ul>
+					<li>all four borders are 10px</li>
+				</ul>
+			</li>
+			<li><code>border-width:10px 20px;</code>
+				<ul>
+					<li>top and bottom borders are 10px</li>
+					<li>left and right borders are 20px</li>
+				</ul>
+			</li>
+			<li><code>border-width:10px 20px 30px;</code>
+				<ul>
+					<li>top border is 10px</li>
+					<li>left and right borders are 20px</li>
+					<li>bottom border is 30px</li>
+				</ul>
+			</li>
+			<li><code>border-width:10px 20px 30px 40px;</code>
+				<ul>
+					<li>top border is 10px</li>
+					<li>right border is 20px</li>
+					<li>bottom border is 30px</li>
+					<li>left border is 40px</li>
+				</ul>
+			</li>
+
+
+		</ul>
+	</li>
+	<li>The shorthand code for font styles might look like this:<br />
+	<code>font: italic small-caps bold 100%/1.3em Arial, "Trebuchet MS", Sans-serif;</code>
+	<br />or, using fewer properties<br />
+	<code>font: 12px arial, sans-serif;</code>
+	</li>
+
+</ul>
+
+<h3>While we are on Fonts...</h3>
+<ul>
+	<li>Remember to <strong>always</strong> specify multiple fonts</li>
+	<li>Also, <strong>always</strong> specify a generic font family as a backup (serif, sans-serif, monospace, fantasy)</li>
+	<li>If font name has a space, make sure you enclose it in quotes: "Times New Roman"</li>
+	<li>Serif fonts: good for headlines</li>
+	<li>Sans-serif fonts: good for body content</li>
+	<li><strong>Bad fonts</strong>: Comic Sans and Impact.  Resist the urge!
+</li></ul>
+
+
+</div>
+
+<h2>Rule Order &amp; Specificity</h2>
+<div class="contblock">
+
+<p>When a style declaration is found to be in conflict with a previously declared style, there is a method for determining which one will win out.  The process is built into every web browser, and almost all of them calculate the values identically (for once!).</p>
+
+<p>Here is how the <acronym title="World Wide Web Consortium">W3C</acronym> defines the process by which style order is determined:</p>
+
+<ul>
+	<li><strong>Discover all declarations.</strong>  Find all declarations that apply to the element and property in question, for the target media type. Declarations apply if the associated selector matches the element in question. </li>
+	<li><strong>Sheet Order.</strong> The primary sort of the declarations is by weight and origin: for normal declarations, author style sheets override user style sheets which override the default style sheet.
+		<ul><li class="note"><em>Note:</em> For "!important" declarations, user style sheets override author style sheets which override the default style sheet. "!important" declaration override normal declarations. An imported style sheet has the same origin as the style sheet that imported it. </li></ul>
+	 </li>
+	<li><strong>Specificity:</strong> The secondary sort is by specificity of selector: more specific selectors will override more general ones. Pseudo-elements and pseudo-classes are counted as normal elements and classes, respectively. </li>
+	<li><strong>Sort by Order:</strong> Finally, sort by order specified: if two rules have the same weight, origin and specificity, the latter specified wins. Rules in imported style sheets are considered to be before any rules in the style sheet itself.</li>
+</ul>
+
+<p>All of the rules are pretty straightforward, except for Specificity, which bears some explanation.  
+</p>
+
+<p><strong>Specificity</strong> is a method for determining what rules are applied when a conflict between two selectors occurs.  Through a method of adding values when certain elements and selectors are present, a specificity number can be applied to any CSS rule.  The one with highest specificity wins and the associated rule is applied to the element(s) in question.</p>
+
+<h3>Ruleset for Specificity</h3>
+<p>Style sheets can also override conflicting style sheets based on their level of specificity, where a more specific style will always win out over a less specific one. It is simply a counting game to calculate the specificity of a selector.
+
+</p><ol>
+	<li>Count the number of ID attributes in the selector.</li>
+	<li>Count the number of CLASS attributes in the selector.</li>
+	<li>Count the number of HTML tag names in the selector.</li>
+</ol>
+<p></p>
+
+<p>Next, write the three numbers in exact order with no spaces or commas to obtain a three digit number. (Note, you may need to convert the numbers to a larger base to end up with three digits.) The final list of numbers corresponding to selectors will easily determine specificity with the higher numbers winning out over lower numbers. Following is a list of selectors sorted by specificity:
+
+</p><ul>
+	<li>#id1<br />/* <code>id</code>=1 <code>class</code>=0 <code>HTML</code>=0 --&gt; specificity = 100 */</li>
+	<li>UL UL LI.red<br />/* <code>id</code>=0 <code>class</code>=1 <code>HTML</code>=3 --&gt; specificity = 013 */</li>
+	<li>LI.red<br />/* <code>id</code>=0 <code>class</code>=1 <code>HTML</code>=1 --&gt; specificity = 011 */</li>
+	<li>LI<br />/* <code>id</code>=0 <code>class</code>=0 <code>HTML</code>=1 --&gt; specificity = 001 */</li>
+</ul>
+<p></p>
+
+
+<h3>!important rule</h3>
+<ul>
+	<li>This declaration, when added to a rule, will override almost all other declarations, with no respect for specificity.  </li>
+	<li>It indicates that this rule should take over any previous rules that might govern a specific element.</li>
+    <li>Example
+		<code>
+		.selector{ color:blue !important; }
+		</code>
+	</li>
+	<li>This rule can cause havoc if overused, as it will overrule any other declaration with the same selector.  <strong>Be careful with <code>!important</code></strong></li>
+
+</ul>
+
+</div>
+
+
+<h2>CSS Measurements</h2>
+<div class="contblock">
+
+<p>In CSS, there are a number of measurement values that can be used in declarations.</p>
+
+<ul>
+	<li>The most common are size measurements which are mostly applied to fonts, margins, padding, borders, etc.</li>
+	<li>Can be an easy way to space your page - based on the printed word on the page</li>
+	<li>Some measurements systems are very old and rarely used</li>
+</ul>
+
+<h3>Size measurements</h3>
+
+<ul>
+	<li><strong>px</strong> - Pixels is one of the most common measuring types.  It is specific to computers, as it renders based on the pixel-display of all monitors.  Great for specific measurements on boxes and borders, but for fonts, it can lead to difficulty as some browsers don't allow scaling and font can end up too small</li>
+	<li><strong>pt</strong> - Points is an aold system related to type-setting that had a standard size for points.  This is a relative size based on the users' system</li>
+	<li><strong>pc</strong> - Picas is a very old system that was frequently related to typewritten documents.  Rarely used.</li>
+	<li><strong>em</strong> - A relative measurement of the letter "m" in the chosen font. This is a popular one for spacing around text, as it inherits the font dimensions</li>
+	<li><strong>ex</strong> - Similar to <code>em</code>, this is a relative measurement of the letter "x".  However, it is rarely used, and not fully supported</li>
+	<li><strong>%</strong> - Percentage measurements are also very common, but can be problematic when inheritance happens when multiple elements are nested in one another</li>
+	<li><strong>named</strong> - This refers to fonts and a few other elements.  The named sizes are xx-small, x-small, small, medium, large, x-large, xx-large.  They are relative to the browsers base font size</li>
+</ul>
+
+<h3>Color Measurement</h3>
+<p>Colors can be specified in a number of ways, corresponding to the system that your organization or visual element requires.</p>
+
+<p>Almost all color systems use a method for expressing a combination of the three color spaces used for displaying colors on computer monitors: Red Green and Blue.</p>
+<ul>
+	<li><strong>Hex: <code>#003366</code></strong> - One of the most common systems, it combines 2 digits each for Red Green and Blue.  Each hex pair stand stands for digits between 00 and FF in hexadecimal</li>
+	<li><strong>Compact Hex: <code>#f30</code></strong> - This is almost identical to the Hex version, except that when three numbers are used, most browsers will just double-up each digit.  So, <code>#f30</code> will become <code>#ff3300</code></li>
+	<li><strong>Named: <code>cornflowerblue</code></strong> - Although the official W3C specification only lists 16 named colors, almost every browser supports the various <a href="http://www.google.ca/search?q=css+named+colors">named colors</a></li>
+	<li><strong>RGB: <code>rgb(255, 0, 255)</code></strong> - This allows the user to specify the same thing as Hex, but in Decimal format</li>
+	<li><strong>RGB %: <code>rgb(100%, 0%, 50%)</code></strong> - Almost identical to RGB, but with percentages of each color space instead</li>
+</ul>
+</div>
+
+<h2>CSS Resources</h2>
+<div class="contblock">
+	<ul>
+		<li><strong><a href="https://developer.mozilla.org/en/CSS-2_Quick_Reference/">CSS2 Quick Reference</a></strong></li>
+		<li><strong><a href="http://jigsaw.w3.org/css-validator/">CSS Validator</a></strong></li>
+	</ul>
+</div>
+
+<h2>Summary</h2>
+<div class="contblock">
+<h3>Advanced CSS</h3>
+<ul>
+	<li>use <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets">rel='alternate stylesheet'</a></code> and unique <code>title</code>s with your <code>link</code> elements to facilitate alternative stylesheets</li>
+	<li>use <code><a href="https://developer.mozilla.org/en/docs/Web/CSS/@import">@import</a></code> to reduce the quantity of stylesheets that need to be linked to in your HTML</li>
+	<li><a href="http://css.maxdesign.com.au/selectutorial/">css selector</a> mastery cleans up the HTML code, and provides more styling options. practice using <code>universal</code>, <code>child</code>, <code>descendant</code> and <code>attribute</code> selectors</li>
+	<li><a href="http://www.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">rule specificity</a> is calculated by counting the number of <code>id</code>s, <code>class</code>es, then <code>HTML</code> selectors. the higher resulting 3 digit number will over-rule lower values</li>
+	<li>use rule compacting to reduce the number of css properties you need to declare</li>
+</ul>
+<h3>Organizing CSS Rules</h3>
+<p>When building your CSS, here are some tips to better organize your rules</p>
+<ul>
+	<li><strong>Set the defaults.</strong>  Create your global rules (like what fonts you want to see on the entire page), and specify variations for elements or classes later in your stylesheet</li>
+	<li><strong>Later rules override earlier ones.</strong> All things being equal, later rules override earlier ones.  So, add more specific requirements in the later parts of your stylesheet. for example:
+	<ol>
+	<li>code HTML sectors first</li>
+	<li>then .class selectors</li>
+	<li>finally .id selectors</li>
+	</ol>
+	</li>
+	<li><strong>!important always wins.</strong> If you want a specific rule to be used no matter where it falls in the cascade, add <strong>!important</strong> to the end.  Use this <strong>sparingly</strong>!</li>
+	<li>Comment your code!</li>
+</ul>
+	<p>Session #4's quiz will be practical, open book</p>
+</div>
+
+
+<h2>Homework</h2>
+<div class="contblock">
+	<ul>
+	<li>due by midnight before the next class</li>
+<li>homework specifications will be available here upon release. check back later for an active download link</li>
+	<li><a href="/1950/downloads/comp1950_homework03.pdf">download the homework</a></li>
+	</ul>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->
+

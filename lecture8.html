@@ -1,0 +1,448 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+<h1>lecture eight: dynamic content</h1>
+<main id="accordion">
+
+
+		<h2>Agenda</h2>
+		<div class="contblock">
+			<ul>	
+				<li>server side development</li>
+				<li>server environment and configuration</li>
+				<li>server side includes, tokens</li>
+				<li>query string value passing</li>
+			</ul>
+		</div>
+
+
+<h2>Serving Dynamic Content</h2>
+<div class="contblock">
+	<p>Websites where content is static are 'brochure' sites. All users see the same site when the content is static.</p>
+	<p>Content that is created at the time of request is 'dynamic', and may not be the same for all users. Server side scripts can generate HTML CSS and/or Javascript.</p>
+	<ul>
+	<li>form processing</li>
+	<li>database transactions</li>
+	<li>shopping carts</li>
+	<li>social networks</li>
+	<li>secure encryption/decryption</li>
+	<li>rss (Really Simple Syndication)</li>
+	<li>cms (Content Management Systems)</li>
+	</ul>
+	<p>No matter how the content is generated the end result of a dynamic content is always the same for the user: HTML, CSS and Javascript</p>
+</div>
+
+<h2>Server Development Environment</h2>
+<div class="contblock">
+	<p>A common practice among developers is to create a Server/Client environment on a local network, closed to the world wide web. This provides a private, safe place to test and debug sites that use server side scripting. There are several HTTP server programs available to choose from.</p>
+	<h4>HTTP servers</h4>
+	<ul>
+	<li><a href="http://httpd.apache.org/">Apache</a></li>
+	<li><a href="http://www.iis.net/community">IIS (Micrososft)</a></li>
+	<li><a href="http://www-03.ibm.com/software/products/en/http-servers">IBM</a></li>
+	<li><a href="http://www.oracle.com/technetwork/middleware/webtier/overview/index.html#OHS">Oracle</a></li>
+	
+	</ul>
+	<p>In this course, we will work with the <code>*AMP</code> architecture, which consists of three popular, open source, web server technologies. Many of today's server environments will have the same setup: Apache web server, MySQL database and PHP scripting.</p>
+	<h4>*AMP Acronym</h4>
+	<ul>
+		<li><code>*</code> - Operating system: <code>W</code>AMP (Windows), <code>M</code>AMP (Mac),<code>L</code>AMP (Linux)</li>
+		<li><code>A</code> - Apache web server</li>
+		<li><code>M</code> - MySQL Database</li>
+		<li><code>P</code> - PHP Server Side Scripting</li>
+	</ul>
+</div>
+
+<h2>Exercise #1: Install and run an HTTP server</h2>
+<div class="contblock">
+
+	<ol>
+<li>download an open source server package for your operating system:
+	<ul>
+		<li><a href="http://www.wampserver.com/en/">WAMP</a> - windows</li>
+		<li><a href="http://www.mamp.info/en/">MAMP</a> - macintosh</li>
+
+		
+	</ul>
+</li>	
+<li><strong>important:</strong> if using BCIT lab computers, install the server to the C: drive, NOT your personal drive on H:.</li>
+<li>install the downloaded package with default settings</li>
+<li>start the http server</li>
+<li>visit <code>http://localhost</code> in your web browser (Mac users visit <code>http://localhost:8888</code>)</li>
+	</ol>
+</div>
+<h2>Server Structure and Management</h2>
+<div class="contblock">
+
+<h3>Server Structure</h3>
+<p>Locate the <code>www</code> (Windows) or <code>htdocs</code> (Macintosh) folder within your <code>*AMP</code> installation. This is known as the <strong>server root</strong>. Any documents that your server needs access to must be placed inside this folder or in subfolders. Documents not inside this folder cannot be retrieved by the server. The <strong>server root</strong> physical address is mapped to the <strong>http://localhost</strong> virtual address. When you visit localhost in a web browser, your server will display the contents of the <strong>server root</strong>.</p>
+
+<fieldset>
+<legend>Managing The Server</legend>
+<p>There are two ways to administer an Apache web server, either using the server configuration files or using a special text file named <code>.htaccess</code></p>
+<ol>
+<li>
+<h3>Server 'config' Files</h3>
+<p>There is a configuration file used for determining how the server behaves: <code>http.conf</code>. Access it via the WAMP icon on your taskbar</p>
+
+<p>If you have administrative access to the server, you can make changes directly to these config files. If you save these changes, then restart the server, the changes will take effect.</p>
+<p>Find and open the file <code>httpd.conf</code> in a text editor. Locate the following directives in the file:</p>
+		<ul>
+		<li><code>Listen 80</code> the port your server is accepting requests on (default HTTP port is 80)</li>
+		<li><code>DocumentRoot </code> defines your server root folder</li>
+		</ul>
+</li>
+		<!--
+<p>Find and open the file <code>php.ini</code> in a text editor. Locate the following directives in the file:</p>
+		<ul>
+		<li><code>date.timezone</code> you should change the assigned value to 'America/Los_Angeles'</li>
+		<li><code>display_errors</code> set to on for development servers, set off for production servers</li>
+		</ul>	
+--><li>
+<h3>Managing The Server With .htaccess</h3>
+		<p>The <code>.htaccess</code> file is a text file used by the Apache HTTP server to configure basic behaviour without requiring server administrator privileges. Place this file in the server root for it to take effect</p>	
+<p>The <code>.htaccess</code> file is very powerful, and especially useful when you do not have access to the server configuration file (<code>httpd.conf</code>). You can determine what is displayed when errors occur (Error 404, 500, etc), prevent hotlinking of your images, etc. 
+<a href="http://www.javascriptkit.com/howto/htaccess.shtml">.htaccess how to</a></p>	
+<p>Most Macs will classify .htaccess as a system file, and will not allow you to read or change it. If you develop on a Mac, follow these instructions for <a href="http://www.turnwall.com/articles/show-hidden-files-in-mac-os-x/">how to manage .htaccess with Mac</a></p>
+</li>
+</ol>
+</fieldset>
+<h3>Build URLs Relative to Server Root</h3>
+<p>Unlike files on a client machine, files on a server have a new kind of relative path they may use.</p>
+<ul>
+	<li><code>css/style.css</code> relative path (look in the css folder for style.css)</li>
+	<li><code>./css/style.css</code> another relative path (starting from the current directory, look in css folder for style.css)</li>
+	<li><code>../css/style.css</code> another relative path (move to the parent directory, then look for the css folder containing style.css)</li>
+	<li>**servers only** <code>/css/style.css</code> if the relative URL begins with a forward slash, then the path begins at the server root looking for the css folder. HTML, CSS, Javascript and Server side Scripts that use server root based paths can be located <strong>anywhere</strong> in the server root or in any subfolders, increasing code portability</li>
+</ul>
+
+
+</div>
+<h2>Exercise #2: HTTP Server Configuration</h2>
+
+<div class="contblock">
+<p>Complete both challenges in this exercise. Ask your instructor if you have questions.</p>
+<p><a href="/1950/downloads/apache_server_exercise.zip">Download the exercise starting files</a></p>
+
+<ol>
+	<li>Uncompress the contents of the exercise download</li>
+	<li>Place all files and folders in your server root (<code>css</code>, <code>images</code> and <code>errors</code> folders)</li>
+	<li>Update the HTML file <code>sample_file.html</code> wherever it references images or css files: Currently relative paths are used. Change these to server-based relative paths</li>
+	<li>Request this page on localhost to confirm the stylesheet and images are loading</li>
+	<li>Make a copy of the HTML page and place it in a subfolder created by you. Test this page via localhost to demonstrate the increased portability of your HTML code</li>
+	<li>Use <code>.htaccess</code> to assign default error message pages. Open the included <code>.htaccess</code> file (<a href="http://www.turnwall.com/articles/show-hidden-files-in-mac-os-x/">how to manage .htaccess with Mac</a>), and add the following directives: <ul>
+	<li><code>ErrorDocument 404 /errors/file_not_found.html</code></li>
+	<li>Trigger an error by requesting over <code>localhost</code> a page that doesn't exist. Does <code>file_not_found.html</code> display and use the warning image? If not, examine <code>file_not_found.html</code>s paths, and ensure they match the file loactions on you server</li>
+
+</ol>
+
+<p>WAnt to know more about what you can do with the .htaccess file? Here is an excellent <a href="http://www.javascriptkit.com/howto/htaccess.shtml">.htaccess tutorial with examples</a>.</p>
+	
+</div>		
+<h2>What are Server Side Includes?</h2>
+
+<div class="contblock">
+<p>Server Side Includes (SSI) are well supported server functions available to a web application.</p>
+<p>SSIs are not as powerful as server side scripting, but are more portable than most scripts, since any HTTP server can run SSIs</p>
+<p>A server function that allows for real-time echoing of information to the browser such as: 
+
+</p><ul>
+	<li>Time </li>
+	<li>Date </li>
+	<li>File information </li>
+	<li>Loading page content from external files</li>
+	<li>Conditional execution of documents </li>
+</ul>
+</div>
+
+<h2>How do they work?</h2>
+<div class="contblock">
+<ul>
+	<li>A series of characters (called tokens) are included in your HTML </li>
+	<li>As page is processed by the HTTP server, any tokens are sent to the SSI engine </li>
+	<li>The processed result is then either output as HTML, or some server side function is instantiated. </li>
+</ul>
+ 
+
+<h3>Can be a powerful tool for web development:</h3>
+
+<ul>
+	<li>Further lightens your code.  A small SSI statement can take the place of a large, re-used codeblock</li>
+	<li>This can save giant amounts of code footprint on your site!</li>
+	<li>Code changes made easy.  If you have your navigation built into an SSI, you can make 1 change and all pages that subscribe to that SSI will change.</li>
+	<li>Execute script and applications within HTML.  If you need to have live data on your site, you can write a mini-application that will execute each time you deliver a page.  BCIT's navigation system runs on this.</li>
+</ul>
+</div>
+ 
+
+<h2>Enable Sever Side Includes</h2>
+<div class="contblock">
+	<p>Each server may support one or more scripting languages. Most all servers support server side includes (SSI). SSIs are highly portable, since it does not depend on which server side scripting languages a particular server supports.</p> 
+	<p>To enable SSI, you must either (1)  configure the server configuration file to process SSIs.<strong>OR</strong> (2) include an <code>.htaccess</code> file in the server root </p>
+	<h3>Choose one of the following:</h3>
+<ol>
+
+
+	<li>
+		<h4>SSI Configuration</h4>
+<p>
+	<a href="http://httpd.apache.org/docs/1.3/howto/ssi.html#configuringyourservertopermitssi">Enable server side includes</a> on your server by making the following changes to the <code>httpd.conf</code> file:
+</p>
+	<ul>
+	<li>Find the section where your server root directory is detailed (The second instance of the &lt;Directory&gt; tag).</li>
+	<li>Inside the &lt;Directory&gt; tag, find the <code>Options</code> directive and add <code>+Includes</code> to the list of Options.</li>
+	<li>Add the following to the end of the <code>httpd.conf</code> file:
+	<pre><code>AddType text/html .shtml 
+AddHandler server-parsed .shtml 
+Options Indexes FollowSymLinks Includes</code></pre>
+	</li>
+	<li>save the changes</li>
+	<li>restart the server</li>
+	</ul>
+	</li>
+	<li><h4>.htaccess Configuration</h4>Add the following to the bottom of your <code>.htaccess</code> file:
+	<pre><code>AddType text/html .shtml 
+AddHandler server-parsed .shtml 
+Options Indexes FollowSymLinks Includes</code></pre>
+<p>Mac developers need to enable system file editing first: <a href="http://www.turnwall.com/articles/show-hidden-files-in-mac-os-x/">how to manage .htaccess with Mac</a></p>
+	</li>
+	</li>
+</ol>
+
+</div>
+
+<h2>What do they look like?</h2>
+
+<div class="contblock"><p>
+	Each SSI Token has the following 4 pieces:
+
+	</p><ol>
+	<li><strong>&lt;!--#</strong> Opening identifier </li>
+	<li><strong>{tag}</strong> is one of the following actions: 
+		<ul><li>echo </li>
+		<li>include </li>
+		<li>fsize </li>
+		<li>flastmod </li>
+		<li>exec </li>
+		<li>config </li>
+		<li>odbc </li>
+		<li>if </li>
+		<li>goto </li>
+		<li>label </li>
+		<li>break </li></ul></li>
+	<li> <strong>{variable set}</strong> can be any number of things based on attribute="variable" <br />
+	Each tag has a different set of valid attributes and variables </li>
+	<li><strong>--&gt;</strong> Closing identifier </li>
+</ol>
+	<p>Try one in your HTML code: <code>&lt;!--#echo var="DOCUMENT_NAME"--&gt;</code></p>
+ </div>
+
+<h2>What are the most common?</h2>
+
+<div class="contblock"><p>The <strong>ECHO</strong> tag is one of the most common, allowing you to include a wide variety of document information: 
+</p><ul>
+	<li>An example: <code>&lt;!--#echo var="VARIABLE" --&gt;</code></li>
+	<li>The <code>VARIABLE</code> section can be one of many possible values:</li>
+
+	<li><code>DOCUMENT_NAME:</code> The current filename. </li>
+	<li><code>DOCUMENT_URI:</code> The virtual path to this document (such as /docs/tutorials/foo.shtml). </li>
+	<li><code>LAST_MODIFIED:</code> The last modification date of the current document. Subject to timefmt like the others. </li>
+	<li><code>DATE_LOCAL:</code> The current date, local time zone. Subject to the timefmt parameter to the config command. </li>
+	<li><code>DATE_GMT:</code> Same as DATE_LOCAL but in Greenwich mean time. </li>
+	<li>The <code>EXEC</code> tag allows you to execute code (such as PHP or PERL) while the HTML itself is being processed.  </li>
+	<li>The <code>INCLUDE</code> tag is likely the most common. It allows you to include documents or document fragments right in your HTML.</li>
+</ul> 
+
+
+<h3>Are there any requirements?</h3>
+
+<p>Yes! There are a few:
+
+</p><ul>
+	<li>Your server must have the SSI module activated (there are SSI modules for almost every web server in existence) OR include an appropriate .htaccess file </li>
+	<li>Sometimes you may need to use a different extension on your HTML (usually SHTML) so that the server will understand that it needs to process embedded SSIs</li>
+</ul> 
+ 
+
+<h3>Best practices</h3>
+
+<ul>
+	<li>Comment your SSIs in your code so that you know where they are supposed to be and what they are supposed to do (especially if they don't work!)</li>
+	<li>Some developers prefer to use the .shtml extension for all SSI files, to make it clear that a page requires SSI enabled</li>
+	<li>Additionally, putting them in their own directory (like: <code>/inc</code>) helps: easier to find and always in a "known" spot</li>
+	<li>Common usage: <code>/inc/date.inc</code> or <code>/inc/nav.inc</code></li>
+</ul>
+ 
+ 
+
+<p>SSI examples: <a href="http://httpd.apache.org/docs/howto/ssi.html">Apache SSI How to</a>
+</p>	
+
+</ul>
+
+
+ </div>
+ <h2>Exercise #3: Run An Example SSI</h2>
+<div class="contblock">
+
+<ul>
+	<li>Enable SSI by placing the <a href="/1950/downloads/htaccess.zip">.htaccess file</a> in your server root (be sure to uncompress it first!)</li>
+	<li>Create an HTML page using the extension <code>.shtml</code></li>
+	<li>Add the following lines in the body of the page:<br /><code>&lt;!--#echo var="DOCUMENT_NAME"--></code> </li>
+	<li>Place your <code>.shtml</code> file in your server root and test it using localhost. The page should display it's file name. If not, see your instructor. If so, proceed to the next step...</li>
+	<li>Make a copy of your <code>.shtml</code> page, but this time change the extension to the more standard <code>.html</code> or <code>.htm</code>. Test this new page via localhost. The SSI will not run, since the server only parses file extensions defined by the developer.</li>
+	<li>Update the <code>.htaccess</code> file by adding more extensions to it's SSI parsing. For example: 
+	<h4>Before</h4><pre><code>AddType text/html .shtml 
+AddHandler server-parsed .shtml 
+Options Indexes FollowSymLinks Includes</code></pre><h4>After</h4><pre><code>#note the space delimited list of file extensions added...
+AddType text/html .shtml .html .htm
+AddHandler server-parsed .shtml .html .htm 
+Options Indexes FollowSymLinks Includes 
+	</code></pre>
+	</li>
+	<li>Retest the page. SSIs should now work on pages that end with <code>.html</code> and <code>.htm</code></li>
+</ul>
+</div>
+
+<h2>Exercise #4: Formatting Date/Time Output</h2>
+<div class="contblock">
+<p>Challenge: Use SSI to add a formatted date to an HTML page matching this pattern: <code>Wednesday, June 24</code></p>
+<h3>Formatting</h3>
+<ul>
+	<li>Showing the raw date isn't always the attractive option</li>
+	<li>Formatting the date to show in a configurable manner is required</li>
+	<li>This is done through the <code>config timefmt</code> command</li>
+</ul>
+<p>For syntax options and help, check this page: <a href="http://www.htmlite.com/SSI005.shtml">http://www.htmlite.com/SSI005.shtml</a>
+<br />
+	There are plenty of <a href="http://www.zytrax.com/tech/web/ssi.htm#time">examples on how to configure time and date with SSIs</a></p>
+</div>
+
+
+
+<h2>Include Files</h2>
+<div class="contblock">
+<h3>Adding the Include token will import code from external files</h3>
+<p>Separate the code of your pages into separate files, based upon the role, for example:
+<ul>
+<li>header</li>
+<li>navigation</li>
+<li>footer</li>
+<li>content</li>
+</ul>
+</p>
+<p>If the code for the heading is located in the file head.inc, an shtml page can import this code with the include token:<br />
+<code>&lt;!--#include file="inc/head.inc" --&gt;</code></p>
+
+
+
+</div>
+ 
+<h2>Exercise #5a: Dynamic Navigation</h2>
+<div class="contblock">
+<p>Deploy a navigation using SSI. </p>
+<ul>
+<li><a href="/1950/downloads/server_side_includes.zip">Download the exercise source files</a>.</li>
+<li>Extract the navigation related code from each html file</li>
+<li>Place the navigation code in one external file</li>
+<li>Use the server side includes 'include' token to load the navigation on each page. EG:<br /><code>&lt;!--#include file="inc/nav.inc" --&gt;</code></li>
+<li><a href="/1950/downloads/server_side_includes_solution_a.zip">Download a sample solution</a></li>
+</ul>
+
+</div>
+<h2>SSI Control Structure</h2>
+<div class="contblock">
+<fieldset><legend>Apache 2.*</legend>
+<p>You can use SSI to assess a situation and make decision about what instructions to execute.<pre><code>&lt;!--#if expr="test_condition" -->
+	...perform code block A...
+&lt;!--#else -->
+	..perform code block B...
+&lt;!--#endif -->
+</code></pre></p>
+<p>Based on the <strong>if</strong> <code>test_condition</code> either code block A or B will be performed, but not both. An example <code>test_condition</code> might be<pre><code>&lt;!--#if expr="v('DOCUMENT_NAME') == 'abc.shtml'" -->
+</code></pre>tests to see if the current document name is 'abc.shtml' <br /><code>&lt;!--#if expr="v('QUERY_STRING') == ''" -->
+</code></pre>tests to see if the QUERY_STRING is empty</p>
+</fieldset>
+<fieldset><legend>Pre-Apache 2.0</legend>
+<p><strong>NOTE:</strong> on older version Apache servers (eg: <code>bcitcomp.ca</code>), the syntax for the opening instruction of the <code>if</code> expression looks a little different:<br />
+<code>&lt;!--#if expr="$QUERY_STRING = ''"--></code> this would test to see if a QUERY_STRING was empty<br />
+<code>&lt;!--#if expr="$DOCUMENT_NAME = 'index.shtml'"--></code> this would test to see if the current document is named 'index.shtml'
+</p>
+</fieldset>
+
+</div>
+<h2>Exercise #5b: Dynamic Navigation</h2>
+<div class="contblock">
+<p>Update your code from the previous SSI Navigation exercise.</p>
+<p>Use the if control structure to enhance your SSI navigation code. Create a unique styled version of the nav option for the page the user is currently viewing.</p>
+<p><a href="/1950/downloads/server_side_includes_solution_b.zip">Download a sample solution</a></p>
+</div>
+
+<h2>SSI Advanced Exercise - Gallery</h2>
+<div class="contblock">
+<p>Instead of creating a gallery that contains many pages, you can build one that exists as a single page using SSIs and the "Query String".</p>
+
+<p>See the <a href="exercises/gallery.html">Gallery Exercise</a> on how this is done and give it a try.</p>
+<p><a href="/1950/downloads/query_string_exercise_solution.zip">Download a sample solution</a></p>
+	<p>Session #9's quiz will be written, closed book.</p>
+
+</div>
+
+
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>due by midnight before the next class</li>
+	<!--<li>homework specifications will be available here  upon release</li>-->
+	 <li><a href="/1950/downloads/comp1950_homework07.pdf">download the homework</a>	</li>  
+</ul>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->

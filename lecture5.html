@@ -1,0 +1,473 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+<h1>lecture lecture five: responsive design</h1>
+<main id="accordion">
+
+<h2>Agenda</h2>
+<div class="contblock">
+	<ul>
+		<li>Print media</li>
+		<li>Media queries</li>
+		<li>Responsive design</li>
+	</ul>
+</div>
+
+<h2>Styling For Printers</h2>
+<div class="contblock">
+
+<h3>Applying Printer Styles</h3>
+<p>When linking to your CSS, using <code>media="print"</code> will allow printer friendly styles to be applied. If you wanted the printer styles to inherit your default styles, use <code>media="all"</code> with the default stylesheets :</p><code>&lt;!-- This will apply both stylesheets to the printout --><br />&lt;link rel="stylesheet" href="default_styles.css" media="all" /><br />&lt;link rel="stylesheet" href="print_styles.css" media="print" /></code></p>
+<p>To ensure your default styles wont also be applied to the printer (usually the best option), add <code>media="screen"</code> to the any stylesheets that are not to be used when printing:</p><code>&lt;!-- This will apply ONLY the print_styles.css to the printout --><br />&lt;link rel="stylesheet" href="default_styles.css" media="screen" /><br />&lt;link rel="stylesheet" href="print_styles.css" media="print" /></code></p>
+
+<p>Instead of defining a new link tag, you can alternatively apply printer styles in an external CSS file, using a <a href="http://www.w3.org/TR/css3-mediaqueries/">media query</a>.</p>
+<pre><code>/* styles for screens */
+@media screen{ 
+	header { color:red;	}
+}
+/* styles for printers */
+@media print { 
+	header { display:none;	}
+}</code></pre>
+
+<h3>Best Practices For Printable Styles</h3>
+<p>The key to a stylesheet specifically for printing is a matter of <em>planning</em> more than anything.</p>
+
+<p>You'll need a few things prepared before you can begin:</p>
+<ul>
+	<li>A layout that is separated by <code>div</code>s, or if using HTML5, semantic tags (<code>header</code>, <code>nav</code>, etc) are also used to separate page content</li>
+	<li>Semantic markup including several summary headings</li>
+	<li>Knowing what areas you want printed and what you don't</li>
+	<li>Organized content so that printable areas are not nested in non-printable ones</li>
+	<li>A recognition of why users will print pages. Generally, a website is printed because the user requires a hard copy of the site information, and not because of the visually pleasing way in which that information is presented. Thus print styles should focus on presenting critical information (eg: most page textual content, images crucial to page content) and either hide or reduce less useful content (eg: navigation bars, background images, light/subtle colour schemes)</li>
+</ul>
+
+<p>How to build your page. Make sure you have separate <code>div</code> elements for:</p>
+<ul>
+	<li>each content section you want printed</li>
+	<li>page elements that represent titles or headers</li>
+	<li>other printable elements (footers)</li>
+	<li>non-printing elements (navigation/sidebars/header images/backgrounds)</li>
+</ul>
+
+<p>Once you have planned your layout and created distinct elements, the next steps are to:</p>
+<ol>
+	<li>Hide the elements you don't want the printer to see</li>
+	<li>Re-style the layout</li>
+	<li>Re-style the visuals </li>
+	<li>Add textual hyperlink data to <code>&lt;a&gt;</code>nchor elements, optionally also swapping images</li>
+</ol>
+
+</div>
+
+<h2>Styling For Printers 1: Hiding Elements</h2>
+<div class="contblock">
+	<p>Hide the elements you don't want printed. This should include any regions of the page that provide no value to a printout. This may or may not include:</p>
+	<ul>
+		<li>navigation links, navigation bars</li>
+		<li>headers</li>
+		<li>footers</li>
+		<li>background images</li>
+		<li>any areas that require user interaction, eg: search fields, login forms, etc</li>
+		<li>side bars, advertisements, banner images</li>
+	</ul>
+	<p>Use <code>display:none;</code> to tell the printer to ignore any of the elements listed in the declaration.  Be careful to make sure that none of the elements that are ignored have valuable info in them.</p>	<pre><code>	header, nav, .site_map_link, #search_form{
+		display: none;
+	}</code></pre>
+
+</div>
+<h2>Styling For Printers 2: Re-styling Layout</h2>
+<div class="contblock">
+	<p>After hiding the content you dont want to be printed, remaining content will either have no style at all, or will inherit the styles of any sheets with "ALL" as the media.  For this reason, it is important to explicitly style the remaining <code>divs</code></p>
+	<pre><code>	body, #content, main, footer  {
+	/* floating is not advised for printers */
+	   float: none;
+	/* let the printer set margins */
+	   width: auto;
+	   margin: 0;
+	   padding: 0;
+	/* dont display background colors or images */
+	   background: none;
+	}</code></pre>
+
+	<ul>
+		<li>The <code>float</code> property is NOT well supported by printers, using it for print stylesheets is not advised</li>
+		<li>Consider removing any width or padding restrictions, allowing the printer to set the margins for each page</li>
+		<li>If you are using this sheet with another stylesheet that has ALL listed as the value for <code>media</code>, you might want to add <code>!important</code> with each rule, to be sure that there will be no inheritance problems</li>
+		<li>Having a rule like <code>background: none;</code> is good if you use backgrounds, or if you don't.  If you do, they're gone, if you don't - consider it future-proofing.</li>
+	</ul>
+	<h4>Printout Page Control</h4>
+	<p>Optional, but useful rules can control where page breaks will or won't appear...</p>
+	<ul>
+		<li> Don't allow a page heading to be at the bottom of a page <br /> <code>h2, h2, h4, h5, h6{ page-break-after: avoid;  }</code></li>
+		<li> Ensure important page regions begin on a new page<br /> <code>section, article{ page-break-before: always; }</code> <br /></li>
+	</ul>
+
+</div>
+
+<h2>Styling For Printers 3: Re-styling Visuals</h2>
+	<div class="contblock">
+	<p>This part is the most subjective.  You may want to have users continue to see the fonts and headings the way you displayed them on the screen, or you may want them to be of a more readable style.</p>
+
+	<p>Also, pay attention to colors here.  If you have a light-colored font on a dark-colored background on the screen, or if your anchors are lighter than normal, be sure to set them to a color that is easily seen after printing.</p>
+
+	<pre><code>	body, #content, , main, footer {
+		color: black;
+		font: 12pt/15pt Georgia, "Times New Roman", Serif;
+	}
+		
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Arial, Verdana, Helvetica, Sans-serif;
+	}</code></pre>
+
+	<p>With the proliferation of color printers, you might want to choose a color that will show links in B&amp;W as well as color printing (I selected #309 - a compacted hex code for a medium-dark blue):</p>
+	<pre><code>	a:link, a:visited {
+		color: #309;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	</code></pre>
+
+</div>
+<h2>Styling For Printers 4: Display Hyperlink Data, Swapping Images</h2>
+<div class="contblock">
+	<h3>Displaying Hyperlink Data</h3>
+	<p>One of the most useful things you can do in print format is to provide readable hyperlinks for fully qualified anchor tags.  Without this little trick, they will only see <code>&lt;a&gt;</code> tags as they are displayed onscreen - likely a different colour and underlined.</p>
+	<p>Fully qualified (entire URL) links will be styled like this:</p>
+	<pre><code>	a:link:after, 
+	a:visited:after{
+	   content: " (URL: " attr(href) ") ";
+	   font-size: 90%;
+	}</code></pre>
+
+	<p>This will append a URL to the end of a link on a page, surrounded in brackets with the acronym <code>URL:</code>.  The declaration uses the <a href="http://www.w3.org/TR/CSS21/generate.html">content</a> property with the <a href="http://www.w3.org/TR/CSS21/selector.html#before-and-after">:after</a> pseudoclass to append the value of the <code>href</code> attribute after displaying the hyperlink text.</p>
+
+
+	<h3>Swapping Images</h3>
+	<p>There may sometimes be images that you would want sent to the printer, but may not be suitable in thier current state (eg: if the color of the image would look por on a color printout). Swapping an image in the print styles will require an appropriate structure in the HTML:</p><pre><code>	 <!-- the image to be swapped must be in a parent that you plan to display during printing -->
+	&lt;div&gt;	
+		&lt;img src="image_not_suitable_for_printing.jpg" /&gt;	
+	&lt;/div&gt;</code></pre>
+<p>Then use the <a href="http://www.w3.org/TR/CSS21/generate.html">content</a> property to insert your printer optimized image.</p>
+<pre><code>	/* hide the image */
+	img{	
+		display:none;	
+	}
+	/* add your own image content */
+	div:after {
+		content:url("image_optimized_for_printing.jpg");
+	}</code></pre>
+
+
+</div>
+
+<h2>Print Styles Exercise</h2>
+<div class="contblock">
+<ul>
+	<li><a href="/1950/downloads/styling_for_print_exercise.zip">Download the exercise starting files</a></li>
+	<li>Apply a printer friendly CSS stylesheet using <code>media="print"</code> in the link tag</li>
+	<li>Style a printer appropriate stylesheet:
+		<ul>
+			<li>Hide parts of the page of no use to a printout (eg: site navigation)</li>
+			<li>If needed, position content appropriately: avoid using <code>float</code></li>
+			<li>Display the full text URL of hyperlinks</li>
+			<li>For an additional challenge, use attribute selectors to only output the text URL of hyperlinks that are absolute, don't bother for relative links (since they aren't much use to the printout)</li>
+		</ul>
+	</li>
+	<li>Use your browser's "Print Preview" to test the styles (no need to actually print)</li>
+	<li><a href="/1950/downloads/styling_for_print_solution.zip">Download a sample solution</a></li> 
+</ul>
+</div>
+
+
+
+		
+			
+<h2>Media Queries</h2>
+<div class="contblock">
+
+<p>Media Queries have become very popular lately with the rise of mobile browsing on both phones, tablets and other devices. You can find a considerable amount of information at the W3C&apos;s site for <a href="http://www.w3.org/TR/css3-mediaqueries/">CSS Media Queries</a>. The advanced media queries discussed here are largely CSS3, so consulting the <a href="http://caniuse.com/css-mediaqueries">Media Queries Browser Support Chart</a> can help you decide if your user's browser will be able to take advantage.</p>
+
+<p>Media Queries are just one part of Responsive Web Design, but they are a very important part. The concept is fairly simple: Use <a href="http://www.w3.org/TR/CSS2/media.html">@media</a> declarations to target device size and/or orientation using CSS</p>
+
+<p>Because you have already created print stylesheets, you've used the concept! It's fundamentally the same idea, but instead of targeting a specific type of media, you will be targeting a specific size.</p>
+</div>
+<h2>Media Queries: Syntax</h2>
+<div class="contblock">
+<p>The complete <a href="http://www.w3.org/TR/css3-mediaqueries/">W3C CSS Media Queries specification</a> includes thorough descriptions of all the options available, including several examples. </p>
+<ul>
+	<li><strong>Basic Media Query</strong> <p>A basic media query can be used to apply styles based on the type of client. Use it to 
+choose a stylesheet for <code>screen</code> or <code>print</code>. <br /><fieldset><legend>Format:</legend><code>@media TYPE{ CSS rules go here }</code> </fieldset><br /><em>Examples:</em><br /><code>/*styles applied to screen devices*/<br />@media screen{ body{ color:#fff; } }</code> <br /><br /><code>/*styles applied when printing*/<br />@media print { nav{ display:none;} }</code></p>
+
+<p>Including the keyword 'only' will ensure the query will be hidden from older browsers that dont understand media queries. Learn more about the  <a href="http://stackoverflow.com/questions/8549529/what-is-the-difference-between-screen-and-only-screen-in-media-queries">media query 'only' keyword</a>.<br /><code>@media only screen{ body{ color:#fff; } }</code> </p>
+
+</li>
+
+	<li><strong>Compound Media Query</strong><p>An advanced media query can include compound statements. Use it to be more selective about which styles a client will receive based on how large the client is (eg: desktop vs tablet vs smartphone). Using the <code>and</code> conjunctive, you can chain together a series of conditional statements. <br /><fieldset><legend>Format:</legend><code>@media TYPE and (FEATURE: VALUE) { CSS rules go here }</code></fieldset><br /><em>Examples:</em><br /><code>@media only screen and (min-width: 1024px){ body{color:blue;} }</code><br /><code>@media only screen and (min-width: 800px) and (max-width: 1024px){ body{color:red;} }</code><br /><code>@media only screen and (min-width: 10px) and (max-width: 800px){ body{color:green;} }</code>
+	</p></li>
+	<li>Note the use of logcal conjunctive <code>and</code>, which ensures more than one condition must be true before the styles will apply. Most media queries will involve one or more <code>and</code>s, but there are other possibilities as well.  If you like, you can learn more about the <a href="https://css-tricks.com/logic-in-media-queries/">media query logic</a> options.</li>
+	<li><strong>Important:</strong> Most of your queries that reference widths or heights should use <code>and</code>s to define both the upper and lower boundaries. This will ensure a more predictable cascade</li>
+
+	</ul>
+
+	<h3>Options</h3>
+	<ul>
+	<li><strong><code>TYPE</code></strong>: Target media type, mostly <strong>screen</strong>. If you want older browsers to avoid using your responsive styles, you use <strong>only screen</strong></li>
+	<li><strong><code>FEATURE</code></strong>: There are a number of <a href="http://www.w3.org/TR/css3-mediaqueries/#media1">features</a> that can be targeted, including: 
+		<ul>
+			<li><strong>width</strong>: width of the viewport</li>
+			<li><strong>height</strong>: height of the viewport</li>
+			<li><strong>min-width, max-width</strong>: minimum/maximum width of the viewport</li>
+			<li><strong>min-height, max-height</strong>: minimum/maximum height of the viewport</li>
+			<li><strong>device-width</strong>: width of the device</li>
+			<li><strong>device-height</strong>: height of the device</li>
+			<li><strong>orientation</strong>: <code>landscape</code> or <code>portrait</code></li>
+		</ul>
+		</li>
+	<li><strong><code>VALUE</code></strong>: the corresponding value such as size in pixels or other specifications like <code>landscape</code></li>
+</ul>
+
+</div>
+<h2>Media Queries: Implementation</h2>
+<div class="contblock">
+<p>When the page is initially rendered, the user agent (browser) will assess the size of the viewport and select CSS based on any media query declarations. This is also true if/as the viewport is resized.</p>
+
+<h3>Embedded</h3>
+<p>
+	Media queries can be specified in the <code>link</code> tag itself, like this:
+</p>
+<code>
+&lt;link rel="stylesheet" href="smaller.css" media="only screen and (max-width: 1024px)" /&gt;
+<br />&lt;link rel="stylesheet" href="larger.css" media="only screen and (min-width: 1024px)" /&gt;
+<br />&lt;link rel="stylesheet" href="printer.css" media="print" /&gt;
+</code>
+
+<h3>External</h3>
+<p>Media queries can be defined in the external CSS file, and linked to like any other stylesheet.</p>
+<pre><code>/* styles for screens less than 1024px wide*/
+@media only screen and (max-width: 1024px){ 
+	body {	font-size: .8em;	}
+}
+/* styles for screens more than 1024px wide*/
+@media only screen and (min-width: 1024px){ 
+	body { 	font-size: 2em;		}
+}
+/* styles for printers */
+@media print { 
+	header { display:none;		}
+}</code></pre>
+<h3>Dealing With Small Device High Resolution Displays</h3>
+<p>Some devices have been designed to display higher resolution pages in a smaller area.  This can cause confusion when the browser attempts to determine the width and height available. A META tag was designed to get around this issue. Place the following in the <code>head</code> section, <strong>before</strong> you apply your stylesheets: </p>
+<code>&lt;meta name="viewport" content="initial-scale=1.0, width=device-width" /&gt;</code>
+
+</div>
+<h2>Media Queries Example and Exercise</h2>
+<div class="contblock">
+<ul>
+	<li><a href="/1950/downloads/media_query_example.zip">Download a media query example</a> and unzip the contents</li>
+	<li>Examine the CSS, and test the HTML in a varying sized browser</li>
+	<li>Add 2 new media queries after the ones already declared. Use them to determine the <code>min-height</code>/<code>max-height</code> of the viewport and hide (with <code>display:none;</code>) one of the two spans <code>#tall</code> or <code>#short</code></li>
+	<li>Copy the first media query rule (the one that applies to small screens) and paste it at the end of all the media queries, so that it is the last of the media queries. How does this change the browser behavior? What kind of compound media query could fix this?</li>
+	<li>Investigate the <code>orientation</code> feature, and add similar functionality to demonstrate you can detect the difference between <code>portrait</code> and <code>landscape</code></li>
+
+	<li><a href="/1950/downloads/media_query_example_solution.zip">Download a sample solution</a></li> 
+
+</ul>
+</div>
+<h2>Responsive Design</h2>
+<div class="contblock">
+
+<p>The ability to target specific device widths and orientations has made it possible to create &quot;Responsive&quot; web designs. <a href="http://ethanmarcotte.com/">Ethan Marcotte</a> wrote one of the very first articles on <a href="http://www.alistapart.com/articles/responsive-web-design/">Responsive Web Design</a> in 2010, and the idea has taken off since then. </p>
+
+	<p>Using media queries to deliver client specific styles opens up serveral possibilities for the web developer. Some guidelines for taking advantage of the abilities and limitations of client devices:</p>
+
+<ul>
+	<li>For small devices, design a one column layout</li>
+	<li>Stack information in order of importance to the user. Start with an optional header, then a vertical navigation, followed by critical content, ordered by importance. In small devices there often isn't enough space to place all crucial content 'above the fold', so don't feel compelled to try</li>
+	<li>Due to the dramatically different capabilities of clients, responsive web design is most effective with <strong>content driven</strong> sites as opposed to <strong>feature driven</strong> sites</li>
+	<li>Dont try to design for specific devices: there are too many, and new different sized devices are appearing all the time. Fluid layouts will adapt more effectively to various device widths.</li>
+
+<li>Apply media queries at the breakpoints whererever you can see your layout does not display optimally</li>
+
+
+</ul>
+</div>
+
+
+<h2>Fixed vs Fluid</h2>
+<div class="contblock">
+<p>When looking at responsive designs, you must make the decision to build Fixed or Fluid layouts.</p>
+<p>Fixed are easier to control as you know the widths and don't have to worry about overflowing elements, items that don't fit from side to side, margin and padding calculations and more.</p>
+<p>Fluid designs use percentage and em (relative) widths for things that allow you to build a style that will scale to ANY size of user agent</p>
+
+
+
+<p>The Flexible Grid is the key to being successful for fluid designs. There are two primary drivers behind this method:</p>
+<ol>
+	<li>target / context = result</li>
+	<li>max-width: 100%</li>
+</ol>
+
+<p>The first calculation relates to your measurements for widths, margins, padding and even font-size when building a fluid design.</p>
+<h3>Font Sizes</h3>
+
+<p>For responsive, easy to maintain font sizing, assign a fixed pixel <code>font-size</code> to the <code>body</code>. Then style headings paragraphs etc using  the relative size <code>em</code>.</p>
+<p>For example, if you desire <code>20px</code> headings, and you have set your <code>body</code> element as having a font-size of <code>16px</code>, then we have the two required parts of our calculation:</p>
+<p>Target (<code>20px</code>) / Context (<code>16px</code>) = <code>1.25em</code></p>
+
+<p>Take that 1.25 as a relative measurement based on the default 16px setting. Use it now as the following:</p>
+<pre><code>body{
+	font-family: Arial, "Helvetica Neue", Sans-serif;
+	font-size: 16px;
+}
+  
+/* target / context = result */
+/* 20     / 16      = 1.25   */
+h1{
+	/* This will render the font-size to the equivalent of 20px */
+	font-size: 1.25em; 
+}</code></pre>
+
+
+<h3>Image widths</h3>
+<p>One of the biggest challenges to any responsive design is images</p>
+<p>Most images want to display at full size, but this method means they may be displayed at multiple sizes, and issuing width="..." and height="..." attributes in your IMG tags makes it difficult to make this work.</p>
+<p>In comes the <strong><code>max-width</code></strong> rule in your CSS</p>
+<p>Using this rule, you are essentially saying that the image should always be 100% of the parent element</p>
+<p>With either a fixed or fluid layout, you will have your images respect the parent element's width, so you don't have to add width attributes in your <code>&lt;img&gt;</code> tags.</p>
+<pre><code>img{
+	max-width: 100%;
+	height:auto;
+}</code></pre>
+</div>
+<h2>Fluid Fonts and Images Example</h2>
+<div class="contblock">
+	<ul>
+		<li><a href="/1950/downloads/responsive_sizing.zip">Download a responsive font and image example</a> and unzip the contents</li>
+		<li>Examine the HTML and CSS source code and test the HTML page in a varying sized web browser</li>
+		<li>Try changing the <code>font-size</code> property assigned near the top of the CSS file. Note how changing one value can affect all textual content</li>
+	</ul>
+</div>
+
+<h2>Grid Systems</h2>
+<div class="contblock">
+<p>Grid systems have been around for some time, trying to assist in the development of layouts</p>
+<p>An early good one was <a href="http://960.gs">960.gs</a>, which allowed you to specify the number of columns wide you wanted any particular row to be</a>
+<p>Initially focused on Fixed, it moved to including a Fluid layout as well</p>
+<p>Since then, a huge number of grid systems have been introduced that make it a lot easier to build layouts.</p>
+<p>Some popular ones:</p>
+<ul>
+	<li><a href="http://foundation.zurb.com/">Foundation</a></li>
+	<li><a href="http://www.getskeleton.com/">Skeleton</a></li>
+	<li><a href="http://www.columnal.com/">Columnal</a></li>
+	<li><a href="http://susy.oddbird.net/">Suzy</a></li>
+</ul>
+
+<p>However! I think it's very important that you start from scratch at some point, so you understand the limitations and how to adapt a pre-configured layout</p>
+
+</div>
+
+<h2>Responsive Layout Exercise</h2>
+<div class="contblock">
+<ul>
+	<li><a href="/1950/downloads/responsive_layout_exercise.zip">Download the exercise</a> and unzip the contents </li>
+	<li>Examine the code and note how media queries are already being applied at a 800Px width breakpoint</li>
+	<li>If the page is wider than 800px then you want to use the current layout, but if it is less than 800px wide, apply a fluid, one column stacked layout: header at top, then vertical navigation, then content</li>
+	<li>Ensure fonts and images scale fluidly</li>
+	<li>Test your layout in a varying sized browser</li>
+	<li>If you own a smartphone or tablet, try uploading your files to your students webspace on <code>bcitcomp.ca</code> and see what it looks like when browsing on the smaller devices</li>
+	<li><a href="/1950/downloads/responsive_layout_exercise_solution.zip">Download a sample solution</a></li> 
+</ul>
+</div>
+
+<h2>Summary</h2>
+<div class="contblock">
+	<h3>Styling For Print</h3>
+	<ul>
+		<li>use the <code>media="print"</code> attribute or <code>@media print{ }</code>to assign print styles</li>
+		<li>hide navigations, background images, any content that is not useful to a printout</li>
+		<li>dont use 'float' positioning</li>
+		<li>apply the <code>:after</code> pseudoclass to fully-quanlified hyperlinks and print the link address with<br /><code>content: " (URL: ' attr(href) ') ";</code></li>
+	</ul>
+	<h3>Media Queries</h3>
+	<ul>
+		<li>Use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">media queries</a> to apply breakpoints whenever your layout does not display optimally
+		<fieldset><legend>Format:</legend><code>@media TYPE and (FEATURE: VALUE) { CSS rules go here }</code></fieldset>
+		<ul>
+			<li><a href="http://www.w3.org/TR/css3-mediaqueries/">W3C CSS Media Queries</a></li>
+			<li><a href="http://www.w3.org/TR/css3-mediaqueries/#media1">features</a></li>
+			<li><a href="https://css-tricks.com/logic-in-media-queries/">media query logic</a></li>
+		</ul>
+</li>
+		<li>Ensure your media queries identify high-resolution small devices appropriately by adding the following inside the <code>&lt;head&gt;</code>: <br /><code>&lt;meta name="viewport" content="initial-scale=1.0, width=device-width" /&gt;</code>
+</li>
+</ul>
+	<h3>Responsive Design</h3>
+<ul>
+
+		<li>Build fluid, flexible layouts. For small devices, use a one column stack, with the most important page elements (such as a vertical navigation) top most.</li>
+		<li>Best Practices: <a href="http://www.smashingmagazine.com/responsive-web-design-guidelines-tutorials/">Smashing Magazine Guidelines and Tutorials</a></li>
+
+	</ul>
+	<p>Session #6's quiz will be written, closed book</p>
+
+</div>
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>due by midnight before session #7 (there will be no new homework session #6)</li>
+	<li>worth twice as much as other homework assignments</li>
+<!--		<li>homework specifications will be available here for download upon release. check back later for an active download link</li>-->
+		<li><a href="/1950/downloads/comp1950_homework05.pdf">download the homework</a> 
+		</li>
+</ul>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->
+

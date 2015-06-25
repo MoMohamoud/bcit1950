@@ -1,0 +1,563 @@
+<!--#include file="header.html" -->
+
+<div class="container no-mrg no-padding width">
+	<div class="row ">
+	
+		<div class="col-sm-3 col-xs-3 relative">
+			<section class="sidebar bg-color">
+				<!--#include file="templates/dashboard.html" -->
+			</section>
+		</div>
+
+
+		<div class="col-sm-7 col-xs-6">
+		
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+<link href="js/jquery-ui.css" rel="stylesheet" media="screen"> 
+<script src="js/jquery-ui.js"></script> 
+<script src="js/jtip.js"></script> 
+
+
+
+ <div id="content">
+ <div class="ex-all">
+	<div style="height:40px;" > <a onClick="accordionDestroy()">Expand all</a> | <a onClick="accordionInit()">Collapse all</a> <div style="float:right"> <a href="#"><img src="img/icon-pdf.png" style="width:50px; height:40px; margin-top:0px; margin-right:5px;"/></a><a href="#"><img src="img/word-icon.png" style=" height:40px; float:right; margin-top:0px; margin_left:10px;"/></a></div></div>
+ 	
+ </div>
+<h1>lecture six: css3</h1>
+<main id="accordion">
+
+
+
+<h2>Agenda</h2>
+<div class="contblock">
+	<ul>	
+		<li>CSS3</li>
+		<li>compatibility</li>
+		<li>box model</li>
+		<li>transitions</li>
+		<li>backgrounds</li>
+	</ul>
+</div>
+
+
+
+
+<h2>Introducing CSS3</h2>
+<div class="contblock">
+	<p>CSS3 promises to provide much greater control over the 'experience layer' of a user's interaction with a web page, and also to address some of the problematic layout issues of CSS2.</p>
+	<p>Technically, the current <a href="http://www.w3.org/">W3C</a> recommendation for web developers and browser vendors is <a href="http://www.w3.org/TR/CSS21/">CSS2.1</a>. However, if close attention is payed to browser support, many CSS3 features can be effectively deployed today.</p>
+
+<h4>CSS3 Module Development</h4>
+	<p>CSS3 is being developed as a series of 'modules'. This allows certain features to be added as a sort of ongoing evolution of CSS, instead of needing to release a monolithic new version.</p>
+	<p>Since each module can be developed independent of the others, segments of the specification may progress faster (or slower) than others. Browser support for particular CSS3 modules can be very selective, as some of them are not near enough to completion. Other modules of CSS3 are closer to being settled, and several of these are implemented in many modern browsers.</p> 
+
+
+	<p>In this course we will focus most attention on the features that are currently well supported by the major modern browsers.</p>
+	<ul>
+		<li><a href="http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/">W3C CSS3 Working Draft</a></li>
+		<li><a href="http://css3test.com/">CSS3 Browser Compatibility Test</a></li>
+	</ul>
+</div>
+
+
+
+<h2>Compatibility: when to apply CSS3</h2>
+<div class="contblock">
+	<p>Some aspects of the user's visual experience should be considered <strong>critical</strong> and others <strong>non-critical</strong>. Since several CSS3 techniques are not well supported at present, only use CSS3 on things <strong>non-critical</strong>.</p>
+	<h3>Critical (Not Ideal For CSS3)</h3>
+	<ul>
+		<li>layout</li>
+		<li>branding</li>
+		<li>usability</li>
+		<li>accessibility</li>
+	</ul>
+	<h3>Non Critical (Ideal For CSS3)</h3>
+	<ul>
+		<li>interaction (hover, active, focus, etc)</li>
+		<li>visual enhancements that might result from interaction</li>
+		<li>anything that 'adds value' but is not a crucial part of the core experience</li>
+	</ul>
+
+	<h3>Follow Design Priciples</h3>
+	<p>Keep in mind: it is important not to get too carried away with the over-use of any particular technique. When a new, fancy feature is introduced, especially features that add 'visual flair', the tendency for some developers can be to use it everywhere. Judicious and subtle application can often be more effective than going overboard. For example, dont apply the text-shadow to all text on a page. Apply it to add contrast and draw attention to special points of interest. <strong>Remember the design principles</strong>!</p>
+
+</div>
+
+
+<h2>Compatibility: vendor prefixes</h2>
+<div class="contblock">
+<p>Several CSS3 features are ready to go in most modern browsers, and can be used immediately.</p>
+<p>Other features may not enjoy complete support yet, though browser vendors will sometimes implement experimental support for a CSS3 feature. To ensure a CSS3 technique is correctly deployed, vendor prefixes may need to be added to some property names.</p>
+<h3>Vendor prefixes</h3>
+<ul>
+	<li>Firefox: <code>-moz-</code></li>
+	<li>Microsoft: <code>-ms-</code></li>
+	<li>Safari: <code>-webkit-</code></li>
+	<li>Opera: <code>-o-</code></li>
+	<li>Chrome: <code>-chrome-</code> * not usually required, as the Chrome kernal is the same as Safari: -webkit-</li>
+</ul>
+<p>In order to apply a vendor prefix to a CSS3 property such as <code>transition</code>, add the prefix to the beginning of the property name, and do this once for each vendor prefix applicable. After declaring vendor prefixed versions of a property, declare the non-prefixed version. For example:</p>
+<pre><code>div{
+  -moz-transition:10px;
+  -webkit-transition:10px;
+  transition:10px;
+}
+</code></pre>
+<p>When deploying several vendor prefixes, use the non prefixed version of the property last, for forward-compatibility (when it is no longer an 'experimental' property, the prefixes will be dropped).</p>
+</div>
+
+
+<h2>Enhanced Box Models</h2>
+<div class="contblock">
+	<p>Several new properties are being introduced for styling box models.</p>
+	<ul>
+	<li><code>border-radius</code>: create rounded corners</li>	
+	<li><code>box-shadow</code>: cast shadow effect from box</li>	
+	<li><code>border-image</code>: use graphic for border styles (vendor prefixes required)</li>	
+	<li><code>text-shadow</code>: cast shadow effect from content</li>	
+	<li><code>opacity</code>: use graphic for border styles (vendor prefixes required)</li>	
+	</ul>
+
+<fieldset>
+	<legend>border-radius</legend>
+	<p>Box models can now be rendered with rounded corners, enabling elements that will display as circles, ovals, teardrops, etc.</p>
+	<p><code>border-radius</code> requires a pixel amount determining the radius of the curved round corners, eg:</p>
+	<ul>
+	<li>well supported. does not require vendor prefixes</li>
+	<li><code>border-radius:25px;</code> all 4 corners rounded</li>
+	<li><code>border-radius:25px 0px;</code> two corners rounded, two not rounded</li>
+	<li>from one to four space delimited values can be applied, one for each corner, clockwise from top left</li>
+	<li>supports the variants: <code>border-bottom-left-radius</code>, <code>border-bottom-right-radius</code>, <code>border-top-left-radius</code>, <code>border-top-right-radius</code></li>
+	<li>you can even set the slant of the rounded corners</li>
+	<li>if you find that content can sometimes get too close to a rounded edge corner, consider increasing the <code>padding</code></li>
+	<li><a href="http://css3gen.com/border-radius/">Border radius code generator</a></li>
+	</ul>
+</fieldset>
+
+<fieldset>
+	<legend>box-shadow</legend>
+	<p>Makes a box model cast a shadow effect, with a result much like Photoshop's popular "Drop Shadow" layer style.</p>
+	<p><code>box-shadow</code> requires space delimited pixel values to describe how far to cast the shadow horizontally, vertically:</p>
+	<ul>
+	<li>well supported. does not require vendor prefixes</li>
+	<li><code>h-shadow</code> (required) distance to horizontal cast - pixel value</li>
+	<li><code>v-shadow</code> (required) distance to vertical cast - pixel value</li>
+	<li><code>blur</code> (optional) blur distance - pixel value</li>
+	<li><code>spread</code> (optional) size of shadow - pixel value</li>
+	<li><code>color</code> (optional) color of shadow</li>
+	<li>For example: <code>box-shadow:5px 5px 10px black;</code></li>
+	<li><a href="http://css3gen.com/box-shadow/">Box shadow code generator</a></li>
+	</ul>
+</fieldset>
+
+
+
+
+<fieldset>
+	<legend>text-shadow</legend>
+	<p>Creates a shadow effect on text, similar to how box-shadow works.</p>
+
+<p><code>text-shadow</code> requires space delimited pixel values to describe how far to cast the shadow horizontally, vertically:</p>
+	<ul>
+	<li><code>h-shadow</code> (required) distance to horizontal cast - pixel value</li>
+	<li><code>v-shadow</code> (required) distance to vertical cast - pixel value</li>
+	<li><code>blur</code> (optional) blur distance - pixel value</li>
+	<li><code>spread</code> (optional) size of shadow - pixel value</li>
+	<li><code>color</code> (optional) color of shadow</li>
+	<li>For example: <code>text-shadow:5px 5px 10px black;</code></li>
+	<li><a href="http://css3gen.com/text-shadow/">Text shadow code generator</a></li>
+	</ul>
+</fieldset>
+
+	
+<fieldset>
+	<legend>border-image</legend>
+	<p>If CSS border styles are insufficient for your design goals, it is now possible to use images as well. A single image is 'sliced' into 9 sections, with each edge and corner segment used as the corresponding border edge/corner. The thickness of an image-based border will depend on the width and height of the images at the corners.</p>
+	<p><code>border-image</code> requires vendor prefixes:</p>
+	<ul>
+	<li><code>-moz-</code> Firefox</li>	
+	<li><code>-webkit-</code> Chrome, Safari</li>	
+	<li><code>-o-</code> Opera</li>	
+	<li><a href="http://border-image.com/#%7B%22src%22%3A%22http%3A%2F%2Fwww.w3.org%2FTR%2Fcss3-background%2Fborder.png%22%2C%22linkBorder%22%3Atrue%2C%22borderWidth%22%3A%5B0%2C0%2C0%2C0%5D%2C%22imageOffset%22%3A%5B27%2C27%2C27%2C27%5D%2C%22fill%22%3Atrue%2C%22setRepat%22%3Afalse%2C%22repeat%22%3A%5B%22repeat%22%2C%22repeat%22%5D%2C%22scaleFactor%22%3A3%2C%22setRepeat%22%3Atrue%7D">Border Images code generator</a></li>
+	</ul>
+	<p><a href="/1950/downloads/border-image_example.zip">Download and examine a border-image example.</a></p>
+	<p>An excellent tutorial on border-image is available from <a href="http://www.sitepoint.com/css3-border-image/">SitePoint</a></p>
+</fieldset>
+
+
+<fieldset>
+	<legend>opacity</legend>
+	<p>Opacity affects the transparency of the selected element and descendents.</p>
+	<p><code>opacity</code> requires vendor prefixes for some browsers:</p>
+	<ul>
+		<li><code>-moz-</code> Firefox</li>	
+		<li><code>-ms-</code> IE</li>	
+		<li>Chrome Safari Opera - no prefix required</li>	
+		<li><a href="http://www.css-opacity.pascal-seven.de/">Opacity code generator</a></li>
+	</ul>
+
+<pre><code>.semi_transparent{
+	/* 70% opacity */
+	-moz-opacity: 0.70;
+	-ms-opacity: 0.70;
+	opacity: 0.70;
+}</code></pre>
+			<p><a href="/1950/downloads/opacity_example.zip">Download and examine a demonstration of using opacity with backgrounds.</a></p>
+	<p>Earlier versions of IE (6 and earlier) require the use of the <code>filter</code> property. Use a code genrator to help you determine the best cross-browser opacity values </p>
+
+</fieldset>
+
+
+
+</div>
+
+<h2>New Color Model</h2>
+<div class="contblock">
+<p>CSS3 provides another way to define the color of an element, this time allowing you to simultaneously assign the opacity as well as a RGB color value. For example: <pre><code>.new_color_options{
+	/* green and 75% opacity */
+	background-color:rgba(0, 255, 0, 0.75);
+}
+.it_works_anywhere_you_use_color{
+	/* blue and 10% opacity */
+	color:rgba(0, 0, 255, 0.10);
+}</code></pre></p>
+</div>
+
+<h2>Exercise 01: CSS3 Box Model</h2>
+<div class="contblock">
+	<ul>
+	<li>Experiment with the new box model properties using your preferred web browser diagnostic tool (such as Firefox's Firebug)</li>
+	<li>The box below is <code>id="better_box_model"</code>, in the file <code>css3_samples.css</code></li>
+	<li>Apply border-radius, text-shadow and box-shadow effects.</li>
+	</ul>
+	<div id="better_box_model">
+		<p>CSS3, a better box model</p>
+	</div>
+</div>
+
+
+<h2>Transitions</h2>
+<div class="contblock">
+<p>Transitions allow changes to CSS properties to occur smoothly over a specified period, providing an animated effect. While not supported by all browsers, typical usage degrades gracefully. If the transition is a critical part of the user experience, javascript should be used instead of CSS3.</p>
+<ul>
+	<li><code>transition-property</code>: the property involved in the transition.</li>
+	<li><code>transition-duration</code>: how long the transition takes to complete (in seconds)</li>
+	<li><code>transition-timing-function:</code> how the transition effect animates. Sample values include
+		<ul>
+		<li><code>ease</code></li>		
+		<li><code>ease-in</code></li>		
+		<li><code>ease-out</code></li>		
+		<li><code>ease-in-out</code></li>		
+		<li><code>linear</code></li>		
+		<li><code>cubic-bezier</code> (define your own timing curve)</li>		
+		</ul>
+	</li>
+</ul>
+<h3>Shorthand transitions</h3>
+<p>The basic 3 components of defining transitions can be declared in one line with the shorthand format (transition:property duration timing-function;), for example:
+</p>
+<fieldset>
+<legend>transition pattern:</legend>
+<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">transition</a>:property durationInSeconds timingFunction delay;</code>
+</fieldset>
+
+<br />
+<code>-webkit-transition:background 0.6s ease;</code>
+
+<h3>Example</h3>
+<p>Consider the following pseudoclassed anchor tag:</p>
+<pre><code>a{
+	padding:5px 10px;
+	background:#690;
+	color:white;
+	font:bold 12px arial;
+}
+a:hover{
+	padding:5px 10px;
+	background:#9c3;
+}
+</code></pre>
+<p>This creates a standard hover effect on a background...</p>
+<p>
+<a id="transition_before" href="#">Hover Effect</a>
+</p>
+<p>Next we will add the transition code. Firefox requires the vendor prefix <code>-moz-</code> and both Chrome and Safari use the <code>-webkit-</code> implementation. Anytime the state of the element undergoes a change, the transition will be triggered.</p>
+<pre><code>a{
+	padding:5px 10px;
+	background:#690;
+	color:white;
+	font:bold 12px arial;
+
+	/* vendor specific transitions */
+	-webkit-transition:background 0.3s ease;
+	-moz-transition:background 0.3s ease;
+	-o-transition:background 0.3s ease;
+
+	/* generic transitions */
+	transition:background 0.3s ease;
+}</code></pre>
+<p>
+<a id="transition_after" href="#">Smooth Transition Hover Effect!</a>
+</p>
+<p>Test the new button in either Firefox, Safari or Chrome to see the transitions in action. test in IE or Opera to see the 'graceful degradation' of the CSS3 effect in non-supporting browsers.</p>
+
+<h3>Additional Transition Options</h3>
+<ul>
+	<li>Delay the execution of the transition in seconds with the <code>transition-delay</code> property, eg: <code>transition-delay:0.5s;</code></li>
+	<li>Apply the transition to all properties that can be transitioned with the <code>all</code> value, eg: <code>transition:all 0.3s ease;</code></li>
+</ul>
+
+<h3>Transitions are currently supported by:</h3>
+<ul>
+	<li>Firefox (uses prefix <code>-moz-</code>)</li>	
+	<li>Safari (uses prefix <code>-webkit-</code>)</li>
+	<li>Chrome (uses prefix <code>-webkit-</code>)</li>
+	<li>Opera (uses prefix <code>-o-</code>)</li>
+	<li>**NEW (finally!)** IE (uses prefix <code>-ms-</code>)</li>
+</ul>
+<p>NOTE: Not all CSS properties can animate as a transition. Consult the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">list of animate-able properties</a> before using.</p>
+<p>Learn more on transitions from the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">Mozilla Developer Network's Transitions Guide</a></p>
+
+
+
+</div>
+
+<h2>Exercise 2: CSS3 Transitions Exercise</h2>
+
+<div class="contblock">
+<p><a href="/1950/downloads/transitions_exercise.zip">Download the starting files</a></p> 
+	<div id="transition_image">
+<img src="images/button_green.png" 
+	 id="image_bottom"
+	 alt="yellow button" 
+	 width="100px" height="100px" />	
+<img src="images/button_yellow.png" 
+	 id="image_top"
+	 alt="yellow button" 
+	 width="100px" height="100px" />	
+
+	</div>
+	<h3>Challenge A:</h3>
+	<p>The yellow button image is absolutely positioned so that it overlaps a green button image beneath it.</p>	<ul>
+		<li>First add a :hover pseudoclass to the <code>id="image_top"</code> that will set it's <code>opacity</code> to 0;</li>
+		<li>Then add the transition states: First apply a transition to the opacity of <code>#image_top</code>. Note how the transtion is applied to both the :hover and non-hover states.</li>
+		<li>Relocate the transition code from <code>#image_top</code> to <code>#image_top:hover</code>. Note how the transtion is applied to only the change from non-hover to :hover.</li>
+		<li>For full control over this behavior, define transition code in both the before (#image_top) and after (#image_top:hover) rules.</li>
+
+		<li>Follow the pattern:<br />
+		<code>-vendorprefix-transition:property duration timing-function;</code></li>
+		<li>use the notes below to guide to on the syntax</li>
+		<li>demonstrate the finished transition to your instructor</li>
+	</ul>
+
+		<h3>Challenge B:</h3>
+
+		<p>Add transtion code that will alter the width or the height of the form inputs when they are in the 	<code>focus</code> state.</p>
+		<ul>
+			<li>transition either the width or the height. note how you will need to set the width in CSS for both the :focus and not :focused states.</li>
+			<li>try transitioning several CSS properties (<code>width</code>, <code>height</code> and <code>border</code>) at once by using <code>all</code> as the assigned transitional property, eg: <code>transition:all 1s ease;</code></li>
+			
+		</ul>
+		<form>
+		<label for="username">Username</label>	
+		<input	type="text" 
+					name="username" 
+					id="username" />
+		<label for="password">Password</label>	
+		<input	type="text" 
+					name="password" 
+					id="password" />
+		</form>
+		<h3>Challenges A & B:</h3>
+ <p><a href="/1950/downloads/transitions_exercise_solution.zip">Download a sample solution</a></p> 
+
+</div>
+
+		
+<h2>Animations and Keyframes</h2>
+<div class="contblock">
+<p>CSS <code><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations">animations</a></code> allow for more sophisticated transitions. The developer first defines various stages of the transition, then a CSS rule is defined that will 'trigger' the animation.</p>
+<fieldset>
+<legend>animation pattern</legend>
+	<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">animation</a>: name duration iterationCount delay</code>
+</fieldset>
+
+	<p>A <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframe</a></code> allows you to define the intermediate steps in an animation sequence by defining waypoints (keyframes). </p>
+<ol>
+<li>first, define the various stages of the animation. Choose your own <code>identifier</code>, and define at minimum, how the animation will begin (eg: <code>0%</code>), and end (eg: <code>100%</code>).<pre><code>/* define 3 waypoints for an animation named 'identifier' */
+@keyframes identifier{
+	0%{		box-shadow:2px 2px 5px rgba(0,0,255, .2);	 	}
+	50%{		box-shadow:2px 2px 5px rgba(0,0,255, .9);	 	}
+	100%{	box-shadow:2px 2px 5px rgba(0,0,255, .2);	 	}
+}</code></pre>
+</li>
+<li>then reference the <code>identifier</code> in a CSS animation<pre><code>/* run the animation */
+input:focus{
+	animation:identifier 1.5s infinite ease-in-out;
+}
+</code></pre>
+
+</li>
+</ol>
+
+<h3>Defining Iterations</h3>
+<p>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count">iteration count</a> to deterine how many times an animation should repeat</p>
+<ul>
+	<li>infinite loop <code>animation:identifier 1.5s <strong>infinite</strong>;</code></li>
+	<li>run only once: <code>animation:identifier 1.5s <strong>1</strong>;</code></li>
+	<li>loop 3 times: <code>animation:identifier 1.5s <strong>3</strong>;</code></li>
+	<li>loop 2 and a half times: <code>animation:identifier 1.5s <strong>2.5</strong>;</code></li>
+</ul>
+
+<h3>Browser Support</h3>
+<p>Animations are supported with vendor prefixes for most up to date major browsers. Note: animations are still in experimental stage (test animations in different browsers to know if they will work)</p>
+<ul>
+	<li>Safari (uses prefix <code>-webkit-</code>)</li>
+	<li>Chrome (uses prefix <code>-webkit-</code>)</li>
+	<li>Firefox (uses prefix <code>-moz-</code>)</li>
+	<li>IE (uses prefix <code>-ms-</code>)</li>
+</ul>
+</div>
+
+<h2>Exercise 03: Animations and Keyframes</h2>
+<div class="contblock">
+	<ul>
+	<li>Download and examine these <a href="/comp1950/downloads/animation_keyframes_exercise.zip">example animations</a></li>
+	<li>Try adding or changing some of the properties being animated</li>
+	<li>Create a new animation to change the width and height of one of the images used on these pages</li>	
+	<li>Download  a <a href="/comp1950/downloads/animation_keyframes_solution.zip">sample solution</a></li>
+	</ul>
+	
+</div>
+
+<h2>Backgrounds</h2>
+<div class="contblock">
+<h3>Background Gradient</h3>
+<p>Instead of requiring images for gradients, CSS3 can now handle the job. At present, vendor prefixes are required in all cases. IE is expected to support the feature in version 10. The basic pattern is:<br />
+<code>background: -vendorprefix-linear-gradient(starting-edge, starting-color, end-color);</code>
+</p>
+<div id="gradient"></div>
+<pre><code>#gradient{
+	height:30px;
+	width:100px;
+	border:solid 1px black;
+	background: -moz-linear-gradient(top, white, cornflowerblue);
+	background: -webkit-linear-gradient(top, white, cornflowerblue);
+	background: -o-linear-gradient(top, white, cornflowerblue);
+	background: linear-gradient(top, white, cornflowerblue);
+}</code></pre>
+
+<p>There will be plenty of gradient variations avaiable, though only linear-gradient has good support at present.</p> 
+<p><a href="http://css-tricks.com/css3-gradients/">Css-tricks</a> provides detailed examples for a variety of gradient useages, and experiment with the <a href="http://css3gen.com/gradient-generator/">CSS gradient code generator</a></p>
+
+<h3>Multiple Backgrounds</h3>
+<p>CSS3 also provides for multiple backgrounds/background images. If overlapping backgrounds include transparent sections the background layers beneath will show through.</p>
+<p>You still deploy the <code>background</code> <strong>property</strong> as before, but you can now provide a <strong>comma delimited list of values</strong> to it:</p>
+<pre><code>#multiple_backgrounds{
+	border:solid 1px black;
+	height:78px;
+	background:	url("images/cloud_small.png") repeat-x 60% 0,
+			url("images/cloud.png") repeat-x 30% 0,
+			url("images/sun.png") no-repeat,
+			cornflowerblue;
+}</code></pre>
+
+</div>
+
+		
+<h2>Exercise 04: Multiple Backgrounds</h2>
+<div class="contblock">
+<p>Experiment with multiple backgrounds, gradients, and hover effects in this CSS3 background demo and exercise.</p>
+<ul>
+	<li><a href="/1950/downloads/multiple_background_exercise.zip">Download the source files</a></li>
+	<li>Change the <code>cornflowerblue</code> background color to a <code>linear-gradient</code></li>
+	<li>Add a <code>:hover</code> effect so that fewer 'layers' of clouds are displayed </li>
+	<li>How can we apply the various vendor prefixes in this context?</li>
+	<li>Try applying a <code>transition</code> effect on the <code>:hover</code>. How does the browser handle this?</li>
+	 <li><a href="/1950/downloads/multiple_background_exercise_solution.zip">Download a sample solution</a></li> 
+</ul>
+
+</div>
+
+
+<h2>Features In Development</h2>
+<div class="contblock">
+
+
+<p><a href="http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/">W3C CSS3 Working Draft</a></p>
+<h4>Feature Specific Draft Specifications:</h4>
+<ul>
+	<li><a href="http://www.w3.org/TR/css3-transitions/">Transitions</a></li>
+	<li><a href="http://www.w3.org/TR/css3-2d-transforms/">Transformations</a></li>
+	<li><a href="http://w3.org/TR/CSS3-multicol">Multi Column Layout</a></li>
+	<li><a href="http://w3.org/TR/css3-webfonts/">Web Fonts</a></li>
+	<li><a href="http://www.w3.org/TR/css3-webfonts/#font-face-rule">Using @font-face</a></li>
+
+</ul>	
+
+
+<h3>Discussion and examples:</h3>
+<ul>
+		<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">Transitions</a></li>
+		<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_animations">Animations</a></li>
+	<li><a href="http://www.quirksmode.org/css/multicolumn.html">Quirksmode</a> provides a multi column layout demonstration</li>
+	<li><a href="http://webdesignerwall.com/?s=css3">Web Designer Wall</a> has several good CSS3 tutorials and examples</li>
+</ul>
+<p>Of course, theres is much more in the promise of CSS3, several additional features should reach decent experimental support over the next couple of years. Stay up to date by visiting <a href="http://www.css3.info/">developer community</a> websites and forums.</p>
+</div>
+<h2>Summary</h2>
+<div class="contblock">
+	<ul>
+		<li>Precede your CSS properties with any/all available vendor prefixed versions</li>
+		<li>For some of the trickier properties, use online code generators:
+			<ul>
+				<li><a href="http://css3gen.com/border-radius/">Border radius</a></li>
+				<li><a href="http://css3gen.com/box-shadow/">Box shadows</a></li>
+				<li><a href="http://css3gen.com/text-shadow/">Text shadows</a></li>
+				<li><a href="http://border-image.com/#%7B%22src%22%3A%22http%3A%2F%2Fwww.w3.org%2FTR%2Fcss3-background%2Fborder.png%22%2C%22linkBorder%22%3Atrue%2C%22borderWidth%22%3A%5B0%2C0%2C0%2C0%5D%2C%22imageOffset%22%3A%5B27%2C27%2C27%2C27%5D%2C%22fill%22%3Atrue%2C%22setRepat%22%3Afalse%2C%22repeat%22%3A%5B%22repeat%22%2C%22repeat%22%5D%2C%22scaleFactor%22%3A3%2C%22setRepeat%22%3Atrue%7D">Border Images</a></li>
+				<li><a href="http://www.css-opacity.pascal-seven.de/">Opacity</a></li>
+				<li><a href="http://css3gen.com/gradient-generator/">Gradients</a></li>
+
+				
+			</ul>
+		</li>
+		<li>Stay up to date as CSS3 progresses, regularly consult the <a href="http://css3test.com/">CSS3 Browser Compatibility Test</a></li>
+</li>
+	</ul>
+	<p>There will be no quiz next class, session #7</p>
+</div>
+<h2>Homework</h2>
+<div class="contblock">
+<ul>
+	<li>There is no new homework this session. Homework#5 will be due midnight before session #7</li>
+	<li><a href="/1950/downloads/comp1950_homework05.pdf">Download the homework</a>
+	</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-sm-2 col-xs-3 relative">
+
+		<section class="right-box">
+				<aside class="pd-t st-height">
+					<section class="mrg-a">
+						
+							<!--#include file="templates/right-dashboard.html" -->
+						
+					</section>
+
+				</aside>
+				
+			</section>
+		
+		</div>		
+</div>
+		<!--#include file="footer.html" -->
