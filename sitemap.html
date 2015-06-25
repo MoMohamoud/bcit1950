@@ -11,9 +11,11 @@
 <!-- CSS style -->
     <link	rel="stylesheet"
 			title="COMP1950Project"
-            href="css/meta.css"	/>
-    <link rel="stylesheet" type="text/css" href="css/sitemap.css">
-
+            href="css/sitemap.css"	/>
+			<!-- CSS style -->
+    <link	rel="stylesheet"
+			title="COMP1950Project"
+            href="css/style.css"	/>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -36,10 +38,14 @@
 			</header>
 			
 <!-- a navigator  -->
-
-			<!--#include file="templates/nav-proto.html" -->
-
-	
+			<nav id="navcontainer">
+				<ul id="navlist">
+					<li><a href="index.html" id="current">Introduction</a></li>
+					<li><a href="proto.html">Proto-site</a></li>
+					<li id="active"><a href="sitemap.html">Sitemap </a></li>
+					<li><a href="rationale.html">Rationale</a></li>
+				</ul>
+			</nav>
 <!-- main section -->
 			<section id="main-section">
 				<div id="mainarticle">
@@ -53,7 +59,6 @@
 						<li><a href="http://bcit.ca">BCIT</a></li>
 						<li><a href="http://www.bcit.ca/about/administration/policies.shtml">BCIT Policy</a></li>
 						<li><a href="http://www.bcit.ca/cas/computing/">BCIT Computing</a></li>
-						<li><a href="front-page.html">BCITCOMP.ca</a></li>
 					</ul>
 					<br/>
 					<ul id="primaryNav">
@@ -67,7 +72,7 @@
 
 							</ul>
 						</li>
-						<li><a href="lectures">Lectures</a>
+						<li><a href="lectures.html">Lectures</a>
 						<ul>
 							<li><a href="lectures.html">Day 1</a>
 								<ul>
@@ -140,22 +145,7 @@
 			<br/>
 		</section>		
 <!-- footer -->		
-		<footer>
-			<h6>&copy; Mohamoud team-published on 
-				<time datetime="2015-06-24"> June 24<span>th</span>, 2015</time> All rights reserved.
-			</h6>
-<!-- sprite icons -->
-			<div id="socialmedia">
-				<ul>
-					 <li id="facebook">
-						<a target="_blank" href="#"></a>
-					 </li>
-					 <li id="email">
-						<a target="_blank" href="mailto:moe.mohamoud@gmail.com"></a>
-					 </li> 
-				</ul>
-			</div> 
-		</footer>	
+<!--#include file="./Metatemplate/Mfooter.html" -->	
 </main>
 </body>
 </html>
