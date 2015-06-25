@@ -6,7 +6,9 @@ margin-right:5em;
 .answers li { 
 list-style: upper-alpha; 
 } 
-
+ul li{
+margin:10px;
+}
 label { 
 margin-left: 0.5em; 
 cursor: pointer; 
